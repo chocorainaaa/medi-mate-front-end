@@ -1,5 +1,6 @@
 import React from "react";
 import Routes from "./src/navigation";
+import "react-native-gesture-handler";
 
 import { StyleSheet, Text, View } from "react-native";
 
