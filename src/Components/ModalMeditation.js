@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Alert, Modal, StyleSheet, Text, Pressable, View } from "react-native";
+import UniSlider from "./Slider";
 
-const UniModal = ({ innerText }) => {
+const ModalMed = ({ innerText }) => {
     const [modalVisible, setModalVisible] = useState(false);
     return (
         <View style={styles.centeredView}>
@@ -16,13 +17,20 @@ const UniModal = ({ innerText }) => {
             >
                 <View style={styles.centeredView}>
                     <View style={styles.modalView}>
-                        <Text style={styles.modalText}>Hello World!</Text>
+                        <Text style={styles.modalText}>Please select your breathing times</Text>
 
+                        <Text>Meditation length</Text> <UniSlider min={60} max={600} />
+
+                        <Text>Breath in</Text><UniSlider min={4} max={10} />
+
+                        <Text>Hold</Text><UniSlider min={0} max={10} />
+
+                        <Text>Breath out</Text><UniSlider min={4} max={10} />
                         <Pressable
                             style={[styles.button, styles.buttonClose]}
                             onPress={() => setModalVisible(!modalVisible)}
                         >
-                            <Text style={styles.textStyle}>Meditate</Text>
+                            <Text style={styles.textStyle}>Click to Meditate</Text>
                         </Pressable>
                     </View>
                 </View>
@@ -81,4 +89,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default UniModal;
+export default ModalMed;
