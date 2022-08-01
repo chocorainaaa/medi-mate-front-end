@@ -1,10 +1,10 @@
 import { StyleSheet, Button, View } from "react-native";
 import React from "react";
 
-const UniButton = ({onPress, title}) => {
+const UniButton = ({ onPress, title }) => {
   return (
-    <View>
-      <Button style={styles.Button} title={title} onPress={onPress}></Button>
+    <View style={styles.parent}>
+      <Button style={styles.Button} onPress={onPress} title={title} ></Button>
     </View>
   );
 };
@@ -12,8 +12,13 @@ const UniButton = ({onPress, title}) => {
 export default UniButton;
 
 const styles = StyleSheet.create({
-    Button: {
-        backgroundColor: "blue",
-        color: "white"
-    }
+  parent: {
+    width: 250
+
+  },
+  Button: {
+    backgroundColor: "blue",
+    color: "white",
+    flexDirection: 'row',
+  }
 });
