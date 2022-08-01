@@ -6,7 +6,7 @@ const Meditation = () => {
   return (
     <View>
       <Text>Meditation</Text>
-      <UniButton title={"Click me BITCH!!"}>Click me</UniButton>
+      <UniButton title={"Start"}></UniButton>
     </View>
   );
 };
