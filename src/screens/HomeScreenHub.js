@@ -12,6 +12,7 @@ import React from "react";
 import { useContext } from "react";
 import app from "../../config/firebase";
 import { AuthenticatedUserContext } from "../navigation/AuthenticatedUserProvider";
+import ModalComponent from "../Components/ModalComponent.js";
 
 const auth = app.auth();
 
@@ -42,17 +43,14 @@ const HomeScreen = ({ navigation }) => {
           style={styles.bird}
           source={require("../../assets/Bird/bird.gif")}
         />
-        <TouchableHighlight
-          style={styles.petHouse}
-          onPress={() => {
-            console.log("You clicked the pet-house!");
-          }}
-        >
+        {/* <Pressable style={styles.petHouse} onPress={() => {}}>
+          <ModalComponent/>
           <Image
             style={styles.bird}
             source={require("../../assets/pet-home/pet-house-placeholder.png")}
           />
-        </TouchableHighlight>
+        </Pressable> */}
+        <ModalComponent/>
       </ImageBackground>
     </View>
   );
