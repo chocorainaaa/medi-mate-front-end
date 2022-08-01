@@ -1,10 +1,10 @@
 import { StyleSheet, Button, View } from "react-native";
 import React from "react";
 
-const UniButton = ({onpress, title}) => {
+const UniButton = ({onPress, title}) => {
   return (
     <View>
-      <Button style={styles.Button} onpress={onpress}>{title}</Button>
+      <Button style={styles.Button} title={title} onPress={onPress}></Button>
     </View>
   );
 };
