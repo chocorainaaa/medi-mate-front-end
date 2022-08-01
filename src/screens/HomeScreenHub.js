@@ -5,6 +5,8 @@ import {
   Button,
   ImageBackground,
   Image,
+  Pressable,
+  TouchableHighlight,
 } from "react-native";
 import React from "react";
 import { useContext } from "react";
@@ -40,10 +42,17 @@ const HomeScreen = ({ navigation }) => {
           style={styles.bird}
           source={require("../../assets/Bird/bird.gif")}
         />
-        <Image
-          style={styles.bird}
-          source={require("../../assets/pet-home/pet-house-placeholder.png")}
-        />
+        <TouchableHighlight
+          style={styles.petHouse}
+          onPress={() => {
+            console.log("You clicked the pet-house!");
+          }}
+        >
+          <Image
+            style={styles.bird}
+            source={require("../../assets/pet-home/pet-house-placeholder.png")}
+          />
+        </TouchableHighlight>
       </ImageBackground>
     </View>
   );
@@ -64,6 +73,10 @@ const styles = StyleSheet.create({
     width: null,
     height: null,
     resizeMode: "cover",
+  },
+  petHouse: {
+    width: "100%",
+    alignItems: "center",
   },
 });
 
