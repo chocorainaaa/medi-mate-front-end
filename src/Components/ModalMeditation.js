@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Alert, Modal, StyleSheet, Text, Pressable, View } from "react-native";
 import UniSlider from "./Slider";
+import Bird from "../../assets/bird-static.png"
 
 const ModalMed = ({ innerText }) => {
     const [modalVisible, setModalVisible] = useState(false);
@@ -19,13 +20,13 @@ const ModalMed = ({ innerText }) => {
                     <View style={styles.modalView}>
                         <Text style={styles.modalText}>Please select your breathing times</Text>
 
-                        <Text>Meditation length</Text> <UniSlider min={60} max={600} />
+                        <Text>Meditation length</Text> <UniSlider id={"length"} min={0} max={100} />
 
-                        <Text>Breath in</Text><UniSlider min={4} max={10} />
+                        {/* <Text>Breath in</Text><UniSlider id={"in"} min={4} max={10} />
 
-                        <Text>Hold</Text><UniSlider min={0} max={10} />
+                        <Text>Hold</Text><UniSlider id={"hold"} min={0} max={10} />
 
-                        <Text>Breath out</Text><UniSlider min={4} max={10} />
+                        <Text>Breath out</Text><UniSlider id={"out"} min={4} max={10} /> */}
                         <Pressable
                             style={[styles.button, styles.buttonClose]}
                             onPress={() => setModalVisible(!modalVisible)}
@@ -71,6 +72,7 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         padding: 10,
         elevation: 2,
+        backgroundImage: `url(${Bird})`
     },
     buttonOpen: {
         backgroundColor: "#F194FF",
