@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Button } from "react-native";
+import { StyleSheet, Text, View, Button, ImageBackground } from "react-native";
 import React from "react";
 import { useContext } from "react";
 import app from "../../config/firebase";
@@ -17,9 +17,25 @@ const HomeScreen = ({ navigation }) => {
     }
   }
 
+const images = {
+  background: "",
+  owl: "",
+  birdhouse: ""
+}
+
   return (
     <View>
-      <Text>Home Screen</Text>
+
+    </View>
+  );
+};
+
+export default HomeScreen;
+
+const styles = StyleSheet.create({});
+
+
+{/* <Text>Home Screen</Text>
       <Button title="logout" onPress={handleSignout} />
       <Text>Your UID: is {user.uid} </Text>
       <Button
@@ -37,11 +53,4 @@ const HomeScreen = ({ navigation }) => {
       <Button
         title="Go to Quote"
         onPress={() => navigation.navigate("QuoteGenerator")}
-      />
-    </View>
-  );
-};
-
-export default HomeScreen;
-
-const styles = StyleSheet.create({});
+      /> */}
