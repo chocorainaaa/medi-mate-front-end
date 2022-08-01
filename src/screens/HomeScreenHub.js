@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Button, ImageBackground } from "react-native";
+import { StyleSheet, Text, View, Button, ImageBackground, Image } from "react-native";
 import React from "react";
 import { useContext } from "react";
 import app from "../../config/firebase";
@@ -17,18 +17,20 @@ const HomeScreen = ({ navigation }) => {
     }
   }
 
-  const images = {
-    background: "../../assets/background/placeholder-bkgnd.png",
-    owl: "",
-    birdhouse: "",
-  };
+  // const images = {
+  //   background: "../../assets/background/placeholder-bkgnd.png",
+  //   owl: "",
+  //   birdhouse: "",
+  // };
 
   return (
     <View style={styles.container}>
       <ImageBackground
         style={styles.backgroundImage}
         source={require("../../assets/background/placeholder-bkgnd.png")}
-      ></ImageBackground>
+      >
+        <Image style={styles.bird} source={require("../../assets/Bird/bird.gif")} />
+      </ImageBackground>
     </View>
   );
 };
@@ -36,6 +38,10 @@ const HomeScreen = ({ navigation }) => {
 export default HomeScreen;
 
 const styles = StyleSheet.create({
+  bird: {
+    width: 200,
+    height: 200,
+  },
   container: {
     flex: 1,
   },
