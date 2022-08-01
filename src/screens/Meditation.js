@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
-import UniButton from "../Components/Button";
 import UniModal from "../Components/Modal";
+import UniSlider from "../Components/Slider";
 
 
 
@@ -14,9 +14,13 @@ const Meditation = () => {
   return (
     <View>
       <Text>Meditation</Text>
-      <UniButton title={"Start"} onPress={consolelog}></UniButton>
-      <UniModal></UniModal>
-    </View >
+      <UniModal innerText={"Please select times"} >
+      <View>
+        <UniSlider title={"Breath"}></UniSlider>
+      </View>
+      
+      </UniModal>
+    </View>
   );
 };
 
