@@ -14,7 +14,6 @@ const QuoteGenerator = () => {
     let data = await response.json();
     let quote = data[0].q
     let author = data[0].a
-    console.log(data);
     setQuote(quote)
     setAuthor(author)
   }
