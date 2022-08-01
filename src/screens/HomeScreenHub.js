@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Button } from "react-native";
+import { StyleSheet, Text, View, Button, ImageBackground } from "react-native";
 import React from "react";
 import { useContext } from "react";
 import app from "../../config/firebase";
@@ -17,9 +17,38 @@ const HomeScreen = ({ navigation }) => {
     }
   }
 
+  const images = {
+    background: "../../assets/background/placeholder-bkgnd.png",
+    owl: "",
+    birdhouse: "",
+  };
+
   return (
-    <View>
-      <Text>Home Screen</Text>
+    <View style={styles.container}>
+      <ImageBackground
+        style={styles.backgroundImage}
+        source={require("../../assets/background/placeholder-bkgnd.png")}
+      ></ImageBackground>
+    </View>
+  );
+};
+
+export default HomeScreen;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  backgroundImage: {
+    flex: 1,
+    width: null,
+    height: null,
+    resizeMode: "cover",
+  },
+});
+
+{
+  /* <Text>Home Screen</Text>
       <Button title="logout" onPress={handleSignout} />
       <Text>Your UID: is {user.uid} </Text>
       <Button
@@ -37,11 +66,5 @@ const HomeScreen = ({ navigation }) => {
       <Button
         title="Go to Quote"
         onPress={() => navigation.navigate("QuoteGenerator")}
-      />
-    </View>
-  );
-};
-
-export default HomeScreen;
-
-const styles = StyleSheet.create({});
+      /> */
+}
