@@ -1,4 +1,11 @@
-import { StyleSheet, Text, View, Button, ImageBackground, Image } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Button,
+  ImageBackground,
+  Image,
+} from "react-native";
 import React from "react";
 import { useContext } from "react";
 import app from "../../config/firebase";
@@ -29,7 +36,14 @@ const HomeScreen = ({ navigation }) => {
         style={styles.backgroundImage}
         source={require("../../assets/background/placeholder-bkgnd.png")}
       >
-        <Image style={styles.bird} source={require("../../assets/Bird/bird.gif")} />
+        <Image
+          style={styles.bird}
+          source={require("../../assets/Bird/bird.gif")}
+        />
+        <Image
+          style={styles.bird}
+          source={require("../../assets/pet-home/pet-house-placeholder.png")}
+        />
       </ImageBackground>
     </View>
   );
