@@ -1,10 +1,25 @@
 import { StyleSheet, View } from "react-native";
-import React from "react";
+import React, { useState } from "react";
+let meditationLength = 0;
 
-const UniSlider = ({ title, min, max }) => {
+
+
+
+
+const UniSlider = ({ title, min, max, id }) => {
+
+    const [sliderValue, setSliderValue] = useState(15);
+
     return (
         <View style={styles.parent}>
-            <input type="range" min={min} max={max} value="5" className="slider" id="slider"></input>
+            <input
+                type="range"
+                min={min}
+                max={max}
+                value={sliderValue}
+                className="slider"
+                id={id}
+                onChange={(sliderValue) => setSliderValue(sliderValue)} />
         </View>
     );
 };
@@ -22,11 +37,10 @@ const styles = StyleSheet.create({
     }
 });
 
+// this is slider functionality taken from another repo, needs to be looked at understood and then reconfigured
 
-const slider = document.getElementById('slider')
-slider.value = gameSpeed
-const showGameSpeed = document.getElementById('showGameSpeed');
-showGameSpeed.innerHTML = gameSpeed;
-slider.addEventListener('change', function (e) {
-    gameSpeed = e.target.value
-    showGameSpeed.innerHTML = gameSpeed;
+
+
+
+// const showGameSpeed = document.getElementById('showGameSpeed');
+// showGameSpeed.innerHTML = gameSpeed;
