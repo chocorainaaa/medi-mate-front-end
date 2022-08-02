@@ -1,9 +1,15 @@
 import React, { useState } from "react";
-import { Alert, Modal, StyleSheet, Text, Pressable, View, Image } from "react-native";
+import {
+  Alert,
+  Modal,
+  StyleSheet,
+  Text,
+  Pressable,
+  View,
+  Image,
+} from "react-native";
 
-import house from "../../assets/pet-home/pet-house-placeholder.png"
-
-const ModalComponent = ({innerText, picture}) => {
+const ModalComponent = () => {
   const [modalVisible, setModalVisible] = useState(false);
   return (
     <View style={styles.centeredView}>
@@ -20,26 +26,38 @@ const ModalComponent = ({innerText, picture}) => {
           <View style={styles.modalView}>
             <Text style={styles.modalText}>Hello World!</Text>
             <Pressable
-              style={[styles.button, styles.petHouse, styles.buttonClose]}
+              style={[styles.button, styles.buttonClose]}
               onPress={() => setModalVisible(!modalVisible)}
             >
-              {/* <Image source={require("../../assets/pet-home/pet-house-placeholder.png")}/> */}
-              {/* <Text style={styles.textStyle}>Hide Modal</Text> */}
+              <Text style={styles.textStyle}>Hide Modal</Text>
             </Pressable>
           </View>
         </View>
       </Modal>
       <Pressable
-        style={[styles.button, styles.buttonOpen]}
+        style={styles.petHouseWrapper}
         onPress={() => setModalVisible(true)}
       >
-        <Text style={styles.textStyle}>Show Modal</Text>
+        {/* <Text style={styles.textStyle}>Show Modal</Text> */}
+        <Image
+          style={styles.petHouse}
+          source={require("../../assets/pet-home/pet-house-placeholder.png")}
+        />
       </Pressable>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  petHouseWrapper: {
+    width: "100%",
+    alignItems: "center",
+  },
+  petHouse: {
+    width: 200,
+    height: 200,
+    justifyContent: "center",
+  },
   centeredView: {
     flex: 1,
     justifyContent: "center",
@@ -60,11 +78,6 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 4,
     elevation: 5,
-  },
-  petHouse: {
-    width: 200,
-    height: 200,
-    backgroundImage: `url(${house})`,
   },
   button: {
     borderRadius: 20,
