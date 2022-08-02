@@ -130,6 +130,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginTop: 22,
   },
+  // modalViewContainer: {
+  //   width:
+  // },
   modalView: {
     margin: 20,
     backgroundColor: "white",
@@ -157,7 +160,7 @@ const styles = StyleSheet.create({
   },
 
   petHouseWrapper: {
-    width: "100%",
+    width: "fitContent",
     alignItems: "center",
   },
   petHouse: {
