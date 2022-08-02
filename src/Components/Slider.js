@@ -1,6 +1,6 @@
 import { StyleSheet, View } from "react-native";
 import React, { useState } from "react";
-let meditationLength = 0;
+
 
 
 
@@ -8,8 +8,11 @@ let meditationLength = 0;
 
 const UniSlider = ({ title, min, max, id }) => {
 
-    const [sliderValue, setSliderValue] = useState(15);
-
+    const [sliderValue, setSliderValue] = useState(1);
+    function handleChange(e) {
+        console.log(e.target.value)
+        setSliderValue(e.target.value)
+    }
     return (
         <View style={styles.parent}>
             <input
@@ -19,7 +22,7 @@ const UniSlider = ({ title, min, max, id }) => {
                 value={sliderValue}
                 className="slider"
                 id={id}
-                onChange={(sliderValue) => setSliderValue(sliderValue)} />
+                onChange={(e) => handleChange(e)} />
         </View>
     );
 };
