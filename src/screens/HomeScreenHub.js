@@ -40,7 +40,7 @@ const HomeScreen = ({ navigation }) => {
         source={require("../../assets/background/placeholder-bkgnd.png")}
       >
         <Image
-          style={styles.petImage}
+          style={[styles.petImage, styles.petPosition]}
           source={require("../../assets/Bird/bird.gif")}
         />
         <ModalComponent navigation={navigation}></ModalComponent>
@@ -55,14 +55,26 @@ const styles = StyleSheet.create({
   petImage: {
     width: 200,
     height: 200,
+    zIndex: 0,
+  },
+  petPosition: {
+    position: "relative",
+    top: "60%",
+    left: "30%",
   },
   container: {
     flex: 1,
   },
   backgroundImage: {
-    flex: 1,
-    width: null,
-    height: null,
-    resizeMode: "cover",
+    // flex: 1,
+    // width: null,
+    // height: null,
+    // resizeMode: "cover",
+
+    width: "100%",
+    height: "100%",
+    position: "absolute",
+    top: 0,
+    left: 0,
   },
 });
