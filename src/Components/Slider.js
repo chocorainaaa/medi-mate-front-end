@@ -1,13 +1,17 @@
 import { StyleSheet, View } from "react-native";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const UniSlider = ({ changeState, min, max, id }) => {
     const [sliderValue, setSliderValue] = useState(1);
     function handleChange(e) {
         console.log(e.target.value)
         setSliderValue(e.target.value)
-        changeState(sliderValue)
     }
+
+    useEffect((sliderValue) => {
+       changeState(sliderValue)
+      }, [sliderValue]);
+
   return (
     <View style={styles.parent}>
       <input
