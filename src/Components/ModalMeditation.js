@@ -2,10 +2,17 @@ import React, { useState } from "react";
 import { Alert, Modal, StyleSheet, Text, Pressable, View } from "react-native";
 import UniSlider from "./Slider";
 import Bird from "../../assets/bird-static.png";
+import Timer from "./Timer";
 
 const ModalMed = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [startMeditation, setStartMeditation] = useState(false);
+  const [sliderValue, setSliderValue] = useState(5);
+
+  function handleChange(e) {
+    setSliderValue(e.target.value)
+  }
+
 
   const meditationTrigger = () => {
     setStartMeditation(true);
@@ -28,9 +35,10 @@ const ModalMed = () => {
               Please select your breathing times
             </Text>
             <Text>Meditation length</Text>{" "}
-            <UniSlider id={"length"} min={0} max={100} startMeditation={meditationTrigger} />
-            {/* <Text>Breath in</Text><UniSlider id={"in"} min={4} max={10} />
-                        <Text>Hold</Text><UniSlider id={"hold"} min={0} max={10} />
+            <UniSlider id={"length"} min={0} max={100} sliderValue={sliderValue} handleChange={handleChange}/>
+             <Timer sliderValue={sliderValue} />
+            <Text>Breath in</Text><UniSlider label={"seconds"} id={"in"} min={4} max={10} />
+                        {/* <Text>Hold</Text><UniSlider id={"hold"} min={0} max={10} />
                         <Text>Breath out</Text><UniSlider id={"out"} min={4} max={10} /> */}
             <Pressable
               style={[styles.button, styles.buttonClose]}
