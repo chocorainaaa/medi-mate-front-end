@@ -1,14 +1,7 @@
-import { StyleSheet, View } from "react-native";
-import React, { useState, useEffect } from "react";
-import Timer from "./Timer";
+import { StyleSheet, View, Text } from "react-native";
+import React from "react";
 
-const UniSlider = ({ min, max, id, meditationTrigger }) => {
-
-  const [sliderValue, setSliderValue] = useState(5);
-
-  function handleChange(e) {
-    setSliderValue(e.target.value)
-  }
+const UniSlider = ({ min, max, id, handleChange, sliderValue, label }) => {
 
   // useEffect((sliderValue) => {
   //   setTimer(sliderValue)
@@ -26,7 +19,7 @@ const UniSlider = ({ min, max, id, meditationTrigger }) => {
         id={id}
         onChange={(e) => handleChange(e)}
       />
-      <Timer sliderValue={sliderValue} startMeditation={meditationTrigger} />
+      <Text>{label }</Text>
     </View>
   );
 };
