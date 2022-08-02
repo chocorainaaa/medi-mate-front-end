@@ -2,7 +2,7 @@ import { StyleSheet, View } from "react-native";
 import React, { useState, useEffect } from "react";
 import Timer from "./Timer";
 
-const UniSlider = ({ min, max, id }) => {
+const UniSlider = ({ min, max, id, meditationTrigger }) => {
 
   const [sliderValue, setSliderValue] = useState(5);
 
@@ -26,7 +26,7 @@ const UniSlider = ({ min, max, id }) => {
         id={id}
         onChange={(e) => handleChange(e)}
       />
-      <Timer sliderValue={sliderValue} />
+      <Timer sliderValue={sliderValue} startMeditation={meditationTrigger} />
     </View>
   );
 };

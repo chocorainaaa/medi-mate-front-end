@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Text } from 'react-native';
 
 
-function Timer({ sliderValue }) {
+function Timer({ sliderValue, startMeditation }) {
 
   const [timer, setTimer] = useState(sliderValue)
 
@@ -19,7 +19,7 @@ function Timer({ sliderValue }) {
     setTimeout(() => {
       setTimer(timer - 1);
     }, 1000);
-  }, [timer]);
+  }, [startMeditation]);
 
 
 

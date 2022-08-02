@@ -1,18 +1,19 @@
 import { StyleSheet, Text, View, ImageBackground, Image } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import ModalMed from "../Components/ModalMeditation";
-
 
 const Meditation = () => {
 
   return (
     <ImageBackground
       style={styles.backgroundImage}
-      source={require("../../assets/beach.jpg")}>
+      source={require("../../assets/beach.jpg")}
+    >
       <View>
         <Text>Meditation</Text>
-        <ModalMed innerText={"Please select times"}></ModalMed>
-
+        <ModalMed
+          innerText={"Please select times"}
+        ></ModalMed>
       </View>
       <Image
         style={styles.bird}
@@ -27,10 +28,10 @@ export default Meditation;
 const styles = StyleSheet.create({
   backgroundImage: {
     flex: 1,
-    resizeMode: 'contain'
+    resizeMode: "contain",
   },
   bird: {
     width: 200,
     height: 200,
-  }
+  },
 });
