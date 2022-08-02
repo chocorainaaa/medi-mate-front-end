@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {
   Alert,
   Modal,
@@ -9,8 +9,23 @@ import {
   Image,
 } from "react-native";
 
-const ModalComponent = () => {
+import { AuthenticatedUserContext } from "../navigation/AuthenticatedUserProvider";
+import app from "../../config/firebase";
+
+const auth = app.auth();
+
+const ModalComponent = ({ navigation }) => {
   const [modalVisible, setModalVisible] = useState(false);
+  const { user } = useContext(AuthenticatedUserContext);
+
+  async function handleSignout() {
+    try {
+      await auth.signOut();
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <View style={styles.centeredView}>
       <Modal
@@ -24,7 +39,56 @@ const ModalComponent = () => {
       >
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-            <Text style={styles.modalText}>Hello World!</Text>
+            <Text style={styles.modalText}>Hello {user.uid}!</Text>
+            {/* Navigations */}
+            <Pressable
+              style={[styles.button, styles.buttonClose]}
+              onPress={() => {
+                navigation.navigate("Meditation");
+                setModalVisible(!modalVisible);
+              }}
+            >
+              <Text style={styles.textStyle}>Medidation</Text>
+            </Pressable>
+
+            <Pressable
+              style={[styles.button, styles.buttonClose]}
+              onPress={() => {
+                navigation.navigate("Stats");
+                setModalVisible(!modalVisible);
+              }}
+            >
+              <Text style={styles.textStyle}>Stats</Text>
+            </Pressable>
+
+            <Pressable
+              style={[styles.button, styles.buttonClose]}
+              onPress={() => {
+                navigation.navigate("MoodLogger");
+                setModalVisible(!modalVisible);
+              }}
+            >
+              <Text style={styles.textStyle}>Mood Logger</Text>
+            </Pressable>
+
+            <Pressable
+              style={[styles.button, styles.buttonClose]}
+              onPress={() => {
+                navigation.navigate("QuoteGenerator");
+                setModalVisible(!modalVisible);
+              }}
+            >
+              <Text style={styles.textStyle}>Quote</Text>
+            </Pressable>
+
+            <Pressable
+              style={[styles.button, styles.buttonClose]}
+              onPress={handleSignout}
+            >
+              <Text style={styles.textStyle}>Logout</Text>
+            </Pressable>
+
+            {/* Close Modal */}
             <Pressable
               style={[styles.button, styles.buttonClose]}
               onPress={() => setModalVisible(!modalVisible)}
@@ -34,11 +98,11 @@ const ModalComponent = () => {
           </View>
         </View>
       </Modal>
+
       <Pressable
         style={styles.petHouseWrapper}
         onPress={() => setModalVisible(true)}
       >
-        {/* <Text style={styles.textStyle}>Show Modal</Text> */}
         <Image
           style={styles.petHouse}
           source={require("../../assets/pet-home/pet-house-placeholder.png")}
@@ -49,14 +113,16 @@ const ModalComponent = () => {
 };
 
 const styles = StyleSheet.create({
-  petHouseWrapper: {
-    width: "100%",
-    alignItems: "center",
+  button: {
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2,
   },
-  petHouse: {
-    width: 200,
-    height: 200,
-    justifyContent: "center",
+  buttonOpen: {
+    backgroundColor: "#F194FF",
+  },
+  buttonClose: {
+    backgroundColor: "#2196F3",
   },
   centeredView: {
     flex: 1,
@@ -79,25 +145,25 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 5,
   },
-  button: {
-    borderRadius: 20,
-    padding: 10,
-    elevation: 2,
+  modalText: {
+    marginBottom: 15,
+    textAlign: "center",
   },
-  buttonOpen: {
-    backgroundColor: "#F194FF",
-  },
-  buttonClose: {
-    backgroundColor: "#2196F3",
-  },
+
   textStyle: {
     color: "white",
     fontWeight: "bold",
     textAlign: "center",
   },
-  modalText: {
-    marginBottom: 15,
-    textAlign: "center",
+
+  petHouseWrapper: {
+    width: "100%",
+    alignItems: "center",
+  },
+  petHouse: {
+    width: 200,
+    height: 200,
+    justifyContent: "center",
   },
 });
 
