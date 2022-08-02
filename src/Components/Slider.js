@@ -1,16 +1,19 @@
 import { StyleSheet, View } from "react-native";
 import React, { useState, useEffect } from "react";
+import Timer from "./Timer";
 
-const UniSlider = ({ changeState, min, max, id }) => {
-    const [sliderValue, setSliderValue] = useState(1);
-    function handleChange(e) {
-        console.log(e.target.value)
-        setSliderValue(e.target.value)
-    }
+const UniSlider = ({ min, max, id }) => {
 
-    useEffect((sliderValue) => {
-       changeState(sliderValue)
-      }, [sliderValue]);
+  const [sliderValue, setSliderValue] = useState(5);
+
+  function handleChange(e) {
+    setSliderValue(e.target.value)
+  }
+
+  // useEffect((sliderValue) => {
+  //   setTimer(sliderValue)
+  // }, [sliderValue]);
+
 
   return (
     <View style={styles.parent}>
@@ -23,6 +26,7 @@ const UniSlider = ({ changeState, min, max, id }) => {
         id={id}
         onChange={(e) => handleChange(e)}
       />
+      <Timer sliderValue={sliderValue} />
     </View>
   );
 };
@@ -39,7 +43,3 @@ const styles = StyleSheet.create({
   },
 });
 
-// this is slider functionality taken from another repo, needs to be looked at understood and then reconfigured
-
-// const showGameSpeed = document.getElementById('showGameSpeed');
-// showGameSpeed.innerHTML = gameSpeed;
