@@ -3,7 +3,7 @@ import { Alert, Modal, StyleSheet, Text, Pressable, View } from "react-native";
 import UniSlider from "./Slider";
 import Bird from "../../assets/bird-static.png"
 
-const ModalMed = ({ changeState }) => {
+const ModalMed = () => {
     const [modalVisible, setModalVisible] = useState(false);
     return (
         <View style={styles.centeredView}>
@@ -20,13 +20,12 @@ const ModalMed = ({ changeState }) => {
                     <View style={styles.modalView}>
                         <Text style={styles.modalText}>Please select your breathing times</Text>
 
-                        <Text>Meditation length</Text> <UniSlider changeState={changeState} id={"length"} min={0} max={100} />
+                        <Text>Meditation length</Text> <UniSlider id={"length"} min={0} max={100} />
 
                         {/* <Text>Breath in</Text><UniSlider id={"in"} min={4} max={10} />
-
                         <Text>Hold</Text><UniSlider id={"hold"} min={0} max={10} />
-
                         <Text>Breath out</Text><UniSlider id={"out"} min={4} max={10} /> */}
+
                         <Pressable
                             style={[styles.button, styles.buttonClose]}
                             onPress={() => setModalVisible(!modalVisible)}
