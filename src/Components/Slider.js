@@ -8,6 +8,7 @@ const UniSlider = ({ min, max, id, handleChange, sliderValue, label }) => {
   // }, [sliderValue]);
 
 
+
   return (
     <View style={styles.parent}>
       <input
@@ -19,7 +20,7 @@ const UniSlider = ({ min, max, id, handleChange, sliderValue, label }) => {
         id={id}
         onChange={(e) => handleChange(e)}
       />
-      <Text>{label }</Text>
+      <Text>{label}</Text>
     </View>
   );
 };
