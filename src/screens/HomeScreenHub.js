@@ -10,14 +10,14 @@ import {
 } from "react-native";
 import React from "react";
 import { useContext } from "react";
-import app from "../../config/firebase";
-import { AuthenticatedUserContext } from "../navigation/AuthenticatedUserProvider";
+// import app from "../../config/firebase";
+// import { AuthenticatedUserContext } from "../navigation/AuthenticatedUserProvider";
 import ModalComponent from "../Components/modal";
 
-const auth = app.auth();
+// const auth = app.auth();
 
 const HomeScreen = ({ navigation }) => {
-  const { user } = useContext(AuthenticatedUserContext);
+  // const { user } = useContext(AuthenticatedUserContext);
 
   async function handleSignout() {
     try {
@@ -40,22 +40,10 @@ const HomeScreen = ({ navigation }) => {
         source={require("../../assets/background/placeholder-bkgnd.png")}
       >
         <Image
-          style={styles.bird}
+          style={styles.petImage}
           source={require("../../assets/Bird/bird.gif")}
         />
-
-        <ModalComponent></ModalComponent>
-        <Pressable
-          style={styles.petHouse}
-          onPress={() => {
-            console.log("clicked");
-          }}
-        >
-          <Image
-            style={styles.bird}
-            source={require("../../assets/pet-home/pet-house-placeholder.png")}
-          />
-        </Pressable>
+        <ModalComponent navigation={navigation}></ModalComponent>
       </ImageBackground>
     </View>
   );
@@ -64,7 +52,7 @@ const HomeScreen = ({ navigation }) => {
 export default HomeScreen;
 
 const styles = StyleSheet.create({
-  bird: {
+  petImage: {
     width: 200,
     height: 200,
   },
@@ -77,30 +65,4 @@ const styles = StyleSheet.create({
     height: null,
     resizeMode: "cover",
   },
-  petHouse: {
-    width: "100%",
-    alignItems: "center",
-  },
 });
-
-{
-  /* <Text>Home Screen</Text>
-      <Button title="logout" onPress={handleSignout} />
-      <Text>Your UID: is {user.uid} </Text>
-      <Button
-        title="Go to Meditation"
-        onPress={() => navigation.navigate("Meditation")}
-      />
-      <Button
-        title="Go to Stats"
-        onPress={() => navigation.navigate("Stats")}
-      />
-      <Button
-        title="Go to Mood Logger"
-        onPress={() => navigation.navigate("MoodLogger")}
-      />
-      <Button
-        title="Go to Quote"
-        onPress={() => navigation.navigate("QuoteGenerator")}
-      /> */
-}
