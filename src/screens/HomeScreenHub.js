@@ -17,11 +17,11 @@ import PetHouseModal from "../Components/PetHouseModal";
 const HomeScreen = ({ navigation }) => {
   const { height, width } = useWindowDimensions();
 
-  function imageWidth() {
+  function petImageSize() {
     return Math.floor(width / 1.6);
   }
 
-  function imageHeight() {
+  function petHouseImageSize() {
     return Math.floor(height / 2.8);
   }
 
@@ -39,6 +39,29 @@ const HomeScreen = ({ navigation }) => {
     petHouse: require("../../assets/pet-home/pet-house-placeholder.png"),
   };
 
+  const styles = StyleSheet.create({
+    petHouse: {
+      width: petHouseImageSize(),
+      height: petHouseImageSize(),
+      justifyContent: "center",
+    },
+    petPosition: {
+      position: "relative",
+      top: "60%",
+      left: "30%",
+    },
+    container: {
+      flex: 1,
+    },
+    backgroundImage: {
+      width: "100%",
+      height: "100%",
+      position: "absolute",
+      top: 0,
+      left: 0,
+    },
+  });
+
   return (
     <View style={styles.container}>
       <ImageBackground
@@ -50,8 +73,8 @@ const HomeScreen = ({ navigation }) => {
           style={{
             borderWidth: 10,
             borderColor: "black",
-            width: imageWidth(),
-            height: imageWidth(),
+            width: petImageSize(),
+            height: petImageSize(),
             top: height / 2.39, //778 / 300 = 2.59
             position: "relative",
           }}
@@ -68,37 +91,3 @@ const HomeScreen = ({ navigation }) => {
 };
 
 export default HomeScreen;
-
-const styles = StyleSheet.create({
-  petHouse: {
-    width: 200,
-    height: 200,
-    justifyContent: "center",
-  },
-
-  petImage: {
-    width: 200,
-    height: 200,
-    zIndex: 0,
-  },
-  petPosition: {
-    position: "relative",
-    top: "60%",
-    left: "30%",
-  },
-  container: {
-    flex: 1,
-  },
-  backgroundImage: {
-    // flex: 1,
-    // width: null,
-    // height: null,
-    // resizeMode: "cover",
-
-    width: "100%",
-    height: "100%",
-    position: "absolute",
-    top: 0,
-    left: 0,
-  },
-});
