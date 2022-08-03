@@ -1,7 +1,7 @@
 import { StyleSheet, View, Text } from "react-native";
 import React from "react";
 
-const UniSlider = ({ min, max, id, handleChange, sliderValue, label }) => {
+const UniSlider = ({ min, max, id, onChange, lengthChange, breathChange, holdChange, sliderValue, label }) => {
 
   // useEffect((sliderValue) => {
   //   setTimer(sliderValue)
@@ -18,7 +18,7 @@ const UniSlider = ({ min, max, id, handleChange, sliderValue, label }) => {
         value={sliderValue}
         className="slider"
         id={id}
-        onChange={(e) => handleChange(e)}
+        onChange={onChange}
       />
       <Text>{label}</Text>
     </View>
