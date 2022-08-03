@@ -12,15 +12,15 @@ const HomeScreen = ({ navigation }) => {
   const { height, width } = useWindowDimensions();
 
   function petImageSize() {
-    return Math.floor(width / 1.6);
+    return Math.floor(width / 1);
   }
 
   function petHouseImageSize() {
-    return Math.floor(height / 2.8);
+    return Math.floor(height / 5.5);
   }
 
   const images = {
-    background: require("../../assets/background/placeholder-bkgnd.png"),
+    background: require("../../assets/background/forest-background_200_640x640.png"),
     pet: require("../../assets/Bird/druid-owl..png"),
     petHouse: require("../../assets/pet-home/pet-house-placeholder.png"),
   };
@@ -36,19 +36,20 @@ const HomeScreen = ({ navigation }) => {
           width: "100%",
           height: "100%",
           position: "absolute",
-          top: 0,
-          left: 0,
+          resizeMode: "center",
+          resizeMethod: "center",
         }}
         source={images.background}
       >
         <Image
           resizeMode="contain"
           style={{
-            borderWidth: 10,
-            borderColor: "black",
+            // borderWidth: 1,
+            // borderColor: "black",
             width: petImageSize(),
             height: petImageSize(),
-            top: height / 2.39, //778 / 300 = 2.59
+            top: height / 2.3, //778 / 300 = 2.59
+            marginLeft: width / 30,
             position: "relative",
           }}
           source={images.pet}
@@ -59,7 +60,9 @@ const HomeScreen = ({ navigation }) => {
           petHouseStyle={{
             width: petHouseImageSize(),
             height: petHouseImageSize(),
-            justifyContent: "center",
+            bottom: height / 2.2,
+            marginRight: width / 1.7,
+            position: "relative",
           }}
         ></PetHouseModal>
       </ImageBackground>
