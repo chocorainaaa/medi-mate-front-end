@@ -1,7 +1,8 @@
-import { StyleSheet, Text, View, ImageBackground, Image } from "react-native";
+import { StyleSheet, Text, View, ImageBackground, Image, Animated } from "react-native";
 import React, { useState } from "react";
 import ModalMed from "../Components/ModalMeditation";
 import Timer from "../Components/Timer"
+import { Keyframe } from 'react-native-reanimated';
 
 const Meditation = () => {
   const [startMeditation, setStartMeditation] = useState(false);
@@ -22,11 +23,25 @@ const Meditation = () => {
     setHoldValue(e.target.value)
   }
 
+  const circleSize = new Keyframe({
+    0: {
+      transform: [{ scale: 1 }],
+    },
+    50: {
+      transform: [{ scale: 2 }],
+    },
+    100: {
+      transform: [{ scale: 1 }],
+    }
+  })
+
+
   return (
     <ImageBackground
       style={styles.backgroundImage}
       source={require("../../assets/beach.jpg")}
     >
+
       <View>
         <Text>Meditation</Text>
         <ModalMed
@@ -41,12 +56,16 @@ const Meditation = () => {
         ></ModalMed>
         <Timer lengthValue={lengthValue} startMeditation={startMeditation} />
       </View>
-      <View style={styles.birdcage}>
+
+
+      <View>
         <Image
           style={styles.bird}
           source={require("../../assets/Bird/bird.gif")}
         />
+        <Animated.View style={styles.circle1} entering={circleSize.duration(5000)} />
       </View>
+
     </ImageBackground>
   );
 };
@@ -67,4 +86,15 @@ const styles = StyleSheet.create({
     width: 100,
     paddingLeft: 50
   },
+
+  circle1: {
+    borderRadius: "50%",
+    width: 100,
+    minHeight: 100,
+    borderWidth: 25,
+    borderColor: "black",
+    backgroundColor: "white",
+    bottom: 100,
+    zIndex: -1,
+  }
 });
