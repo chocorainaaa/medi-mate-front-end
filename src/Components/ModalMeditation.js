@@ -47,7 +47,7 @@ const ModalMed = () => {
                             Please select your breathing times
                         </Text>
 
-                        <Text style={styles.modalText}>Meditation length</Text>{" "}
+                        <Text style={styles.modalText}>Meditation length</Text>{}
                         <View style={styles.slider}>
                             <span>0 mins</span><UniSlider id={"length"} min={0} max={1800} lengthValue={lengthValue} onChange={lengthChange} /><span>30 mins</span>
                         </View>
@@ -56,13 +56,13 @@ const ModalMed = () => {
 
                         <Text style={styles.modalText}>Breath in</Text>
                         <View style={styles.slider}>
-                            <span>0 secs</span><UniSlider label={"Breath in for 5 seconds breath out for 5 seconds"} id={"in"} min={0} max={10} onChange={breathChange} /> <span>10 secs</span>
+                            <span>0 secs</span><UniSlider label={"Breath in for 5 seconds breath out for 5 seconds"} id={"in"} min={0} max={10} onChange={breathChange} /><span>10 secs</span>
                         </View>
 
 
                         <Text style={styles.modalText}>Hold</Text>
                         <View style={styles.slider}>
-                            <span>0 secs</span><UniSlider label={"Hold your breath for 5 seconds"} id={"hold"} min={0} max={10} onChange={holdChange} /> <span>10 secs</span>
+                            <span>0 secs</span><UniSlider label={"Hold your breath for 5 seconds"} id={"hold"} min={0} max={10} onChange={holdChange} /><span>10 secs</span>
                         </View>
 
 
