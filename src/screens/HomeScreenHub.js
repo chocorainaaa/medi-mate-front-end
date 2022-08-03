@@ -41,7 +41,7 @@ const HomeScreen = ({ navigation }) => {
       >
         <Image
           style={[styles.petImage, styles.petPosition]}
-          source={require("../../assets/Bird/bird.gif")}
+          source={require("../../assets/Bird/druid-owl..png")}
         />
         <ModalComponent navigation={navigation}></ModalComponent>
       </ImageBackground>
