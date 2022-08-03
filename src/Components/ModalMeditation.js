@@ -7,16 +7,28 @@ import Timer from "./Timer";
 const ModalMed = () => {
     const [modalVisible, setModalVisible] = useState(false);
     const [startMeditation, setStartMeditation] = useState(false);
-    const [sliderValue, setSliderValue] = useState(5);
+    const [lengthValue, setLengthValue] = useState(5);
+    const [breathValue, setBreathValue] = useState(5);
+    const [holdValue, setHoldValue] = useState(5);
 
-    function handleChange(e) {
-        setSliderValue(e.target.value)
+
+    function lengthChange(e) {
+        console.log(e.target.value)
+        setLengthValue(e.target.value)
+    }
+    function breathChange(e) {
+        console.log(e.target.value)
+        setBreathValue(e.target.value)
+    }
+    function holdChange(e) {
+        console.log(e.target.value)
+        setHoldValue(e.target.value)
     }
 
 
-    const meditationTrigger = () => {
-        setStartMeditation(true);
-    };
+    // const meditationTrigger = () => {
+    //     setStartMeditation(true);
+    // };
 
     return (
         <View style={styles.centeredView}>
@@ -37,25 +49,20 @@ const ModalMed = () => {
 
                         <Text style={styles.modalText}>Meditation length</Text>{" "}
                         <View style={styles.slider}>
-                            <span>0 mins</span><UniSlider id={"length"} min={0} max={1800} sliderValue={sliderValue} handleChange={handleChange} /><span>30 mins</span>
+                            <span>0 mins</span><UniSlider id={"length"} min={0} max={1800} sliderValue={lengthValue} onChange={lengthChange} /><span>30 mins</span>
                         </View>
-                        <Timer sliderValue={sliderValue} />
+                        <Timer sliderValue={lengthValue} />
 
 
                         <Text style={styles.modalText}>Breath in</Text>
                         <View style={styles.slider}>
-                            <span>0 secs</span><UniSlider label={"Breath in for 5 seconds"} id={"in"} min={0} max={10} /> <span>10 secs</span>
+                            <span>0 secs</span><UniSlider label={"Breath in for 5 seconds breath out for 5 seconds"} id={"in"} min={0} max={10} onChange={breathChange} /> <span>10 secs</span>
                         </View>
 
 
                         <Text style={styles.modalText}>Hold</Text>
                         <View style={styles.slider}>
-                            <span>0 secs</span><UniSlider label={"Hold your breath for 5 seconds"} id={"hold"} min={0} max={10} /> <span>10 secs</span>
-                        </View>
-
-                        <Text style={styles.modalText}>Breath out</Text>
-                        <View style={styles.lastSlider}>
-                            <span>0 secs</span><UniSlider label={"Breath out for 5 seconds"} id={"hold"} min={0} max={10} /> <span>10 secs</span>
+                            <span>0 secs</span><UniSlider label={"Hold your breath for 5 seconds"} id={"hold"} min={0} max={10} onChange={holdChange} /> <span>10 secs</span>
                         </View>
 
 
