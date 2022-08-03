@@ -12,7 +12,7 @@ import {
 import React from "react";
 import { useContext } from "react";
 
-import ModalComponent from "../Components/modal";
+import PetHouseModal from "../Components/PetHouseModal";
 
 const HomeScreen = ({ navigation }) => {
   const { height, width } = useWindowDimensions();
@@ -57,11 +57,11 @@ const HomeScreen = ({ navigation }) => {
           }}
           source={images.pet}
         />
-        <ModalComponent
+        <PetHouseModal
           image={images.petHouse}
           navigation={navigation}
           petHouseStyle={styles.petHouse}
-        ></ModalComponent>
+        ></PetHouseModal>
       </ImageBackground>
     </View>
   );
