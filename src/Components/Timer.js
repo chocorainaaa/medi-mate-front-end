@@ -4,28 +4,35 @@ import { StyleSheet, Text } from 'react-native';
 
 function Timer({ lengthValue, startMeditation }) {
 
-  const [timer, setTimer] = useState(lengthValue)
+  const [timer, setTimer] = useState(0)
 
 
   useEffect(() => {
-    setTimer(lengthValue)
-  }, [lengthValue])
+    if (startMeditation) {
+      setTimer(lengthValue)
+    }
+  }, [startMeditation])
 
 
   // const breakTime = 6;
   let minutes = Math.floor(timer / 60);
   let seconds = timer % 60;
+
   useEffect(() => {
+    const innerValue = timer - 1;
+    if (innerValue < 0) {
+      return;
+    }
     setTimeout(() => {
-      setTimer(lengthValue - 1);
+      console.log("before", timer)
+      setTimer(innerValue)
+      console.log("after", timer)
     }, 1000);
-    console.log(timer)
-  }, [startMeditation]);
+  }, [timer]);
 
 
-
-  if (timer <= 0) {
-    return (<Text id="timer">Timer finished!</Text>)
+  if (timer < 0 && startMeditation) {
+    return (<Text id="timer">Timer finished!!</Text>)
   }
   return (
     <Text style={styles.Timer} id="timer">
