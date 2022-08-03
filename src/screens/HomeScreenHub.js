@@ -7,17 +7,23 @@ import {
   Image,
   Pressable,
   TouchableHighlight,
+  useWindowDimensions,
 } from "react-native";
 import React from "react";
 import { useContext } from "react";
-// import app from "../../config/firebase";
-// import { AuthenticatedUserContext } from "../navigation/AuthenticatedUserProvider";
+
 import ModalComponent from "../Components/modal";
 
-// const auth = app.auth();
-
 const HomeScreen = ({ navigation }) => {
-  // const { user } = useContext(AuthenticatedUserContext);
+  const { height, width } = useWindowDimensions();
+
+  function imageWidth() {
+    return Math.floor(width / 1.6);
+  }
+
+  function imageHeight() {
+    return Math.floor(height / 2.8);
+  }
 
   async function handleSignout() {
     try {
@@ -27,23 +33,35 @@ const HomeScreen = ({ navigation }) => {
     }
   }
 
-  // const images = {
-  //   background: "../../assets/background/placeholder-bkgnd.png",
-  //   owl: "",
-  //   birdhouse: "",
-  // };
+  const images = {
+    background: require("../../assets/background/placeholder-bkgnd.png"),
+    pet: require("../../assets/Bird/druid-owl..png"),
+    petHouse: require("../../assets/pet-home/pet-house-placeholder.png"),
+  };
 
   return (
     <View style={styles.container}>
       <ImageBackground
         style={styles.backgroundImage}
-        source={require("../../assets/background/placeholder-bkgnd.png")}
+        source={images.background}
       >
         <Image
-          style={[styles.petImage, styles.petPosition]}
-          source={require("../../assets/Bird/druid-owl..png")}
+          resizeMode="contain"
+          style={{
+            borderWidth: 10,
+            borderColor: "black",
+            width: imageWidth(),
+            height: imageWidth(),
+            top: height / 2.39, //778 / 300 = 2.59
+            position: "relative",
+          }}
+          source={images.pet}
         />
-        <ModalComponent navigation={navigation}></ModalComponent>
+        <ModalComponent
+          image={images.petHouse}
+          navigation={navigation}
+          petHouseStyle={styles.petHouse}
+        ></ModalComponent>
       </ImageBackground>
     </View>
   );
@@ -52,6 +70,12 @@ const HomeScreen = ({ navigation }) => {
 export default HomeScreen;
 
 const styles = StyleSheet.create({
+  petHouse: {
+    width: 200,
+    height: 200,
+    justifyContent: "center",
+  },
+
   petImage: {
     width: 200,
     height: 200,
