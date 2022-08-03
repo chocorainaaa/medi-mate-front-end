@@ -1,16 +1,10 @@
 import {
-  StyleSheet,
-  Text,
   View,
-  Button,
   ImageBackground,
   Image,
-  Pressable,
-  TouchableHighlight,
   useWindowDimensions,
 } from "react-native";
 import React from "react";
-import { useContext } from "react";
 
 import PetHouseModal from "../Components/PetHouseModal";
 
@@ -25,47 +19,26 @@ const HomeScreen = ({ navigation }) => {
     return Math.floor(height / 2.8);
   }
 
-  async function handleSignout() {
-    try {
-      await auth.signOut();
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
   const images = {
     background: require("../../assets/background/placeholder-bkgnd.png"),
     pet: require("../../assets/Bird/druid-owl..png"),
     petHouse: require("../../assets/pet-home/pet-house-placeholder.png"),
   };
 
-  const styles = StyleSheet.create({
-    petHouse: {
-      width: petHouseImageSize(),
-      height: petHouseImageSize(),
-      justifyContent: "center",
-    },
-    petPosition: {
-      position: "relative",
-      top: "60%",
-      left: "30%",
-    },
-    container: {
-      flex: 1,
-    },
-    backgroundImage: {
-      width: "100%",
-      height: "100%",
-      position: "absolute",
-      top: 0,
-      left: 0,
-    },
-  });
-
   return (
-    <View style={styles.container}>
+    <View
+      style={{
+        flex: 1,
+      }}
+    >
       <ImageBackground
-        style={styles.backgroundImage}
+        style={{
+          width: "100%",
+          height: "100%",
+          position: "absolute",
+          top: 0,
+          left: 0,
+        }}
         source={images.background}
       >
         <Image
@@ -83,7 +56,11 @@ const HomeScreen = ({ navigation }) => {
         <PetHouseModal
           image={images.petHouse}
           navigation={navigation}
-          petHouseStyle={styles.petHouse}
+          petHouseStyle={{
+            width: petHouseImageSize(),
+            height: petHouseImageSize(),
+            justifyContent: "center",
+          }}
         ></PetHouseModal>
       </ImageBackground>
     </View>
