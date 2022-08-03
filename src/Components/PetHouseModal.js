@@ -14,7 +14,7 @@ import app from "../../config/firebase";
 
 const auth = app.auth();
 
-const ModalComponent = ({ navigation, image, petHouseStyle }) => {
+const PetHouseModal = ({ navigation, image, petHouseStyle }) => {
   const [modalVisible, setModalVisible] = useState(false);
   const { user } = useContext(AuthenticatedUserContext);
 
@@ -167,4 +167,4 @@ const styles = StyleSheet.create({
   // },
 });
 
-export default ModalComponent;
+export default PetHouseModal;
