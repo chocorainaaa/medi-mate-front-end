@@ -49,9 +49,9 @@ const ModalMed = () => {
 
                         <Text style={styles.modalText}>Meditation length</Text>{" "}
                         <View style={styles.slider}>
-                            <span>0 mins</span><UniSlider id={"length"} min={0} max={1800} sliderValue={lengthValue} onChange={lengthChange} /><span>30 mins</span>
+                            <span>0 mins</span><UniSlider id={"length"} min={0} max={1800} lengthValue={lengthValue} onChange={lengthChange} /><span>30 mins</span>
                         </View>
-                        <Timer sliderValue={lengthValue} />
+                        <Timer lengthValue={lengthValue} />
 
 
                         <Text style={styles.modalText}>Breath in</Text>
@@ -68,7 +68,11 @@ const ModalMed = () => {
 
                         <Pressable
                             style={[styles.button, styles.buttonClose]}
-                            onPress={() => setModalVisible(!modalVisible)}
+                            onPress={() => {
+                              setModalVisible(!modalVisible)
+                              setStartMeditation(true);
+                            }
+                          }
                         >
                             <Text style={styles.textStyle}>Click to Meditate</Text>
                         </Pressable>
@@ -80,7 +84,6 @@ const ModalMed = () => {
                 style={[styles.button, styles.buttonOpen]}
                 onPress={() => {
                     setModalVisible(true)
-                    setStartMeditation(true)
                 }}
             >
                 <Text style={styles.textStyle}>Set times</Text>

@@ -2,14 +2,14 @@ import { useEffect, useState } from "react";
 import { StyleSheet, Text } from 'react-native';
 
 
-function Timer({ sliderValue, startMeditation }) {
+function Timer({ lengthValue, startMeditation }) {
 
-  const [timer, setTimer] = useState(sliderValue)
+  const [timer, setTimer] = useState(lengthValue)
 
 
   useEffect(() => {
-    setTimer(sliderValue)
-  }, [sliderValue])
+    setTimer(lengthValue)
+  }, [lengthValue])
 
 
   // const breakTime = 6;
@@ -17,8 +17,9 @@ function Timer({ sliderValue, startMeditation }) {
   let seconds = timer % 60;
   useEffect(() => {
     setTimeout(() => {
-      setTimer(timer - 1);
+      setTimer(lengthValue - 1);
     }, 1000);
+    console.log(timer)
   }, [startMeditation]);
 
 
