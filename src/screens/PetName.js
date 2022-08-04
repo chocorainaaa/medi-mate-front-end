@@ -1,4 +1,4 @@
-import { StyleSheet, Image, View, TextInput, Text, Pressable } from 'react-native'
+import { StyleSheet, Image, View, TextInput, Text, Pressable, Button } from 'react-native'
 import React, { useState } from 'react'
 
 
@@ -17,13 +17,16 @@ export default function PetName() {
 
 
             <TextInput
+                id={"input"}
                 placeholder="Name"
                 value={petName}
                 onChangeText={(text) => setPetName(text)}
                 style={styles.input}
             />
-            <Pressable onPress={nameChoosen} />
-            <Text style={styles.text}>Please choose a name for your Medi-Mate</Text>
+            <Pressable style={styles.setName} onPress={nameChoosen}>
+                <Text style={styles.text}>Set Name</Text>
+            </Pressable>
+            <Text >Please choose a name for your Medi-Mate</Text>
         </View>
     )
 
@@ -51,6 +54,15 @@ const styles = StyleSheet.create({
         marginTop: 5,
     },
     text: {
-        marginTop: 25,
+        alignSelf: 'center',
+        marginTop: 15,
+        color: 'white'
+    },
+    setName: {
+        height: 50,
+        width: 100,
+        backgroundColor: 'blue',
+        marginTop: 15,
+        marginBottom: 15,
     }
 })
