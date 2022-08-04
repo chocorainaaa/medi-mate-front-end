@@ -110,10 +110,12 @@ const styles = StyleSheet.create({
     color: "white",
     fontWeight: "700",
     fontSize: 16,
+    fontFamily: "VT323_400Regular",
   },
   buttonOutlineText: {
     color: "#0782F9",
     fontWeight: "700",
+    fontFamily: "VT323_400Regular",
     fontSize: 16,
   },
 });
