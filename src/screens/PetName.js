@@ -1,4 +1,4 @@
-import { StyleSheet, Image, View, TextInput, Text, Pressable, Button } from 'react-native'
+import { StyleSheet, Image, View, TextInput, Text, Pressable } from 'react-native'
 import React, { useState } from 'react'
 
 
@@ -35,12 +35,10 @@ export default function PetName() {
 const styles = StyleSheet.create({
     container: {
         display: 'flex',
-        width: '90%',
+        width: '100vw',
         height: '100vh',
         alignItems: 'center',
         justifyContent: 'center',
-        border: 'solid',
-        borderwidth: 20,
     },
     bird: {
         height: 400,
