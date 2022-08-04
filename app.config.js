@@ -1,11 +1,10 @@
-import "dotenv/config"
+import "dotenv/config";
 
 export default {
   expo: {
     name: "final-project_front-end-bootglampers",
     slug: "final-project_front-end-bootglampers",
     version: "1.0.0",
-    orientation: "portrait",
     icon: "./assets/icon.png",
     splash: {
       image: "./assets/splash.png",
@@ -39,4 +38,4 @@ export default {
     appId: process.env.APP_ID,
   },
   name: "final-project_front-end-bootglampers",
-}
+};

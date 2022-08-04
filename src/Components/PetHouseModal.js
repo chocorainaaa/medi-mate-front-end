@@ -14,7 +14,7 @@ import app from "../../config/firebase";
 
 const auth = app.auth();
 
-const ModalComponent = ({ navigation }) => {
+const PetHouseModal = ({ navigation, image, petHouseStyle }) => {
   const [modalVisible, setModalVisible] = useState(false);
   const { user } = useContext(AuthenticatedUserContext);
 
@@ -103,10 +103,7 @@ const ModalComponent = ({ navigation }) => {
         style={styles.petHouseWrapper}
         onPress={() => setModalVisible(true)}
       >
-        <Image
-          style={styles.petHouse}
-          source={require("../../assets/pet-home/pet-house-placeholder.png")}
-        />
+        <Image style={petHouseStyle} source={image} />
       </Pressable>
     </View>
   );
@@ -130,6 +127,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginTop: 22,
   },
+  // modalViewContainer: {
+  //   width:
+  // },
   modalView: {
     margin: 20,
     backgroundColor: "white",
@@ -157,14 +157,14 @@ const styles = StyleSheet.create({
   },
 
   petHouseWrapper: {
-    width: "100%",
+    width: "fitContent",
     alignItems: "center",
   },
-  petHouse: {
-    width: 200,
-    height: 200,
-    justifyContent: "center",
-  },
+  // petHouse: {
+  //   width: 200,
+  //   height: 200,
+  //   justifyContent: "center",
+  // },
 });
 
-export default ModalComponent;
+export default PetHouseModal;
