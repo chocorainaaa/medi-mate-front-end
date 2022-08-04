@@ -4,14 +4,19 @@ import HomeScreen from "../screens/HomeScreenHub";
 import Meditation from "../screens/Meditation";
 import MoodLogger from "../screens/MoodLogger";
 import QuoteGenerator from "../screens/QuoteGenerator";
+
 import Stats from "../screens/stats";
+import PetName from "../screens/PetName"
+
 
 const Stack = createStackNavigator();
 
 export default function HomeStack() {
   return (
     // Once all navigation functionality added into each page, we can screenOptions={{ headerShown: false }} after <Stack.Navigator>
-    <Stack.Navigator screenOptions={{ headerShown: true }}>
+
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+
       <Stack.Screen name="Home" component={HomeScreen} />
       <Stack.Screen name="Meditation" component={Meditation} />
       <Stack.Screen name="MoodLogger" component={MoodLogger} />

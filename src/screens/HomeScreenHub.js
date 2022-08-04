@@ -44,8 +44,6 @@ const HomeScreen = ({ navigation }) => {
         <Image
           resizeMode="contain"
           style={{
-            // borderWidth: 1,
-            // borderColor: "black",
             width: petImageSize(),
             height: petImageSize(),
             top: height / 2.3, //778 / 300 = 2.59
