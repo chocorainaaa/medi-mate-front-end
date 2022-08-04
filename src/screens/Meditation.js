@@ -1,9 +1,9 @@
 import { StyleSheet, Text, View, ImageBackground, Image } from "react-native";
 import React, { useState } from "react";
 import ModalMed from "../Components/ModalMeditation";
-import Timer from "../Components/Timer"
-import AnimatedRing from "../Components/Ring";
-import MeditationRings from "../Components/meditationRings";
+import Timer from "../Components/Timer";
+// import AnimatedRing from "../Components/Ring";
+// import MeditationRings from "../Components/MeditationRings";
 
 const Meditation = () => {
   const [startMeditation, setStartMeditation] = useState(false);
@@ -12,25 +12,23 @@ const Meditation = () => {
   const [holdValue, setHoldValue] = useState(5);
 
   function lengthChange(e) {
-    console.log(e.target.value)
-    setLengthValue(e.target.value)
+    console.log(e.target.value);
+    setLengthValue(e.target.value);
   }
   function breathChange(e) {
-    console.log(e.target.value)
-    setBreathValue(e.target.value)
+    console.log(e.target.value);
+    setBreathValue(e.target.value);
   }
   function holdChange(e) {
-    console.log(e.target.value)
-    setHoldValue(e.target.value)
+    console.log(e.target.value);
+    setHoldValue(e.target.value);
   }
-
 
   return (
     <ImageBackground
       style={styles.backgroundImage}
       source={require("../../assets/beach.gif")}
     >
-
       <View>
         <Text>Meditation</Text>
         <ModalMed
@@ -46,25 +44,21 @@ const Meditation = () => {
         <Timer lengthValue={lengthValue} startMeditation={startMeditation} />
       </View>
 
-
       <View>
         <Image
           style={styles.bird}
           source={require("../../assets/Bird/bird.gif")}
         />
-        <MeditationRings />
-        <AnimatedRing />
+        {/* <MeditationRings />
+        <AnimatedRing /> */}
       </View>
-
     </ImageBackground>
   );
 };
 
 export default Meditation;
 
-
 // get a bigger image desktop size (then on mobile it will be small)
-
 
 const styles = StyleSheet.create({
   backgroundImage: {
@@ -74,6 +68,6 @@ const styles = StyleSheet.create({
   bird: {
     height: 100,
     width: 100,
-    paddingLeft: 50
+    paddingLeft: 50,
   },
 });

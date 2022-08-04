@@ -51,11 +51,6 @@ const QuoteGenerator = () => {
         </View>
       </ImageBackground>
     </View>
-
-    // <View>
-    //   <Text>{quote}</Text>
-    //   <Text>{author}</Text>
-    // </View>
   );
 };
 
