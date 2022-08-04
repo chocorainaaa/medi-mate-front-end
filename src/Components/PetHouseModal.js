@@ -7,6 +7,8 @@ import {
   Pressable,
   View,
   Image,
+  ImageBackground,
+  useWindowDimensions,
 } from "react-native";
 
 import { AuthenticatedUserContext } from "../navigation/AuthenticatedUserProvider";
@@ -26,10 +28,24 @@ const PetHouseModal = ({ navigation, image, petHouseStyle }) => {
     }
   }
 
+  const { height, width } = useWindowDimensions();
+
+  function textBoxWidth() {
+    return Math.floor(width) / 0.8;
+  }
+  function textBoxHeight() {
+    return Math.floor(height) / 2;
+  }
+
+  const images = {
+    textBox: require("../../assets/text-boxes/Text-box-large.png"),
+    modalTextBox: require("../../assets/text-boxes/Modal-text-box.png"),
+  };
+
   return (
     <View style={styles.centeredView}>
       <Modal
-        animationType="slide"
+        animationType="fade"
         transparent={true}
         visible={modalVisible}
         onRequestClose={() => {
@@ -38,64 +54,88 @@ const PetHouseModal = ({ navigation, image, petHouseStyle }) => {
         }}
       >
         <View style={styles.centeredView}>
-          <View style={styles.modalView}>
-            <Text style={styles.modalText}>Hello {user.uid}!</Text>
-            {/* Navigations */}
-            <Pressable
-              style={[styles.button, styles.buttonClose]}
-              onPress={() => {
-                navigation.navigate("Meditation");
-                setModalVisible(!modalVisible);
-              }}
-            >
-              <Text style={styles.textStyle}>Medidation</Text>
-            </Pressable>
+          <ImageBackground
+            source={images.textBox}
+            style={{
+              height: textBoxWidth(),
+              width: textBoxHeight(),
+              resizeMode: "center",
+              alignItems: "center",
+              position: "absolute",
+            }}
+          >
+            <View style={styles.centeredView}>
+              <View style={styles.modalView}>
+                <Text style={styles.modalText}>Hello {user.uid}!</Text>
 
-            <Pressable
-              style={[styles.button, styles.buttonClose]}
-              onPress={() => {
-                navigation.navigate("Stats");
-                setModalVisible(!modalVisible);
-              }}
-            >
-              <Text style={styles.textStyle}>Stats</Text>
-            </Pressable>
+                <View style={styles.buttonSpace}>
+                  <Pressable
+                    style={[styles.button, styles.buttonClose]}
+                    onPress={() => {
+                      navigation.navigate("Meditation");
+                      setModalVisible(!modalVisible);
+                    }}
+                  >
+                    <Text style={styles.textStyle}>Medidation</Text>
+                  </Pressable>
+                </View>
 
-            <Pressable
-              style={[styles.button, styles.buttonClose]}
-              onPress={() => {
-                navigation.navigate("MoodLogger");
-                setModalVisible(!modalVisible);
-              }}
-            >
-              <Text style={styles.textStyle}>Mood Logger</Text>
-            </Pressable>
+                <View style={styles.buttonSpace}>
+                  <Pressable
+                    style={[styles.button, styles.buttonClose]}
+                    onPress={() => {
+                      navigation.navigate("Stats");
+                      setModalVisible(!modalVisible);
+                    }}
+                  >
+                    <Text style={styles.textStyle}>Stats</Text>
+                  </Pressable>
+                </View>
 
-            <Pressable
-              style={[styles.button, styles.buttonClose]}
-              onPress={() => {
-                navigation.navigate("QuoteGenerator");
-                setModalVisible(!modalVisible);
-              }}
-            >
-              <Text style={styles.textStyle}>Quote</Text>
-            </Pressable>
+                <View style={styles.buttonSpace}>
+                  <Pressable
+                    style={[styles.button, styles.buttonClose]}
+                    onPress={() => {
+                      navigation.navigate("MoodLogger");
+                      setModalVisible(!modalVisible);
+                    }}
+                  >
+                    <Text style={styles.textStyle}>Mood Logger</Text>
+                  </Pressable>
+                </View>
 
-            <Pressable
-              style={[styles.button, styles.buttonClose]}
-              onPress={handleSignout}
-            >
-              <Text style={styles.textStyle}>Logout</Text>
-            </Pressable>
+                <View style={styles.buttonSpace}>
+                  <Pressable
+                    style={[styles.button, styles.buttonClose]}
+                    onPress={() => {
+                      navigation.navigate("QuoteGenerator");
+                      setModalVisible(!modalVisible);
+                    }}
+                  >
+                    <Text style={styles.textStyle}>Quote</Text>
+                  </Pressable>
+                </View>
 
-            {/* Close Modal */}
-            <Pressable
-              style={[styles.button, styles.buttonClose]}
-              onPress={() => setModalVisible(!modalVisible)}
-            >
-              <Text style={styles.textStyle}>Hide Modal</Text>
-            </Pressable>
-          </View>
+                <View style={styles.buttonSpace}>
+                  <Pressable
+                    style={[styles.button, styles.buttonClose]}
+                    onPress={handleSignout}
+                  >
+                    <Text style={styles.textStyle}>Logout</Text>
+                  </Pressable>
+                </View>
+
+                <View style={styles.buttonSpace}>
+                  <Pressable
+                    style={[styles.button, styles.buttonClose]}
+                    onPress={() => setModalVisible(!modalVisible)}
+                  >
+                    <Text style={styles.textStyle}>Hide Modal</Text>
+                  </Pressable>
+                </View>
+              </View>
+            </View>
+          </ImageBackground>
         </View>
       </Modal>
 
@@ -110,16 +150,19 @@ const PetHouseModal = ({ navigation, image, petHouseStyle }) => {
 };
 
 const styles = StyleSheet.create({
+  buttonSpace: {
+    padding: 5,
+  },
   button: {
-    borderRadius: 20,
+    borderRadius: 2,
+    borderWidth: 2,
+    borderColor: "black",
     padding: 10,
     elevation: 2,
-  },
-  buttonOpen: {
-    backgroundColor: "#F194FF",
+    minWidth: 110,
   },
   buttonClose: {
-    backgroundColor: "#2196F3",
+    backgroundColor: "#285cc4",
   },
   centeredView: {
     flex: 1,
@@ -127,22 +170,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginTop: 22,
   },
-  // modalViewContainer: {
-  //   width:
-  // },
   modalView: {
     margin: 20,
-    backgroundColor: "white",
     borderRadius: 20,
     padding: 35,
     alignItems: "center",
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
     elevation: 5,
   },
   modalText: {
@@ -151,7 +183,7 @@ const styles = StyleSheet.create({
   },
 
   textStyle: {
-    color: "white",
+    color: "black",
     fontWeight: "bold",
     textAlign: "center",
   },
@@ -160,11 +192,6 @@ const styles = StyleSheet.create({
     // width: "fitContent",
     alignItems: "center",
   },
-  // petHouse: {
-  //   width: 200,
-  //   height: 200,
-  //   justifyContent: "center",
-  // },
 });
 
 export default PetHouseModal;
