@@ -46,8 +46,8 @@ const styles = StyleSheet.create({
     },
     container: {
         display: 'flex',
-        width: width,
-        height: height,
+        width: "100vw",
+        height: "100%vh",
         alignItems: 'center',
         justifyContent: 'center',
     },
