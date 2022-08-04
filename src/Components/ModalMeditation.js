@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Alert, Modal, StyleSheet, Text, Pressable, View } from "react-native";
-import UniSlider from "./Slider";
+import UniSlider from "./Slider.js";
 import Bird from "../../assets/bird-static.png";
 
 
@@ -27,21 +27,21 @@ const ModalMed = ({ holdValue, breathValue, lengthChange, breathChange, holdChan
                             Please select your meditation timings
                         </Text>
 
-                        <Text style={styles.modalText}>Meditation session length</Text>{ }
+                        <Text style={styles.modalText}>Meditation session length</Text>
                         <View style={styles.slider}>
-                            <span>0 mins</span><UniSlider id={"length"} label={`Total meditation time is ${lengthValue}`} min={0} max={1800} lengthValue={lengthValue} onChange={lengthChange} /><span>30 mins</span>
+                            <Text>0 mins</Text><UniSlider id={"length"} label={`Total meditation time is ${lengthValue}`} min={0} max={1800} lengthValue={lengthValue} onChange={lengthChange} /><Text>30 mins</Text>
                         </View>
 
 
                         <Text style={styles.modalText}>Breath in and out length</Text>
                         <View style={styles.slider}>
-                            <span>0 secs</span><UniSlider label={`Breath in for ${breathValue} seconds breath out for ${breathValue} seconds`} id={"in"} min={0} max={10} onChange={breathChange} /><span>10 secs</span>
+                            <Text>0 secs</Text><UniSlider label={`Breath in for ${breathValue} seconds breath out for ${breathValue} seconds`} id={"in"} min={0} max={10} onChange={breathChange} /><Text>10 secs</Text>
                         </View>
 
 
                         <Text style={styles.modalText}>Hold your breath length</Text>
                         <View style={styles.slider}>
-                            <span>0 secs</span><UniSlider label={`Hold your breath for ${holdValue} seconds`} id={"hold"} min={0} max={10} onChange={holdChange} /><span>10 secs</span>
+                            <Text>0 secs</Text><UniSlider label={`Hold your breath for ${holdValue} seconds`} id={"hold"} min={0} max={10} onChange={holdChange} /><Text>10 secs</Text>
                         </View>
 
 
