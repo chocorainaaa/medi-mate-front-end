@@ -2,8 +2,8 @@ import { StyleSheet, Text, View, ImageBackground, Image } from "react-native";
 import React, { useState } from "react";
 import ModalMed from "../Components/ModalMeditation";
 import Timer from "../Components/Timer";
-// import AnimatedRing from "../Components/Ring";
-// import MeditationRings from "../Components/MeditationRings";
+import AnimatedRing from "../Components/Ring";
+import MeditationRings from "../Components/MeditationRings";
 
 const Meditation = () => {
   const [startMeditation, setStartMeditation] = useState(false);
@@ -12,15 +12,12 @@ const Meditation = () => {
   const [holdValue, setHoldValue] = useState(5);
 
   function lengthChange(e) {
-    console.log(e.target.value);
     setLengthValue(e.target.value);
   }
   function breathChange(e) {
-    console.log(e.target.value);
     setBreathValue(e.target.value);
   }
   function holdChange(e) {
-    console.log(e.target.value);
     setHoldValue(e.target.value);
   }
 
@@ -49,8 +46,8 @@ const Meditation = () => {
           style={styles.bird}
           source={require("../../assets/Bird/bird.gif")}
         />
-        {/* <MeditationRings />
-        <AnimatedRing /> */}
+        <MeditationRings />
+        <AnimatedRing />
       </View>
     </ImageBackground>
   );

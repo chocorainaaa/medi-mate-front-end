@@ -23,7 +23,7 @@ export default function MeditationRings() {
 const styles = StyleSheet.create({
     circle1: {
         animationIterationCount: "infinite",
-        borderRadius: "50%",
+        borderRadius: 50,
         width: 100,
         minHeight: 100,
         borderWidth: 25,
