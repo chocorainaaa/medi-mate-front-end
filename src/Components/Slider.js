@@ -8,6 +8,7 @@ const UniSlider = ({ min, max, id, onChange, lengthChange, breathChange, holdCha
   // }, [sliderValue]);
 
 
+  // change the Textinput to a range slider 
 
   return (
     <View style={styles.parent}>
