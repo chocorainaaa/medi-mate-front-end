@@ -1,56 +1,73 @@
-import { StyleSheet, Text, View, Button, ImageBackground } from "react-native";
+import {
+  View,
+  ImageBackground,
+  Image,
+  useWindowDimensions,
+} from "react-native";
 import React from "react";
-import { useContext } from "react";
-import app from "../../config/firebase";
-import { AuthenticatedUserContext } from "../navigation/AuthenticatedUserProvider";
 
-const auth = app.auth();
+import PetHouseModal from "../Components/PetHouseModal";
 
 const HomeScreen = ({ navigation }) => {
-  const { user } = useContext(AuthenticatedUserContext);
+  const { height, width } = useWindowDimensions();
 
-  async function handleSignout() {
-    try {
-      await auth.signOut();
-    } catch (error) {
-      console.log(error);
-    }
+  function petImageSize() {
+    return Math.floor(width / 1);
   }
 
-const images = {
-  background: "",
-  owl: "",
-  birdhouse: ""
-}
+  function petHouseImageSize() {
+    return Math.floor(height / 5.5);
+  }
+
+  const images = {
+    background: require("../../assets/background/forest-background_200_640x640.png"),
+    pet: require("../../assets/Bird/druid-owl..png"),
+    petHouse: require("../../assets/pet-home/pet-house-placeholder.png"),
+  };
 
   return (
-    <View>
-
+    <View
+      style={{
+        flex: 1,
+      }}
+    >
+      <ImageBackground
+        style={{
+          width: "100%",
+          height: "100%",
+          position: "absolute",
+          resizeMode: "center",
+          resizeMethod: "center",
+        }}
+        source={images.background}
+      >
+        <Image
+          resizeMode="contain"
+          style={{
+            // borderWidth: 1,
+            // borderColor: "black",
+            width: petImageSize(),
+            height: petImageSize(),
+            top: height / 2.3, //778 / 300 = 2.59
+            marginLeft: width / 30,
+            position: "relative",
+          }}
+          source={images.pet}
+        />
+        <PetHouseModal
+          image={images.petHouse}
+          navigation={navigation}
+          petHouseStyle={{
+            width: petHouseImageSize(),
+            height: petHouseImageSize(),
+            bottom: height / 2.2,
+            marginRight: width / 1.7,
+            position: "relative",
+          }}
+        ></PetHouseModal>
+      </ImageBackground>
     </View>
   );
 };
 
 export default HomeScreen;
-
-const styles = StyleSheet.create({});
-
-
-{/* <Text>Home Screen</Text>
-      <Button title="logout" onPress={handleSignout} />
-      <Text>Your UID: is {user.uid} </Text>
-      <Button
-        title="Go to Meditation"
-        onPress={() => navigation.navigate("Meditation")}
-      />
-      <Button
-        title="Go to Stats"
-        onPress={() => navigation.navigate("Stats")}
-      />
-      <Button
-        title="Go to Mood Logger"
-        onPress={() => navigation.navigate("MoodLogger")}
-      />
-      <Button
-        title="Go to Quote"
-        onPress={() => navigation.navigate("QuoteGenerator")}
-      /> */}
