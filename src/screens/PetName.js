@@ -36,7 +36,6 @@ export default function PetName() {
             </View>
         </ImageBackground>
     )
-
 }
 
 const styles = StyleSheet.create({
