@@ -1,68 +1,73 @@
 import {
-  StyleSheet,
-  Text,
   View,
-  Button,
   ImageBackground,
   Image,
-  Pressable,
-  TouchableHighlight,
+  useWindowDimensions,
 } from "react-native";
 import React from "react";
-import { useContext } from "react";
-// import app from "../../config/firebase";
-// import { AuthenticatedUserContext } from "../navigation/AuthenticatedUserProvider";
-import ModalComponent from "../Components/modal";
 
-// const auth = app.auth();
+import PetHouseModal from "../Components/PetHouseModal";
 
 const HomeScreen = ({ navigation }) => {
-  // const { user } = useContext(AuthenticatedUserContext);
+  const { height, width } = useWindowDimensions();
 
-  async function handleSignout() {
-    try {
-      await auth.signOut();
-    } catch (error) {
-      console.log(error);
-    }
+  function petImageSize() {
+    return Math.floor(width / 1);
   }
 
-  // const images = {
-  //   background: "../../assets/background/placeholder-bkgnd.png",
-  //   owl: "",
-  //   birdhouse: "",
-  // };
+  function petHouseImageSize() {
+    return Math.floor(height / 5.5);
+  }
+
+  const images = {
+    background: require("../../assets/background/forest-background_200_640x640.png"),
+    pet: require("../../assets/Bird/druid-owl..png"),
+    petHouse: require("../../assets/pet-home/pet-house-placeholder.png"),
+  };
 
   return (
-    <View style={styles.container}>
+    <View
+      style={{
+        flex: 1,
+      }}
+    >
       <ImageBackground
-        style={styles.backgroundImage}
-        source={require("../../assets/background/placeholder-bkgnd.png")}
+        style={{
+          width: "100%",
+          height: "100%",
+          position: "absolute",
+          resizeMode: "center",
+          resizeMethod: "center",
+        }}
+        source={images.background}
       >
         <Image
-          style={styles.petImage}
-          source={require("../../assets/Bird/bird.gif")}
+          resizeMode="contain"
+          style={{
+            // borderWidth: 1,
+            // borderColor: "black",
+            width: petImageSize(),
+            height: petImageSize(),
+            top: height / 2.3, //778 / 300 = 2.59
+            marginLeft: width / 30,
+            position: "relative",
+          }}
+          source={images.pet}
         />
-        <ModalComponent navigation={navigation}></ModalComponent>
+        <PetHouseModal
+          image={images.petHouse}
+          navigation={navigation}
+          petHouseStyle={{
+            width: petHouseImageSize(),
+            height: petHouseImageSize(),
+            bottom: height / 2.2,
+            marginRight: width / 1.7,
+            position: "relative",
+          }}
+        ></PetHouseModal>
       </ImageBackground>
     </View>
   );
 };
 
 export default HomeScreen;
-
-const styles = StyleSheet.create({
-  petImage: {
-    width: 200,
-    height: 200,
-  },
-  container: {
-    flex: 1,
-  },
-  backgroundImage: {
-    flex: 1,
-    width: null,
-    height: null,
-    resizeMode: "cover",
-  },
-});
