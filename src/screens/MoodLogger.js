@@ -29,28 +29,7 @@ const MoodLogger = () => {
         flex: 1,
       }}
     >
-      <ImageBackground
-        style={{
-          width: "100%",
-          height: "100%",
-          position: "absolute",
-          resizeMode: "center",
-          resizeMethod: "center",
-        }}
-        source={images.background}
-      >
-        <Image
-          resizeMode="contain"
-          style={{
-            width: petImageSize(),
-            height: petImageSize(),
-            top: height / 2.3, //778 / 300 = 2.59
-            marginLeft: width / 30,
-            position: "relative",
-          }}
-          source={images.pet}
-        />
-      </ImageBackground>
+      <Text>Mood logger</Text>
     </View>
   );
 };

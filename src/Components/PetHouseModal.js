@@ -157,7 +157,7 @@ const styles = StyleSheet.create({
   },
 
   petHouseWrapper: {
-    width: "fitContent",
+    // width: "fitContent",
     alignItems: "center",
   },
   // petHouse: {

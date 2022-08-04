@@ -4,9 +4,9 @@ import {
   View,
   Image,
   useWindowDimensions,
+  ImageBackground,
 } from "react-native";
 import React from "react";
-import { ImageBackground } from "react-native-web";
 
 const Stats = () => {
   const { height, width } = useWindowDimensions();
@@ -26,7 +26,7 @@ const Stats = () => {
       <ImageBackground
         style={{
           width: "100%",
-          height: "105%",
+          height: "100%",
           position: "absolute",
           resizeMode: "center",
           resizeMethod: "center",
@@ -53,60 +53,50 @@ const Stats = () => {
               source={images.textBox}
               style={styles.coverImage}
             />
-
             <Text style={styles.imageText}>Mood log</Text>
             <ImageBackground />
           </View>
         </View>
-
         <View style={styles.container}>
           <View style={styles.textView}>
             <ImageBackground
               source={images.textBox}
               style={styles.coverImage}
             />
-
             <Text style={styles.imageText}>Number of visits:</Text>
             <ImageBackground />
           </View>
         </View>
-
         <View style={styles.container}>
           <View style={styles.textView}>
             <ImageBackground
               source={images.textBox}
               style={styles.coverImage}
             />
-
             <Text style={styles.imageText}>Total meditation time:</Text>
             <ImageBackground />
           </View>
         </View>
-
         <View style={styles.container}>
           <View style={styles.textView}>
             <ImageBackground
               source={images.textBox}
               style={styles.coverImage}
             />
-
             <Text style={styles.imageText}>Daily streak:</Text>
             <ImageBackground />
           </View>
         </View>
-
         <View style={styles.container}>
           <View style={styles.textView}>
             <ImageBackground
               source={images.textBox}
               style={styles.coverImage}
             />
-
             <Text style={styles.imageText}>Pet age:</Text>
             <ImageBackground />
           </View>
         </View>
-
         <View style={styles.container}>
           <View style={styles.textView}>
             <ImageBackground
