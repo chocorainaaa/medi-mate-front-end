@@ -10,15 +10,17 @@ const Meditation = () => {
   const [lengthValue, setLengthValue] = useState(5);
   const [breathValue, setBreathValue] = useState(5);
   const [holdValue, setHoldValue] = useState(5);
+  const [sliderValue, setSliderValue] = useState(15);
 
-  function lengthChange(e) {
-    setLengthValue(e.target.value);
+  function lengthChange(sliderValue) {
+    console.log(sliderValue)
+    setLengthValue(sliderValue);
   }
-  function breathChange(e) {
-    setBreathValue(e.target.value);
+  function breathChange(sliderValue) {
+    setBreathValue(sliderValue);
   }
-  function holdChange(e) {
-    setHoldValue(e.target.value);
+  function holdChange(sliderValue) {
+    setHoldValue(sliderValue);
   }
 
   return (
