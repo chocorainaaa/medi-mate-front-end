@@ -125,6 +125,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: "black",
     fontWeight: "bold",
+    fontFamily: "VT323_400Regular",
     position: "absolute",
   },
   textView: {
