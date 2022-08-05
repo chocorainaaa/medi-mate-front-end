@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import ModalMed from "../Components/ModalMeditation";
 import Timer from "../Components/Timer";
 import AnimatedRing from "../Components/Ring";
-import MeditationRings from "../Components/MeditationRings";
+
 
 const Meditation = () => {
   const [startMeditation, setStartMeditation] = useState(false);
@@ -42,13 +42,12 @@ const Meditation = () => {
         <Timer lengthValue={lengthValue} startMeditation={startMeditation} />
       </View>
 
-      <View>
+      <View style={styles.birdCage}>
         <Image
           style={styles.bird}
           source={require("../../assets/Bird/bird.gif")}
         />
-        <MeditationRings />
-        <AnimatedRing start={startMeditation} breathValue={breathValue} />
+        <AnimatedRing style={styles.ring} start={startMeditation} breathValue={breathValue} />
       </View>
     </ImageBackground>
   );
@@ -64,8 +63,11 @@ const styles = StyleSheet.create({
     resizeMode: "cover",
   },
   bird: {
-    height: 100,
-    width: 100,
-    paddingLeft: 50,
+    height: 200,
+    width: 200,
   },
+  birdCage: {
+    paddingTop: 600,
+    paddingLeft: 150
+  }
 });

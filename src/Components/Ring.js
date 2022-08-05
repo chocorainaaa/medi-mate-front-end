@@ -15,7 +15,7 @@ const Ring = ({ delay, start, breathValue }) => {
     const ring = useSharedValue(0);
     const style = useAnimatedStyle(() => {
         return {
-            opacity: 0.8 - ring.value,
+            opacity: 1 - ring.value,
             transform: [
                 {
                     scale: interpolate(ring.value, [0, 1], [0, 4]),
@@ -42,21 +42,6 @@ const Ring = ({ delay, start, breathValue }) => {
     }, [start]);
 
 
-
-    // useEffect(() => {
-    //     let duration = (breathValue * 1000)
-    //     ring.value = withDelay(
-    //         delay,
-    //         withRepeat(
-    //             withTiming(1, {
-    //                 duration: duration,
-    //             }),
-    //             -1, true
-    //         ),
-    //         console.log(duration)
-    //     );
-    // }, [])
-
     return (
         <Animated.View style={[styles.ring, style]} />
     )
@@ -68,9 +53,9 @@ export default function AnimatedRing({ breathValue, start }) {
     return (
         <View style={styles.container}>
             <Ring delay={0} breathValue={breathValue} start={start} />
-            <Ring delay={1000} breathValue={breathValue} start={start} />
-            <Ring delay={2000} breathValue={breathValue} start={start} />
-            <Ring delay={3000} breathValue={breathValue} start={start} />
+            <Ring delay={800} breathValue={breathValue} start={start} />
+            <Ring delay={1600} breathValue={breathValue} start={start} />
+            {/* <Ring delay={3000} breathValue={breathValue} start={start} /> */}
         </View>
     );
 }
@@ -88,5 +73,7 @@ const styles = StyleSheet.create({
         borderRadius: 50,
         borderWidth: 10,
         borderColor: "gold",
+        paddingRight: 50,
+        paddingBottom: 50
     },
 });
