@@ -3,22 +3,23 @@ import React, { useState } from "react";
 import ModalMed from "../Components/ModalMeditation";
 import Timer from "../Components/Timer";
 import AnimatedRing from "../Components/Ring";
-import MeditationRings from "../Components/MeditationRings";
+
 
 const Meditation = () => {
   const [startMeditation, setStartMeditation] = useState(false);
   const [lengthValue, setLengthValue] = useState(5);
   const [breathValue, setBreathValue] = useState(5);
   const [holdValue, setHoldValue] = useState(5);
+  const [sliderValue, setSliderValue] = useState(15);
 
-  function lengthChange(e) {
-    setLengthValue(e.target.value);
+  function lengthChange(sliderValue) {
+    setLengthValue(sliderValue);
   }
-  function breathChange(e) {
-    setBreathValue(e.target.value);
+  function breathChange(sliderValue) {
+    setBreathValue(sliderValue);
   }
-  function holdChange(e) {
-    setHoldValue(e.target.value);
+  function holdChange(sliderValue) {
+    setHoldValue(sliderValue);
   }
 
   return (
@@ -41,13 +42,12 @@ const Meditation = () => {
         <Timer lengthValue={lengthValue} startMeditation={startMeditation} />
       </View>
 
-      <View>
+      <View style={styles.birdCage}>
         <Image
           style={styles.bird}
-          source={require("../../assets/Bird/bird.gif")}
+          source={require("../../assets/Bird/druid-owl..png")}
         />
-        <MeditationRings />
-        <AnimatedRing start={startMeditation} />
+        <AnimatedRing style={styles.ring} start={startMeditation} breathValue={breathValue} />
       </View>
     </ImageBackground>
   );
@@ -63,8 +63,11 @@ const styles = StyleSheet.create({
     resizeMode: "cover",
   },
   bird: {
-    height: 100,
-    width: 100,
-    paddingLeft: 50,
+    height: 200,
+    width: 200,
   },
+  birdCage: {
+    paddingTop: 400,
+    paddingLeft: 150
+  }
 });
