@@ -1,14 +1,8 @@
 import { StyleSheet, View, Text, TextInput } from "react-native";
 import React from "react";
 import Slider from '@react-native-community/slider'
-const UniSlider = ({ min, max, id, onChange, lengthChange, breathChange, holdChange, lengthValue, setLengthValue, label, sliderValue }) => {
+const UniSlider = ({ min, max, id, onChange, label, sliderValue }) => {
 
-  // useEffect((sliderValue) => {
-  //   setTimer(sliderValue)
-  // }, [sliderValue]);
-
-
-  // change the Textinput to a range slider 
 
   return (
 

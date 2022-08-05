@@ -13,7 +13,6 @@ const Meditation = () => {
   const [sliderValue, setSliderValue] = useState(15);
 
   function lengthChange(sliderValue) {
-    console.log(sliderValue)
     setLengthValue(sliderValue);
   }
   function breathChange(sliderValue) {
@@ -49,7 +48,7 @@ const Meditation = () => {
           source={require("../../assets/Bird/bird.gif")}
         />
         <MeditationRings />
-        <AnimatedRing start={startMeditation} />
+        <AnimatedRing start={startMeditation} breathValue={breathValue} />
       </View>
     </ImageBackground>
   );
