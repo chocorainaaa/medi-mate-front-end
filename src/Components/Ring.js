@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { StyleSheet, View } from "react-native";
 import Animated, {
     interpolate,
@@ -10,7 +10,8 @@ import Animated, {
 } from 'react-native-reanimated';
 
 /// creating the animation
-const Ring = ({ delay, startMeditation }) => {
+const Ring = ({ delay, start, breathValue }) => {
+    const isMounted = useRef(false);
     const ring = useSharedValue(0);
     const style = useAnimatedStyle(() => {
         return {
@@ -24,16 +25,37 @@ const Ring = ({ delay, startMeditation }) => {
     });
 
     useEffect(() => {
-        ring.value = withDelay(
-            delay,
-            withRepeat(
-                withTiming(1, {
-                    duration: 5000,
-                }),
-                -1, true
-            )
-        );
-    }, [startMeditation])
+        if (isMounted.current) {
+            ring.value = withDelay(
+                delay,
+                withRepeat(
+                    withTiming(1, {
+                        duration: (breathValue * 1000),
+                    }),
+                    -1, true
+                ),
+                console.log(breathValue)
+            );
+        } else {
+            isMounted.current = true;
+        }
+    }, [start]);
+
+
+
+    // useEffect(() => {
+    //     let duration = (breathValue * 1000)
+    //     ring.value = withDelay(
+    //         delay,
+    //         withRepeat(
+    //             withTiming(1, {
+    //                 duration: duration,
+    //             }),
+    //             -1, true
+    //         ),
+    //         console.log(duration)
+    //     );
+    // }, [])
 
     return (
         <Animated.View style={[styles.ring, style]} />
@@ -42,13 +64,13 @@ const Ring = ({ delay, startMeditation }) => {
 
 // creating the jsx return function
 
-export default function AnimatedRing() {
+export default function AnimatedRing({ breathValue, start }) {
     return (
         <View style={styles.container}>
-            <Ring delay={0} />
-            <Ring delay={1000} />
-            <Ring delay={2000} />
-            <Ring delay={3000} />
+            <Ring delay={0} breathValue={breathValue} start={start} />
+            <Ring delay={1000} breathValue={breathValue} start={start} />
+            <Ring delay={2000} breathValue={breathValue} start={start} />
+            <Ring delay={3000} breathValue={breathValue} start={start} />
         </View>
     );
 }
