@@ -24,9 +24,7 @@ function Timer({ lengthValue, startMeditation }) {
       return;
     }
     setTimeout(() => {
-      console.log("before", timer)
       setTimer(innerValue)
-      console.log("after", timer)
     }, 1000);
   }, [timer]);
 
