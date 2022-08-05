@@ -11,6 +11,7 @@ const ModalMed = ({
   holdChange,
   setStartMeditation,
   lengthValue,
+  setLengthValue,
 }) => {
   const [modalVisible, setModalVisible] = useState(false);
 
@@ -36,11 +37,12 @@ const ModalMed = ({
               <Text>0 mins</Text>
               <UniSlider
                 id={"length"}
-                label={`Total meditation time is ${lengthValue}`}
+                label={`Total meditation time is ${lengthValue / 60} minuites`}
                 min={0}
                 max={1800}
                 lengthValue={lengthValue}
                 onChange={lengthChange}
+                setLengthValue={setLengthValue}
               />
               <Text>30 mins</Text>
             </View>
@@ -54,6 +56,7 @@ const ModalMed = ({
                 min={0}
                 max={10}
                 onChange={breathChange}
+              // setSliderValue={setSliderValue}
               />
               <Text>10 secs</Text>
             </View>
@@ -67,6 +70,7 @@ const ModalMed = ({
                 min={0}
                 max={10}
                 onChange={holdChange}
+              // setLengthValue={setLengthValue}
               />
               <Text>10 secs</Text>
             </View>
