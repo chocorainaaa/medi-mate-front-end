@@ -45,7 +45,7 @@ const Meditation = () => {
       <View style={styles.birdCage}>
         <Image
           style={styles.bird}
-          source={require("../../assets/Bird/bird.gif")}
+          source={require("../../assets/Bird/druid-owl..png")}
         />
         <AnimatedRing style={styles.ring} start={startMeditation} breathValue={breathValue} />
       </View>
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     width: 200,
   },
   birdCage: {
-    paddingTop: 600,
+    paddingTop: 400,
     paddingLeft: 150
   }
 });
