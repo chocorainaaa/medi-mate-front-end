@@ -11,7 +11,7 @@ import Animated, {
 } from 'react-native-reanimated';
 
 /// creating the animation
-const Ring = ({ delay }) => {
+const Ring = ({ delay, startMeditation }) => {
     const ring = useSharedValue(0);
     const style = useAnimatedStyle(() => {
         return {
@@ -29,12 +29,12 @@ const Ring = ({ delay }) => {
             delay,
             withRepeat(
                 withTiming(1, {
-                    duration: 10000,
+                    duration: 5000,
                 }),
                 -1, true
             )
         );
-    }, [])
+    }, [startMeditation])
 
     return (
         <Animated.View style={[styles.ring, style]} />

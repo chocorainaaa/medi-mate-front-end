@@ -47,7 +47,7 @@ const Meditation = () => {
           source={require("../../assets/Bird/bird.gif")}
         />
         <MeditationRings />
-        <AnimatedRing />
+        <AnimatedRing start={startMeditation} />
       </View>
     </ImageBackground>
   );

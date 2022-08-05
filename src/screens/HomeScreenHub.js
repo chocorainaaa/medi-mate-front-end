@@ -11,6 +11,9 @@ import PetHouseModal from "../Components/PetHouseModal";
 const HomeScreen = ({ navigation }) => {
   const { height, width } = useWindowDimensions();
 
+
+  // why divided by one? 
+
   function petImageSize() {
     return Math.floor(width / 1);
   }
