@@ -7,34 +7,57 @@ import {
   useWindowDimensions,
   Pressable,
 } from "react-native";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { AuthenticatedUserContext } from "../navigation/AuthenticatedUserProvider";
+import app from "../../config/firebase";
+
+const auth = app.auth();
+
+const baseURL = "https://medi-mate-app.herokuapp.com";
 
 export default function MoodLogger({ navigation }) {
   // use this for media query type shannanigans
   const { height, width } = useWindowDimensions();
 
+  // mood is a number between 1 - 5
+  const [ mood, setMood ] = useState(null)
+  const { user } = useContext(AuthenticatedUserContext);
+
+useEffect(
+  fetch(`${baseURL}/mood-log`, {
+  method: 'POST',
+  headers: {
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    firebase_user_id: `${user.uid}`,
+    mood_rating: `${mood}` ,
+  })
+}), [mood]);
+
   function handleSuperHappy() {
-    console.log("Super Happy");
+    setMood(5);
     navigation.navigate("Meditation");
   }
 
   function handleHappy() {
-    console.log("Happy");
+    setMood(4);
     navigation.navigate("Meditation");
   }
 
   function handleOK() {
-    console.log("OK");
+    setMood(3);
     navigation.navigate("Meditation");
   }
 
   function handleSad() {
-    console.log("Sad");
+    setMood(2);
     navigation.navigate("Meditation");
   }
 
   function handleSuperSad() {
-    console.log("Super Sad");
+    setMood(1);
     navigation.navigate("Meditation");
   }
 
