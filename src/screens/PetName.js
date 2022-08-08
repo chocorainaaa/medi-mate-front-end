@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { ImageBackground } from 'react-native-web';
 
 
-export default function PetName() {
+export default function PetName({navigation}) {
 
     const { height, width } = useWindowDimensions()
 
@@ -11,6 +11,7 @@ export default function PetName() {
 
     function nameChoosen() {
         console.log(petName)
+        navigation.navigate("Meditation");
     }
 
     return (
