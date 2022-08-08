@@ -138,8 +138,8 @@ useEffect(
 const styles = StyleSheet.create({
   container: {
     display: "flex",
-    width: "90%",
-    height: "100vh",
+    width: 500,
+    height: 800,
     alignItems: "center",
     justifyContent: "center",
     border: "solid",
