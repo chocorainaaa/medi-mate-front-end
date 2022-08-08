@@ -2,9 +2,7 @@ import { useEffect, useState } from "react";
 import { StyleSheet, Text } from 'react-native';
 
 
-function Timer({ lengthValue, startMeditation }) {
-
-  const [timer, setTimer] = useState(0)
+function Timer({ lengthValue, startMeditation, timer, setTimer }) {
 
 
   useEffect(() => {
