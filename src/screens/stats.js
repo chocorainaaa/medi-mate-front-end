@@ -6,10 +6,57 @@ import {
   useWindowDimensions,
   ImageBackground,
 } from "react-native";
-import React from "react";
+import React, { useState, useContext, useEffect } from "react";
+
+import { AuthenticatedUserContext } from "../navigation/AuthenticatedUserProvider";
+import app from "../../config/firebase";
+
+const auth = app.auth();
+
+const baseURL = "https://medi-mate-app.herokuapp.com";
+
+// Hard coded data object
+
+const extraData = {
+  dailyStreak: 2,
+  petAge: 13,
+  rewardPoints: 20,
+};
 
 const Stats = () => {
   const { height, width } = useWindowDimensions();
+  const { user } = useContext(AuthenticatedUserContext);
+  const [data, setData] = useState({
+    visits: null,
+    total_meditation_time: null,
+    mood_data: {
+      average_mood: null,
+      all_moodlogs: [
+        {
+          user_id: null,
+          mood_log_id: null,
+          date: "2022-08-08T00:00:00.000Z",
+          mood_rating: null,
+        },
+      ],
+    },
+  });
+
+  // Hardcoded - To be deleted
+  const extraData = {
+    dailyStreak: 2,
+    petAge: 3,
+    rewardPoints: 5,
+  };
+
+  useEffect(() => {
+    fetch(`${baseURL}/stats/${user.uid}`)
+      .then((response) => response.json())
+      .then((json) => setData(json.payload))
+      .catch((error) => console.error(error));
+  }, []);
+  // console.log(data.mood_data.average_mood)
+  // console.log(data.mood_data.average_mood)
 
   function petImageSize() {
     return Math.floor(width / 1);
@@ -53,7 +100,9 @@ const Stats = () => {
               source={images.textBox}
               style={styles.coverImage}
             />
-            <Text style={styles.imageText}>Mood log</Text>
+            <Text style={styles.imageText}>
+              Average Mood: {data.mood_data.average_mood}
+            </Text>
             <ImageBackground />
           </View>
         </View>
@@ -63,7 +112,9 @@ const Stats = () => {
               source={images.textBox}
               style={styles.coverImage}
             />
-            <Text style={styles.imageText}>Number of visits:</Text>
+            <Text style={styles.imageText}>
+              Number of visits: {data.visits}
+            </Text>
             <ImageBackground />
           </View>
         </View>
@@ -73,7 +124,9 @@ const Stats = () => {
               source={images.textBox}
               style={styles.coverImage}
             />
-            <Text style={styles.imageText}>Total meditation time:</Text>
+            <Text style={styles.imageText}>
+              Total meditation time: {data.total_meditation_time}
+            </Text>
             <ImageBackground />
           </View>
         </View>
@@ -83,7 +136,9 @@ const Stats = () => {
               source={images.textBox}
               style={styles.coverImage}
             />
-            <Text style={styles.imageText}>Daily streak:</Text>
+            <Text style={styles.imageText}>
+              Daily streak: {extraData.dailyStreak}
+            </Text>
             <ImageBackground />
           </View>
         </View>
@@ -93,7 +148,7 @@ const Stats = () => {
               source={images.textBox}
               style={styles.coverImage}
             />
-            <Text style={styles.imageText}>Pet age:</Text>
+            <Text style={styles.imageText}>Pet age: {extraData.petAge}</Text>
             <ImageBackground />
           </View>
         </View>
@@ -103,7 +158,9 @@ const Stats = () => {
               source={images.textBox}
               style={styles.coverImage}
             />
-            <Text style={styles.imageText}>Reward points:</Text>
+            <Text style={styles.imageText}>
+              Reward points: {extraData.rewardPoints}
+            </Text>
             <ImageBackground />
           </View>
         </View>
