@@ -1,15 +1,19 @@
+import React from "react";
 import {
   View,
   ImageBackground,
   Image,
 } from "react-native";
-import React from "react";
 
 import PetHouseModal from "../Components/PetHouseModal";
-import { horizontalScale, verticalScale, moderateScale } from "../Components/Metrics"
+
+import {
+  horizontalScale,
+  verticalScale,
+  moderateScale
+} from "../Components/Metrics"
 
 const HomeScreen = ({ navigation }) => {
-
 
   const images = {
     background: require("../../assets/background/forest-background_200_640x640.png"),
@@ -27,7 +31,7 @@ const HomeScreen = ({ navigation }) => {
       <ImageBackground
         style={{
           width: "100vw",
-          height: "100%vh",
+          height: "100vh",
           position: "absolute",
           resizeMode: "center",
           resizeMethod: "center",
@@ -42,7 +46,7 @@ const HomeScreen = ({ navigation }) => {
             width: horizontalScale(100),
             height: verticalScale(200),
             bottom: verticalScale(40),
-            marginRight: horizontalScale(300),
+            marginRight: horizontalScale(150),
             position: "relative",
             resizeMode: "contain"
           }}
