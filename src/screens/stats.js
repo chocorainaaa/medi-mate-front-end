@@ -6,10 +6,29 @@ import {
   useWindowDimensions,
   ImageBackground,
 } from "react-native";
-import React from "react";
+import React, {useState, useContext, useEffect} from "react";
+import app from "../../config/firebase";
+
+const auth = app.auth();
+
+const baseURL = "https://medi-mate-app.herokuapp.com";
 
 const Stats = () => {
   const { height, width } = useWindowDimensions();
+  const { user } = useContext(AuthenticatedUserContext);
+  const [data, setData] = useState([])
+
+console.log(data);
+  
+    useEffect(() => {
+    fetch(`${baseURL}/stats/${user.uid}`)
+      .then((response) => response.json())
+      .then((json) => setData(json))
+      .catch((error) => console.error(error))
+      .finally(() => setLoading(false));
+  }, []);
+  
+ 
 
   function petImageSize() {
     return Math.floor(width / 1);
