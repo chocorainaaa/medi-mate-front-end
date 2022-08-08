@@ -7,7 +7,7 @@ import {
   useWindowDimensions,
   Pressable,
 } from "react-native";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { AuthenticatedUserContext } from "../navigation/AuthenticatedUserProvider";
 import app from "../../config/firebase";
 
@@ -20,7 +20,7 @@ export default function MoodLogger({ navigation }) {
   const { height, width } = useWindowDimensions();
 
   // mood is a number between 1 - 5
-  const [ mood, setMood ] = useState(null)
+  const [ mood, setMood ] = useState(null);
   const { user } = useContext(AuthenticatedUserContext);
 
 useEffect(
