@@ -69,23 +69,6 @@ Why we cose firebase authorisation over auth0
 
 react-native, JS, StyleSheet, expo CLI, add more HERE
 
-## Deployment
-**Steps to deploy on netlify**
-1. "npx create-react-native-app ."
-2. "expo build:web"
-3. remove build-web from .gitignore
-4. Go to "Site Settings" and find "Build & Deploy"
-5. Update build command and publish directory (publish directory contains usable index.html file). build command should be "expo build:web" and publish directory should be "web-build"
-6. Deploy again- It worked :P
-
-**Update deploy setup**
-1. create script called 'build' in package.json
-2. in build script add value "expo build:web && git push"
-
-**Update deploy**
-1. git add . && git commit -m "commit message"
-2. npm run build
-
 
 ## Authors
 
