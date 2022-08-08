@@ -2,25 +2,14 @@ import {
   View,
   ImageBackground,
   Image,
-  useWindowDimensions,
 } from "react-native";
 import React from "react";
 
 import PetHouseModal from "../Components/PetHouseModal";
+import { horizontalScale, verticalScale, moderateScale } from "../Components/Metrics"
 
 const HomeScreen = ({ navigation }) => {
-  const { height, width } = useWindowDimensions();
 
-
-  // why divided by one? 
-
-  function petImageSize() {
-    return Math.floor(width / 1);
-  }
-
-  function petHouseImageSize() {
-    return Math.floor(height / 5.5);
-  }
 
   const images = {
     background: require("../../assets/background/forest-background_200_640x640.png"),
@@ -34,38 +23,41 @@ const HomeScreen = ({ navigation }) => {
         flex: 1,
       }}
     >
+      {/* The width and height for the background are nuts! this seems to be the right config of width as vw and height as %vw. needs testing on other peoples machines */}
       <ImageBackground
         style={{
-          width: "100%",
-          height: "100%",
+          width: "100vw",
+          height: "100%vh",
           position: "absolute",
           resizeMode: "center",
           resizeMethod: "center",
         }}
         source={images.background}
       >
-        <Image
-          resizeMode="contain"
-          style={{
-            width: petImageSize(),
-            height: petImageSize(),
-            top: height / 2.3, //778 / 300 = 2.59
-            marginLeft: width / 30,
-            position: "relative",
-          }}
-          source={images.pet}
-        />
+        {/* The clickable area for the modal is way to big! I moved the modal above the pet image to here and it solved a lot of the image problems */}
         <PetHouseModal
           image={images.petHouse}
           navigation={navigation}
           petHouseStyle={{
-            width: petHouseImageSize(),
-            height: petHouseImageSize(),
-            bottom: height / 2.2,
-            marginRight: width / 1.7,
+            width: horizontalScale(100),
+            height: verticalScale(200),
+            bottom: verticalScale(40),
+            marginRight: horizontalScale(300),
             position: "relative",
+            resizeMode: "contain"
           }}
         ></PetHouseModal>
+        <Image
+          resizeMode="contain"
+          style={{
+            width: horizontalScale(200),
+            height: verticalScale(400),
+            marginTop: moderateScale(100),
+            marginLeft: moderateScale(100),
+            position: "relative",
+          }}
+          source={images.pet}
+        />
       </ImageBackground>
     </View>
   );
