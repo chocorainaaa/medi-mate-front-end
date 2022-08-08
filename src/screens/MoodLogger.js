@@ -23,7 +23,7 @@ export default function MoodLogger({ navigation }) {
   const [ mood, setMood ] = useState(null);
   const { user } = useContext(AuthenticatedUserContext);
 
-useEffect(
+useEffect(() => {
   fetch(`${baseURL}/mood-log`, {
   method: 'POST',
   headers: {
@@ -34,7 +34,8 @@ useEffect(
     firebase_user_id: `${user.uid}`,
     mood_rating: `${mood}` ,
   })
-}), [mood]);
+}
+)}, [mood]);
 
   function handleSuperHappy() {
     setMood(5);
