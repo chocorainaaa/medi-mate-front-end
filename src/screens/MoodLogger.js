@@ -19,7 +19,6 @@ export default function MoodLogger({ navigation }) {
   // use this for media query type shannanigans
   const { height, width } = useWindowDimensions();
   // mood is a number between 1 - 5
-  const [ mood, setMood ] = useState(null);
   const { user } = useContext(AuthenticatedUserContext);
 
   console.log(user.uid);
@@ -37,7 +36,6 @@ async function postMood(mood) {
   }),
   success: 200,
 })
-setMood(null)
 }
 
   async function handleSuperHappy() {
