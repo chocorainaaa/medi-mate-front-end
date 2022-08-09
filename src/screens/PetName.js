@@ -1,6 +1,6 @@
 import { StyleSheet, Image, View, TextInput, Text, Pressable, useWindowDimensions } from 'react-native'
 import React, { useState } from 'react'
-import { ImageBackground } from 'react-native-web';
+import { ImageBackground } from 'react-native';
 
 
 export default function PetName({navigation}) {
