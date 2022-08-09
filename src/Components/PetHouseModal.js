@@ -76,7 +76,7 @@ const PetHouseModal = ({ navigation, image, petHouseStyle }) => {
                       setModalVisible(!modalVisible);
                     }}
                   >
-                    <Text style={styles.textStyle}>Medidation</Text>
+                    <Text style={styles.textStyle}>Meditation</Text>
                   </Pressable>
                 </View>
 
