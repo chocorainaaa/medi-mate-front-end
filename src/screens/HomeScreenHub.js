@@ -56,8 +56,8 @@ const HomeScreen = ({ navigation }) => {
           style={{
             width: horizontalScale(200),
             height: verticalScale(400),
-            marginTop: moderateScale(100),
-            marginLeft: moderateScale(100),
+            marginTop: verticalScale(100),
+            marginLeft: horizontalScale(100),
             position: "relative",
           }}
           source={images.pet}
