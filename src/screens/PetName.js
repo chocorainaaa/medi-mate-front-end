@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import {
   StyleSheet,
   Image,
@@ -8,7 +9,8 @@ import {
   useWindowDimensions,
   ImageBackground,
 } from "react-native";
-import React, { useState } from "react";
+
+
 
 export default function PetName({ navigation }) {
   const { height, width } = useWindowDimensions();
