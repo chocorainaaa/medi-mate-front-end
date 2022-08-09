@@ -41,32 +41,27 @@ setMood(null)
 }
 
   async function handleSuperHappy() {
-    setMood(5);
-    await postMood(mood);
+    await postMood(5);
     navigation.navigate("Meditation");
   }
 
   async function handleHappy() {
-    setMood(4);
-    await postMood();
+    await postMood(4);
     navigation.navigate("Meditation");
   }
 
   async function handleOK() {
-    setMood(3);
-    await postMood();
+    await postMood(3);
     navigation.navigate("Meditation");
   }
 
   async function handleSad() {
-    setMood(2);
-    await postMood();
+    await postMood(2);
     navigation.navigate("Meditation");
   }
 
   async function handleSuperSad() {
-    setMood(1);
-    await postMood();
+    await postMood(1);
     navigation.navigate("Meditation");
   }
 
