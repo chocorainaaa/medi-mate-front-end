@@ -5,7 +5,7 @@ import Timer from "../Components/Timer";
 import AnimatedRing from "../Components/Ring";
 
 
-const Meditation = () => {
+const Meditation = ({ navigation }) => {
   const [startMeditation, setStartMeditation] = useState(false);
   const [lengthValue, setLengthValue] = useState(5);
   const [breathValue, setBreathValue] = useState(5);
