@@ -24,8 +24,6 @@ export default function MoodLogger({ navigation }) {
 
   console.log(user.uid);
 
-useEffect(() => {postMood()}, [mood]);
-
 async function postMood() {
   fetch(`${baseURL}/mood-log`, {
   method: 'POST',
@@ -44,26 +42,31 @@ setMood(null)
 
   function handleSuperHappy() {
     setMood(5);
+    postMood();
     navigation.navigate("Meditation");
   }
 
   function handleHappy() {
     setMood(4);
+    postMood();
     navigation.navigate("Meditation");
   }
 
   function handleOK() {
     setMood(3);
+    postMood();
     navigation.navigate("Meditation");
   }
 
   function handleSad() {
     setMood(2);
+    postMood();
     navigation.navigate("Meditation");
   }
 
   function handleSuperSad() {
     setMood(1);
+    postMood();
     navigation.navigate("Meditation");
   }
 
