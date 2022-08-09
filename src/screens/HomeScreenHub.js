@@ -3,6 +3,7 @@ import {
   View,
   ImageBackground,
   Image,
+  useWindowDimensions
 } from "react-native";
 
 import PetHouseModal from "../Components/PetHouseModal";
@@ -12,12 +13,12 @@ import {
   verticalScale,
   moderateScale
 } from "../Components/Metrics"
-
 const HomeScreen = ({ navigation }) => {
+  const { height, width } = useWindowDimensions();
 
   const images = {
     background: require("../../assets/background/forest-background_200_640x640.png"),
-    pet: require("../../assets/Bird/druid-owl..png"),
+    pet: require("../../assets/Bird/druid-owl.png"),
     petHouse: require("../../assets/pet-home/pet-house-placeholder.png"),
   };
 
@@ -30,8 +31,8 @@ const HomeScreen = ({ navigation }) => {
       {/* The width and height for the background are nuts! this seems to be the right config of width as vw and height as %vw. needs testing on other peoples machines */}
       <ImageBackground
         style={{
-          width: "100vw",
-          height: "100vh",
+          width: width,
+          height: height,
           position: "absolute",
           resizeMode: "center",
           resizeMethod: "center",
