@@ -24,8 +24,8 @@ export default function MoodLogger({ navigation }) {
 
   console.log(user.uid);
 
-async function postMood() {
-  fetch(`${baseURL}/mood-log`, {
+async function postMood(mood) {
+  await fetch(`${baseURL}/mood-log`, {
   method: 'POST',
   headers: {
     Accept: 'application/json',
@@ -40,33 +40,33 @@ async function postMood() {
 setMood(null)
 }
 
-  function handleSuperHappy() {
+  async function handleSuperHappy() {
     setMood(5);
-    postMood();
+    await postMood(mood);
     navigation.navigate("Meditation");
   }
 
-  function handleHappy() {
+  async function handleHappy() {
     setMood(4);
-    postMood();
+    await postMood();
     navigation.navigate("Meditation");
   }
 
-  function handleOK() {
+  async function handleOK() {
     setMood(3);
-    postMood();
+    await postMood();
     navigation.navigate("Meditation");
   }
 
-  function handleSad() {
+  async function handleSad() {
     setMood(2);
-    postMood();
+    await postMood();
     navigation.navigate("Meditation");
   }
 
-  function handleSuperSad() {
+  async function handleSuperSad() {
     setMood(1);
-    postMood();
+    await postMood();
     navigation.navigate("Meditation");
   }
 
