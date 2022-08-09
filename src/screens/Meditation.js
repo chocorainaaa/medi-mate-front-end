@@ -8,8 +8,6 @@ const Meditation = ({ navigation }) => {
   const [startMeditation, setStartMeditation] = useState(false);
   const [lengthValue, setLengthValue] = useState(5);
   const [breathValue, setBreathValue] = useState(5);
-  const [holdValue, setHoldValue] = useState(5);
-  const [sliderValue, setSliderValue] = useState(15);
   const [timer, setTimer] = useState(0);
 
   function lengthChange(sliderValue) {
@@ -18,9 +16,7 @@ const Meditation = ({ navigation }) => {
   function breathChange(sliderValue) {
     setBreathValue(sliderValue);
   }
-  function holdChange(sliderValue) {
-    setHoldValue(sliderValue);
-  }
+
 
   useEffect(() => {
     if (startMeditation && timer <= 0) {
@@ -38,9 +34,7 @@ const Meditation = ({ navigation }) => {
         <ModalMed
           lengthChange={lengthChange}
           breathValue={breathValue}
-          holdValue={holdValue}
           breathChange={breathChange}
-          holdChange={holdChange}
           setStartMeditation={setStartMeditation}
           lengthValue={lengthValue}
           innerText={"Please select times"}

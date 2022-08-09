@@ -4,16 +4,18 @@ import UniSlider from "./Slider.js";
 import Bird from "../../assets/bird-static.png";
 
 const ModalMed = ({
-  holdValue,
   breathValue,
   lengthChange,
   breathChange,
-  holdChange,
   setStartMeditation,
   lengthValue,
   setLengthValue,
 }) => {
   const [modalVisible, setModalVisible] = useState(false);
+
+
+  const time = lengthValue / 60
+  const displayTime = (time + "").substring(0, 5)
 
   return (
     <View style={styles.centeredView}>
@@ -37,7 +39,7 @@ const ModalMed = ({
               <Text>0 mins</Text>
               <UniSlider
                 id={"length"}
-                label={`Total meditation time is ${lengthValue / 60} minuites`}
+                label={`Total meditation time is ${displayTime} minuites`}
                 min={0}
                 max={1800}
                 lengthValue={lengthValue}
@@ -56,21 +58,6 @@ const ModalMed = ({
                 min={0}
                 max={10}
                 onChange={breathChange}
-              // setSliderValue={setSliderValue}
-              />
-              <Text>10 secs</Text>
-            </View>
-
-            <Text style={styles.modalText}>Hold your breath length</Text>
-            <View style={styles.slider}>
-              <Text>0 secs</Text>
-              <UniSlider
-                label={`Hold your breath for ${holdValue} seconds`}
-                id={"hold"}
-                min={0}
-                max={10}
-                onChange={holdChange}
-              // setLengthValue={setLengthValue}
               />
               <Text>10 secs</Text>
             </View>
