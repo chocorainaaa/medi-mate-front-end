@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import {
   StyleSheet,
   Image,
@@ -9,18 +8,42 @@ import {
   useWindowDimensions,
   ImageBackground,
 } from "react-native";
-
-
+import React, { useState, useContext } from "react";
+import { AuthenticatedUserContext } from "../navigation/AuthenticatedUserProvider";
 
 export default function PetName({ navigation }) {
   const { height, width } = useWindowDimensions();
+  const { user } = useContext(AuthenticatedUserContext);
+
+  const url = "https://medi-mate-app.herokuapp.com/registration";
 
   const [petName, setPetName] = useState("");
 
-  function nameChoosen() {
-    console.log(petName);
-    navigation.navigate("Meditation");
+  const data = {
+    firebase_user_id: user.uid,
+    pet_name: petName,
+  };
+
+  async function postPetName() {
+    const response = fetch(url, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+      success: 200,
+    });
   }
+
+  //   function nameChoosen() {
+  //     console.log(petName);
+  //     //add async post request here
+
+  //     navigation.navigate("Home");
+
+  //     // navigation.navigate('Market', { screen: 'MarketInfo' })
+  //   }
 
   return (
     <ImageBackground
@@ -39,7 +62,7 @@ export default function PetName({ navigation }) {
           onChangeText={(text) => setPetName(text)}
           style={styles.input}
         />
-        <Pressable style={styles.setName} onPress={nameChoosen}>
+        <Pressable style={styles.setName} onPress={postPetName}>
           <Text style={styles.text}>Set Name</Text>
         </Pressable>
         <Text style={styles.text}>Please choose a name for your Medi-Mate</Text>
