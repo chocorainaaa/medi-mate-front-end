@@ -62,9 +62,6 @@ export default function LoginScreen() {
         source={images.background}
       >
 
-
-
-
         <Text
           style={styles.appname}
         >Medi-Mate</Text>
