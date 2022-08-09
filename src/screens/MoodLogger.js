@@ -18,12 +18,15 @@ const baseURL = "https://medi-mate-app.herokuapp.com";
 export default function MoodLogger({ navigation }) {
   // use this for media query type shannanigans
   const { height, width } = useWindowDimensions();
-
   // mood is a number between 1 - 5
   const [ mood, setMood ] = useState(null);
   const { user } = useContext(AuthenticatedUserContext);
 
-useEffect(() => {
+  console.log(user.uid);
+
+useEffect(() => {postMood()}, [mood]);
+
+async function postMood() {
   fetch(`${baseURL}/mood-log`, {
   method: 'POST',
   headers: {
@@ -32,10 +35,12 @@ useEffect(() => {
   },
   body: JSON.stringify({
     firebase_user_id: `${user.uid}`,
-    mood_rating: `${mood}` ,
-  })
+    mood_rating: `${mood}`,
+  }),
+  success: 200,
+})
+setMood(null)
 }
-)}, [mood]);
 
   function handleSuperHappy() {
     setMood(5);
