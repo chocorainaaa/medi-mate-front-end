@@ -9,6 +9,12 @@ import {
 } from "react-native";
 import React from "react";
 
+import {
+  horizontalScale,
+  verticalScale,
+  moderateScale
+} from "../Components/Metrics"
+
 export default function MoodLogger({ navigation }) {
   // use this for media query type shannanigans
   const { height, width } = useWindowDimensions();
@@ -115,7 +121,7 @@ export default function MoodLogger({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     display: "flex",
-    width: "90%",
+    width: "100vw",
     height: "100vh",
     alignItems: "center",
     justifyContent: "center",
