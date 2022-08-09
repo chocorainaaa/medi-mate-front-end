@@ -4,14 +4,13 @@ import ModalMed from "../Components/ModalMeditation";
 import Timer from "../Components/Timer";
 import AnimatedRing from "../Components/Ring";
 
-
 const Meditation = ({ navigation }) => {
   const [startMeditation, setStartMeditation] = useState(false);
   const [lengthValue, setLengthValue] = useState(5);
   const [breathValue, setBreathValue] = useState(5);
   const [holdValue, setHoldValue] = useState(5);
   const [sliderValue, setSliderValue] = useState(15);
-  const [timer, setTimer] = useState(0)
+  const [timer, setTimer] = useState(0);
 
   function lengthChange(sliderValue) {
     setLengthValue(sliderValue);
@@ -25,9 +24,9 @@ const Meditation = ({ navigation }) => {
 
   useEffect(() => {
     if (startMeditation && timer <= 0) {
-      navigation.navigate("Home")
+      navigation.navigate("Home");
     }
-  }, [timer])
+  }, [timer]);
 
   return (
     <ImageBackground
@@ -46,7 +45,12 @@ const Meditation = ({ navigation }) => {
           lengthValue={lengthValue}
           innerText={"Please select times"}
         ></ModalMed>
-        <Timer timer={timer} setTimer={setTimer} lengthValue={lengthValue} startMeditation={startMeditation} />
+        <Timer
+          timer={timer}
+          setTimer={setTimer}
+          lengthValue={lengthValue}
+          startMeditation={startMeditation}
+        />
       </View>
 
       <View style={styles.birdCage}>
@@ -54,7 +58,11 @@ const Meditation = ({ navigation }) => {
           style={styles.bird}
           source={require("../../assets/Bird/druid-owl.png")}
         />
-        <AnimatedRing style={styles.ring} start={startMeditation} breathValue={breathValue} />
+        <AnimatedRing
+          style={styles.ring}
+          start={startMeditation}
+          breathValue={breathValue}
+        />
       </View>
     </ImageBackground>
   );
@@ -80,5 +88,5 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-  }
+  },
 });

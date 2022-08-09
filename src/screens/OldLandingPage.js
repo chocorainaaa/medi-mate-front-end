@@ -29,12 +29,15 @@ const LandingPage = () => {
         accessibilityLabel="Login"
         text="Login"
       /> */}
-        <Image style={styles.ImageSmall} source={require("../assets/EggHatch.png")} />
+        <Image
+          style={styles.ImageSmall}
+          source={require("../assets/EggHatch.png")}
+        />
         <View>
           <Button
             title="Login"
             onPress={() => {
-              handleClick()
+              handleClick();
             }}
             accessibilityLabel="Login"
           ></Button>
@@ -49,7 +52,10 @@ const LandingPage = () => {
       </View>
       <View>
         <Text>MediMate</Text>
-        <Image style={styles.ImageLarge} source={require("../assets/EggHatch.png")} />
+        <Image
+          style={styles.ImageLarge}
+          source={require("../assets/EggHatch.png")}
+        />
         <Text>Feed your mate, feed your soul</Text>
       </View>
 
