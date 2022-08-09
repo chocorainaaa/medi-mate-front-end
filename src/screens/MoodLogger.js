@@ -7,7 +7,13 @@ import {
   useWindowDimensions,
   Pressable,
 } from "react-native";
-import React from "react";
+import React, { useEffect, useState, useContext } from "react";
+import { AuthenticatedUserContext } from "../navigation/AuthenticatedUserProvider";
+import app from "../../config/firebase";
+
+const auth = app.auth();
+
+const baseURL = "https://medi-mate-app.herokuapp.com";
 
 import {
   horizontalScale,
@@ -18,29 +24,48 @@ import {
 export default function MoodLogger({ navigation }) {
   // use this for media query type shannanigans
   const { height, width } = useWindowDimensions();
+  // mood is a number between 1 - 5
+  const { user } = useContext(AuthenticatedUserContext);
 
-  function handleSuperHappy() {
-    console.log("Super Happy");
+  console.log(user.uid);
+
+async function postMood(mood) {
+  await fetch(`${baseURL}/mood-log`, {
+  method: 'POST',
+  headers: {
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    firebase_user_id: `${user.uid}`,
+    mood_rating: `${mood}`,
+  }),
+  success: 200,
+})
+}
+
+  async function handleSuperHappy() {
+    await postMood(5);
     navigation.navigate("Meditation");
   }
 
-  function handleHappy() {
-    console.log("Happy");
+  async function handleHappy() {
+    await postMood(4);
     navigation.navigate("Meditation");
   }
 
-  function handleOK() {
-    console.log("OK");
+  async function handleOK() {
+    await postMood(3);
     navigation.navigate("Meditation");
   }
 
-  function handleSad() {
-    console.log("Sad");
+  async function handleSad() {
+    await postMood(2);
     navigation.navigate("Meditation");
   }
 
-  function handleSuperSad() {
-    console.log("Super Sad");
+  async function handleSuperSad() {
+    await postMood(1);
     navigation.navigate("Meditation");
   }
 
@@ -125,7 +150,6 @@ export default function MoodLogger({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     display: "flex",
-
     alignItems: "center",
     justifyContent: "center",
     border: "solid",
