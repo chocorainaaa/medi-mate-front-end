@@ -15,6 +15,12 @@ const auth = app.auth();
 
 const baseURL = "https://medi-mate-app.herokuapp.com";
 
+import {
+  horizontalScale,
+  verticalScale,
+  moderateScale
+} from "../Components/Metrics"
+
 export default function MoodLogger({ navigation }) {
   // use this for media query type shannanigans
   const { height, width } = useWindowDimensions();
@@ -64,7 +70,11 @@ async function postMood(mood) {
   }
 
   return (
-    <View style={styles.container}>
+    <View style={[{
+      width: width,
+      height: height
+    },
+    styles.container]}>
       <View style={styles.moods}>
         <Pressable
           style={{
@@ -140,8 +150,6 @@ async function postMood(mood) {
 const styles = StyleSheet.create({
   container: {
     display: "flex",
-    width: 500,
-    height: 800,
     alignItems: "center",
     justifyContent: "center",
     border: "solid",

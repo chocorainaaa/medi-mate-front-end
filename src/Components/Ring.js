@@ -11,18 +11,9 @@ import Animated, {
 
 /// creating the animation
 const Ring = ({ delay, start, breathValue }) => {
+
     const isMounted = useRef(false);
     const ring = useSharedValue(0);
-    const style = useAnimatedStyle(() => {
-        return {
-            opacity: 1 - ring.value,
-            transform: [
-                {
-                    scale: interpolate(ring.value, [0, 1], [0, 4]),
-                },
-            ],
-        };
-    });
 
     useEffect(() => {
         if (isMounted.current) {
@@ -40,6 +31,19 @@ const Ring = ({ delay, start, breathValue }) => {
             isMounted.current = true;
         }
     }, [start]);
+
+    const style = useAnimatedStyle(() => {
+        return {
+            opacity: 1 - ring.value,
+            transform: [
+                {
+                    scale: interpolate(ring.value, [0, 1], [0, 4]),
+                },
+            ],
+        };
+    });
+
+
 
 
     return (
