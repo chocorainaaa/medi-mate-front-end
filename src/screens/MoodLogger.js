@@ -45,7 +45,11 @@ export default function MoodLogger({ navigation }) {
   }
 
   return (
-    <View style={styles.container}>
+    <View style={[{
+      width: width,
+      height: height
+    },
+    styles.container]}>
       <View style={styles.moods}>
         <Pressable
           style={{
@@ -121,8 +125,7 @@ export default function MoodLogger({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     display: "flex",
-    width: "100vw",
-    height: "100vh",
+
     alignItems: "center",
     justifyContent: "center",
     border: "solid",
