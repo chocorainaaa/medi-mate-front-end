@@ -27,8 +27,6 @@ export default function MoodLogger({ navigation }) {
   // mood is a number between 1 - 5
   const { user } = useContext(AuthenticatedUserContext);
 
-  console.log(user.uid);
-
 async function postMood(mood) {
 
   await fetch(`${baseURL}/mood-log`, {
@@ -87,7 +85,7 @@ async function postMood(mood) {
     },
     styles.container]}>
     <Text style={styles.moodText}>How are you feeling today?</Text>
-        <Pressable
+        <Pressable style={styles.moodPressable}
           onPress={handleSuperHappy}
         >
           <Image
@@ -96,7 +94,7 @@ async function postMood(mood) {
           />
           <Text style={styles.moodText}>Super Happy</Text>
         </Pressable>
-        <Pressable
+        <Pressable style={styles.moodPressable}
           onPress={handleHappy}
         >
           <Image
@@ -105,7 +103,7 @@ async function postMood(mood) {
           />
           <Text style={styles.moodText}>Happy</Text>
         </Pressable>
-        <Pressable
+        <Pressable style={styles.moodPressable}
           onPress={handleOK}
         >
           <Image
@@ -114,7 +112,7 @@ async function postMood(mood) {
           />
           <Text style={styles.moodText}>OK</Text>
         </Pressable>
-        <Pressable
+        <Pressable style={styles.moodPressable}
           onPress={handleSad}
         >
           <Image
@@ -123,7 +121,7 @@ async function postMood(mood) {
           />
           <Text style={styles.moodText}>Sad</Text>
         </Pressable>
-        <Pressable
+        <Pressable style={styles.moodPressable}
           onPress={handleSuperSad}
         >
           <Image
@@ -172,4 +170,10 @@ const styles = StyleSheet.create({
     marginTop: verticalScale(15),
     alignSelf: "center",
   },
+  moodPressable: {
+    height: verticalScale(60),
+    width: horizontalScale(50),
+    marginTop: verticalScale(15),
+    alignSelf: "center",
+  }
 });
