@@ -4,7 +4,7 @@ import React from "react";
 const UniButton = ({ onPress, title }) => {
   return (
     <View style={styles.parent}>
-      <Button style={styles.Button} onPress={onPress} title={title} ></Button>
+      <Button accessibilityLabel="Tap me!" style={styles.Button} onPress={onPress} title={title} ></Button>
     </View>
   );
 };
