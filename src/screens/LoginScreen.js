@@ -37,9 +37,6 @@ export default function LoginScreen() {
 
   async function postFirebaseId(firebaseId) {
     console.log(firebaseId);
-    if (firebaseId === "") {
-      throw new Error("firebase_id must be a string");
-    }
     const data = {
       firebase_user_id: firebaseId,
       username: "test",
@@ -60,11 +57,36 @@ export default function LoginScreen() {
     await auth
       .createUserWithEmailAndPassword(email, password)
       .then((userCredentials) => {
-        const user = userCredentials.user;
-        // postFirebaseId(user.uid);
+        const firebaseId = userCredentials.user.uid;
+        console.log(firebaseId);
+        postFirebaseId(firebaseId);
       })
       .catch((error) => alert(error.message));
   }
+
+  // async function HandleSignUp() {
+  //   const firebaseId = sendFirebaseAuth();
+  //   await postFirebaseId(firebaseId);
+  // }
+  // async function sendFirebaseAuth() {
+  //   await auth
+  //     .createUserWithEmailAndPassword(email, password)
+  //     .then((userCredentials) => {
+  //       const fbId = userCredentials.user.uid;
+  //       console.log(fbId);
+
+  //       return fbId;
+  //       // setfirebaseId(userCredentials.user.uid);
+  //       // console.log(firebaseId);
+  //     })
+  //     .catch((error) => alert(error.message));
+  // }
+
+  // async function setUserCredentials(uid) {
+  //   setfirebaseId(uid);
+  // }
+
+  ///////////////////////////////////////////////////////////////////
 
   async function HandleLogin() {
     await auth
