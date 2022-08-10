@@ -10,14 +10,14 @@ import {
   ImageBackground,
   Image,
   Button,
-  Linking
+  Linking,
 } from "react-native";
 
 import {
   horizontalScale,
   verticalScale,
-  moderateScale
-} from "../Components/Metrics"
+  moderateScale,
+} from "../Components/Metrics";
 
 import app from "../../config/firebase";
 
@@ -26,6 +26,8 @@ const auth = app.auth();
 export default function LoginScreen() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  // const [firebaseId, setfirebaseId] = useState("");
+  const url = "https://medi-mate-app.herokuapp.com/registration";
 
   const images = {
     background: require("../../assets/background/forest-background_200_640x640.png"),
@@ -33,15 +35,58 @@ export default function LoginScreen() {
     egg: require("../../assets/Egg/EggHatch.gif"),
   };
 
+  async function postFirebaseId(firebaseId) {
+    console.log(firebaseId);
+    const data = {
+      firebase_user_id: firebaseId,
+      username: "test",
+    };
+    const response = fetch(url, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+      success: 200,
+    });
+    return response;
+  }
+
   async function HandleSignUp() {
     await auth
       .createUserWithEmailAndPassword(email, password)
       .then((userCredentials) => {
-        const user = userCredentials.user;
-        console.log(user.email);
+        const firebaseId = userCredentials.user.uid;
+        console.log(firebaseId);
+        postFirebaseId(firebaseId);
       })
       .catch((error) => alert(error.message));
   }
+
+  // async function HandleSignUp() {
+  //   const firebaseId = sendFirebaseAuth();
+  //   await postFirebaseId(firebaseId);
+  // }
+  // async function sendFirebaseAuth() {
+  //   await auth
+  //     .createUserWithEmailAndPassword(email, password)
+  //     .then((userCredentials) => {
+  //       const fbId = userCredentials.user.uid;
+  //       console.log(fbId);
+
+  //       return fbId;
+  //       // setfirebaseId(userCredentials.user.uid);
+  //       // console.log(firebaseId);
+  //     })
+  //     .catch((error) => alert(error.message));
+  // }
+
+  // async function setUserCredentials(uid) {
+  //   setfirebaseId(uid);
+  // }
+
+  ///////////////////////////////////////////////////////////////////
 
   async function HandleLogin() {
     await auth
@@ -54,22 +99,11 @@ export default function LoginScreen() {
   }
 
   return (
-
     <KeyboardAvoidingView style={styles.container} behaviour="padding">
+      <ImageBackground style={styles.background} source={images.background}>
+        <Text style={styles.appname}>Medi-Mate</Text>
 
-      <ImageBackground
-        style={styles.background}
-        source={images.background}
-      >
-
-        <Text
-          style={styles.appname}
-        >Medi-Mate</Text>
-
-        <Text
-          style={styles.tagline}
-        >Feed your mate, feed your soul!</Text>
-
+        <Text style={styles.tagline}>Feed your mate, feed your soul!</Text>
 
         <View style={styles.inputContainer}>
           <TextInput
@@ -88,43 +122,35 @@ export default function LoginScreen() {
           />
         </View>
 
-
         <View style={styles.buttonContainer}>
           <TouchableOpacity onPress={HandleLogin} style={styles.button}>
-            <Text style={styles.buttonText}
-            >Login</Text>
+            <Text style={styles.buttonText}>Login</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
             onPress={HandleSignUp}
-            style={[styles.button, styles.buttonOutline]}>
-            <Text style={styles.buttonOutlineText}
-            >Register</Text>
+            style={[styles.button, styles.buttonOutline]}
+          >
+            <Text style={styles.buttonOutlineText}>Register</Text>
           </TouchableOpacity>
         </View>
 
-        <Image
-          resizeMode="contain"
-          style={styles.egg}
-          source={images.egg}
-        />
+        <Image resizeMode="contain" style={styles.egg} source={images.egg} />
         <View style={styles.contact}>
-          <Button onPress={() => Linking.openURL('mailto:support@example.com')}
-            title="Contact Medi-Mate" />
+          <Button
+            onPress={() => Linking.openURL("mailto:support@example.com")}
+            title="Contact Medi-Mate"
+          />
         </View>
-
       </ImageBackground>
-
     </KeyboardAvoidingView>
-
-
   );
 }
 
 const styles = StyleSheet.create({
   background: {
-    width: "100vw",
-    height: "100vh",
+    // width: "100",
+    // height: "100",
     position: "absolute",
     resizeMode: "center",
     resizeMethod: "center",
@@ -154,7 +180,7 @@ const styles = StyleSheet.create({
   inputContainer: {
     width: "80%",
     paddingTop: verticalScale(100),
-    paddingBottom: 10
+    paddingBottom: 10,
   },
   input: {
     backgroundColor: "white",
@@ -209,6 +235,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   contact: {
-    paddingBottom: verticalScale(-500)
-  }
+    paddingBottom: verticalScale(-500),
+  },
 });

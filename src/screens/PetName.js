@@ -15,7 +15,7 @@ export default function PetName({ navigation }) {
   const { height, width } = useWindowDimensions();
   const { user } = useContext(AuthenticatedUserContext);
 
-  const url = "https://medi-mate-app.herokuapp.com/registration";
+  const url = "https://medi-mate-app.herokuapp.com/register-pet";
 
   const [petName, setPetName] = useState("");
 
@@ -34,6 +34,7 @@ export default function PetName({ navigation }) {
       body: JSON.stringify(data),
       success: 200,
     });
+    return response;
   }
 
   //   function nameChoosen() {
