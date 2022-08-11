@@ -108,6 +108,12 @@ desktopFontSize = 40
       .catch((error) => alert(error.message));
   }
 
+  /* Egg Ratio */
+  // screen width divided by egg width
+  const ratio = 300 / 200;
+  
+  // ====================
+
   return (
     <KeyboardAvoidingView style={styles.container} behaviour="padding">
       <ImageBackground
@@ -116,8 +122,17 @@ desktopFontSize = 40
       >
         <View style={styles.header}>
           <Text style={styles.appname}>Medi-Mate</Text>
-          <Text style={styles.tagline}>Feed your mate, feed your soul!</Text>
-          <Image style={styles.egg} source={images.egg} />
+          <Text style={[styles.tagline, styles.headerMargin]}>
+            Feed your mate, feed your soul!
+          </Text>
+          <Image
+            style={[
+              styles.egg,
+              { width: 120, height: 80 * ratio },
+              styles.headerMargin,
+            ]}
+            source={images.egg}
+          />
         </View>
 
         {/*         <View style={{flex: 1}}>
@@ -180,13 +195,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   background: {
-    // width: "100",
-    // height: "100",
-    // position: "relative",
     resizeMode: "center",
-    // resizeMethod: "center",
     flex: 1,
-    // justifyContent: "center",
     alignItems: "center",
     zIndex: -1,
   },
@@ -223,15 +233,14 @@ const styles = StyleSheet.create({
     fontFamily: "VT323_400Regular",
   },
   contact: {
-    display: 'flex',
-    // paddingBottom: verticalScale(-500),
+    display: "flex",
     fontWeight: "bold",
     fontFamily: "VT323_400Regular",
     fontSize: 16,
     backgroundColor: "#0782F9",
     padding: moderateScale(10),
     borderRadius: 10,
-    justifyContent: 'center',
+    justifyContent: "center",
     alignItems: "center",
   },
   container: {
@@ -242,39 +251,32 @@ const styles = StyleSheet.create({
   description: {
     color: "white",
     fontWeight: "bold",
-    fontSize: moderateScale(20),
+    fontSize: moderateScale(15),
     fontFamily: "VT323_400Regular",
     justifyContent: "center",
   },
   egg: {
-    width: horizontalScale(90),
-    height: verticalScale(10),
-    // position: "absolute",
-    resizeMode: "center",
-    // marginTop: verticalScale(650),
-    // marginLeft: horizontalScale(25),
-    flex: 1,
+    borderColor: "red",
+    borderWidth: 5,
+    paddingTop: 50,
+    resizeMode: "cover",
     justifyContent: "center",
     alignItems: "center",
     zIndex: 1,
-    // borderWidth: 5,
-    // borderColor: "purple",
-    // marginTop: verticalScale(20),
   },
   header: {
-    // position: "absolute",
-    // top: 30,
     display: "flex",
     alignItems: "center",
-    justifyContent: 'flex-start',
-    borderColor: 'red',
+    justifyContent: "flex-start",
+    borderColor: "red",
     borderWidth: 5,
-    // gap: moderateScale(20), didn't work
+  },
+  headerMargin: {
+    marginTop: 30,
   },
   inputContainer: {
     width: 250,
-    marginBottom: verticalScale(20),
-    marginTop: verticalScale(150),
+    margin: moderateScale(20)
   },
   input: {
     backgroundColor: "white",
@@ -289,5 +291,6 @@ const styles = StyleSheet.create({
     fontSize: moderateScale(20),
     fontFamily: "VT323_400Regular",
     justifyContent: "center",
+    paddingBottom: 10,
   },
 });
