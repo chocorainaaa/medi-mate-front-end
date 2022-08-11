@@ -121,7 +121,7 @@ desktopFontSize = 40
   let descriptionFontSize = moderateScale(20);
 
   if (PixelRatio.get() <= 2) {
-    descriptionFontSize = moderateScale(15)
+    descriptionFontSize = moderateScale(15);
   }
 
   // ====================
@@ -198,9 +198,9 @@ desktopFontSize = 40
             { width: descriptionWidth },
           ]}
         >
-          Your mate will help you meditate! Pick your medi-mate, give them a name and
-          help them stay healthy while you meditate. Navigate around the app
-          using the menu in the pet house
+          Your mate will help you meditate! Pick your medi-mate, give them a
+          name and help them stay healthy while you meditate. Navigate around
+          the app using the menu in the pet house
         </Text>
         <View>
           <Pressable
@@ -307,7 +307,7 @@ const styles = StyleSheet.create({
   },
   inputContainer: {
     // width: 250,
-    margin: moderateScale(20)
+    margin: moderateScale(20),
   },
   input: {
     backgroundColor: "white",
