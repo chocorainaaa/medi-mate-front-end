@@ -112,10 +112,19 @@ desktopFontSize = 40
 
   return (
     <KeyboardAvoidingView style={styles.container} behaviour="padding">
-      <ImageBackground style={[styles.background, {height: height, width: width}]} source={images.background}>
-        <Text style={styles.appname}>Medi-Mate</Text>
+      <ImageBackground
+        style={[styles.background, { height: height, width: width }]}
+        source={images.background}
+      >
+        <View style={styles.header}>
+          <Text style={styles.appname}>Medi-Mate</Text>
+          <Text style={styles.tagline}>Feed your mate, feed your soul!</Text>
+          <Image style={styles.egg} source={images.egg} />
+        </View>
 
-        <Text style={styles.tagline}>Feed your mate, feed your soul!</Text>
+        {/*         <View style={{flex: 1}}>
+          <Image style={styles.egg} source={images.egg} />
+        </View> */}
 
         <View style={styles.inputContainer}>
           <TextInput
@@ -147,10 +156,9 @@ desktopFontSize = 40
           </TouchableOpacity>
         </View>
 
-        <Image style={styles.egg} source={images.egg} />
-      
         <View>
-          <Pressable style={styles.contact}
+          <Pressable
+            style={styles.contact}
             onPress={() => Linking.openURL("mailto:support@example.com")}
           >
             <Text style={styles.buttonText}>Contact Medi-Mate</Text>
@@ -162,10 +170,17 @@ desktopFontSize = 40
 }
 
 const styles = StyleSheet.create({
+  appname: {
+    color: "white",
+    fontWeight: moderateScale(700),
+    fontSize: moderateScale(50),
+    fontFamily: "VT323_400Regular",
+    justifyContent: "center",
+  },
   background: {
     width: "100",
     height: "100",
-    position: "absolute",
+    position: "relative",
     resizeMode: "center",
     resizeMethod: "center",
     flex: 1,
@@ -173,37 +188,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
     zIndex: -1,
   },
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  egg: {
-    width: horizontalScale(90),
-    height: verticalScale(100),
-    position: "absolute",
-    resizeMode: "center",
-    resizeMethod: "center",
-    marginTop: verticalScale(650),
-    marginLeft: horizontalScale(25),
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    zIndex: 1,
-    borderWidth: 5,
-    borderColor: "purple",
-  },
-  inputContainer: {
-    width: 250,
-    marginBottom: verticalScale(20),
-    marginTop:verticalScale(20),
-  },
-  input: {
-    backgroundColor: "white",
-    paddingHorizontal: 15,
-    paddingVertical: 10,
+  button: {
+    backgroundColor: "#0782F9",
+    width: 80,
+    padding: 15,
     borderRadius: 10,
-    marginTop: 5,
+    alignItems: "center",
   },
   buttonContainer: {
     justifyContent: "center",
@@ -213,21 +203,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     gap: 20,
   },
-  button: {
-    backgroundColor: "#0782F9",
-    width: 80,
-    padding: 15,
-    borderRadius: 10,
-    alignItems: "center",
-  },
   buttonOutline: {
     backgroundColor: "white",
-  },
-  buttonText: {
-    color: "white",
-    fontWeight: "700",
-    fontSize: 16,
-    fontFamily: "VT323_400Regular",
   },
   buttonOutlineText: {
     color: "#0782F9",
@@ -235,19 +212,11 @@ const styles = StyleSheet.create({
     fontFamily: "VT323_400Regular",
     fontSize: 16,
   },
-  tagline: {
+  buttonText: {
     color: "white",
     fontWeight: "700",
-    fontSize: moderateScale(20),
+    fontSize: 16,
     fontFamily: "VT323_400Regular",
-    justifyContent: "center",
-  },
-  appname: {
-    color: "white",
-    fontWeight: moderateScale(700),
-    fontSize: moderateScale(50),
-    fontFamily: "VT323_400Regular",
-    justifyContent: "center",
   },
   contact: {
     paddingBottom: verticalScale(-500),
@@ -258,5 +227,51 @@ const styles = StyleSheet.create({
     padding: 15,
     borderRadius: 10,
     alignItems: "center",
+  },
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  egg: {
+    width: horizontalScale(90),
+    height: verticalScale(100),
+    // position: "absolute",
+    resizeMode: "center",
+    resizeMethod: "center",
+    // marginTop: verticalScale(650),
+    // marginLeft: horizontalScale(25),
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    zIndex: 1,
+    borderWidth: 5,
+    borderColor: "purple",
+  },
+  header: {
+    position: "absolute",
+    top: 30,
+    display: 'flex',
+    alignItems: 'center',
+    gap: 20,
+  },
+  inputContainer: {
+    width: 250,
+    marginBottom: verticalScale(20),
+    marginTop: verticalScale(150),
+  },
+  input: {
+    backgroundColor: "white",
+    paddingHorizontal: 15,
+    paddingVertical: 10,
+    borderRadius: 10,
+    marginTop: 5,
+  },
+  tagline: {
+    color: "white",
+    fontWeight: "700",
+    fontSize: moderateScale(20),
+    fontFamily: "VT323_400Regular",
+    justifyContent: "center",
   },
 });
