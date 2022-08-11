@@ -172,7 +172,7 @@ desktopFontSize = 40
 const styles = StyleSheet.create({
   appname: {
     color: "white",
-    fontWeight: moderateScale(700),
+    fontWeight: "bold",
     fontSize: moderateScale(50),
     fontFamily: "VT323_400Regular",
     justifyContent: "center",
@@ -208,19 +208,19 @@ const styles = StyleSheet.create({
   },
   buttonOutlineText: {
     color: "#0782F9",
-    fontWeight: "700",
+    fontWeight: "bold",
     fontFamily: "VT323_400Regular",
     fontSize: 16,
   },
   buttonText: {
     color: "white",
-    fontWeight: "700",
+    fontWeight: "bold",
     fontSize: 16,
     fontFamily: "VT323_400Regular",
   },
   contact: {
     paddingBottom: verticalScale(-500),
-    fontWeight: "700",
+    fontWeight: "bold",
     fontFamily: "VT323_400Regular",
     fontSize: 16,
     backgroundColor: "#0782F9",
@@ -269,7 +269,7 @@ const styles = StyleSheet.create({
   },
   tagline: {
     color: "white",
-    fontWeight: "700",
+    fontWeight: "bold",
     fontSize: moderateScale(20),
     fontFamily: "VT323_400Regular",
     justifyContent: "center",
