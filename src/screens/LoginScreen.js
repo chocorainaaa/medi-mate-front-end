@@ -9,7 +9,7 @@ import {
   View,
   ImageBackground,
   Image,
-  Button,
+  Pressable,
   Linking,
   useWindowDimensions,
 } from "react-native";
@@ -139,11 +139,12 @@ export default function LoginScreen() {
 
         <Image style={styles.egg} source={images.egg} />
       
-        <View style={styles.contact}>
-          <Button
+        <View>
+          <Pressable style={styles.contact}
             onPress={() => Linking.openURL("mailto:support@example.com")}
-            title="Contact Medi-Mate"
-          />
+          >
+            <Text style={styles.buttonText}>Contact Medi-Mate</Text>
+          </Pressable>
         </View>
       </ImageBackground>
     </KeyboardAvoidingView>
@@ -183,13 +184,9 @@ const styles = StyleSheet.create({
     borderColor: "purple",
   },
   inputContainer: {
-    width: "80%",
-    // paddingTop: verticalScale(100),
-    // paddingBottom: 10,
+    width: 250,
     marginBottom: verticalScale(20),
     marginTop:verticalScale(20),
-    borderWidth: 5,
-    borderColor: "purple",
   },
   input: {
     backgroundColor: "white",
@@ -244,5 +241,12 @@ const styles = StyleSheet.create({
   },
   contact: {
     paddingBottom: verticalScale(-500),
+    fontWeight: "700",
+    fontFamily: "VT323_400Regular",
+    fontSize: 16,
+    backgroundColor: "#0782F9",
+    padding: 15,
+    borderRadius: 10,
+    alignItems: "center",
   },
 });
