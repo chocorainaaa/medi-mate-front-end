@@ -26,7 +26,6 @@ const auth = app.auth();
 export default function LoginScreen() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const [firebaseId, setfirebaseId] = useState("");
   const url = "https://medi-mate-app.herokuapp.com/registration";
 
   const images = {
@@ -34,6 +33,7 @@ export default function LoginScreen() {
     textbox: require("../../assets/text-boxes/Text-box-large.png"),
     egg: require("../../assets/Egg/EggHatch.gif"),
   };
+
 
   async function postFirebaseId(firebaseId) {
     console.log(firebaseId);
@@ -64,29 +64,6 @@ export default function LoginScreen() {
       .catch((error) => alert(error.message));
   }
 
-  // async function HandleSignUp() {
-  //   const firebaseId = sendFirebaseAuth();
-  //   await postFirebaseId(firebaseId);
-  // }
-  // async function sendFirebaseAuth() {
-  //   await auth
-  //     .createUserWithEmailAndPassword(email, password)
-  //     .then((userCredentials) => {
-  //       const fbId = userCredentials.user.uid;
-  //       console.log(fbId);
-
-  //       return fbId;
-  //       // setfirebaseId(userCredentials.user.uid);
-  //       // console.log(firebaseId);
-  //     })
-  //     .catch((error) => alert(error.message));
-  // }
-
-  // async function setUserCredentials(uid) {
-  //   setfirebaseId(uid);
-  // }
-
-  ///////////////////////////////////////////////////////////////////
 
   async function HandleLogin() {
     await auth
@@ -101,8 +78,8 @@ export default function LoginScreen() {
   return (
     <KeyboardAvoidingView style={styles.container} behaviour="padding">
       <ImageBackground style={styles.background} source={images.background}>
-        <Text style={styles.appname}>Medi-Mate</Text>
 
+        <Text style={styles.appname}>Medi-Mate</Text>
         <Text style={styles.tagline}>Feed your mate, feed your soul!</Text>
 
         <View style={styles.inputContainer}>
@@ -112,7 +89,6 @@ export default function LoginScreen() {
             onChangeText={(text) => setEmail(text)}
             style={styles.input}
           />
-
           <TextInput
             placeholder="Password"
             value={password}
@@ -122,18 +98,21 @@ export default function LoginScreen() {
           />
         </View>
 
+
         <View style={styles.buttonContainer}>
+
           <TouchableOpacity onPress={HandleLogin} style={styles.button}>
             <Text style={styles.buttonText}>Login</Text>
           </TouchableOpacity>
 
+
           <TouchableOpacity
             onPress={HandleSignUp}
-            style={[styles.button, styles.buttonOutline]}
-          >
+            style={[styles.button, styles.buttonOutline]}>
             <Text style={styles.buttonOutlineText}>Register</Text>
           </TouchableOpacity>
         </View>
+
 
         <Image resizeMode="contain" style={styles.egg} source={images.egg} />
         <View style={styles.contact}>
@@ -149,8 +128,6 @@ export default function LoginScreen() {
 
 const styles = StyleSheet.create({
   background: {
-    // width: "100",
-    // height: "100",
     position: "absolute",
     resizeMode: "center",
     resizeMethod: "center",

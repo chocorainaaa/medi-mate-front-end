@@ -72,7 +72,7 @@ const PetHouseModal = ({ navigation, image, petHouseStyle }) => {
                   <Pressable
                     style={[styles.button, styles.buttonClose]}
                     onPress={() => {
-                      navigation.navigate("Meditation");
+                      navigation.navigate("MoodLogger");
                       setModalVisible(!modalVisible);
                     }}
                   >
@@ -89,18 +89,6 @@ const PetHouseModal = ({ navigation, image, petHouseStyle }) => {
                     }}
                   >
                     <Text style={styles.textStyle}>Stats</Text>
-                  </Pressable>
-                </View>
-
-                <View style={styles.buttonSpace}>
-                  <Pressable
-                    style={[styles.button, styles.buttonClose]}
-                    onPress={() => {
-                      navigation.navigate("MoodLogger");
-                      setModalVisible(!modalVisible);
-                    }}
-                  >
-                    <Text style={styles.textStyle}>Mood Logger</Text>
                   </Pressable>
                 </View>
 

@@ -17,7 +17,6 @@ const Meditation = ({ navigation }) => {
     setBreathValue(sliderValue);
   }
 
-
   useEffect(() => {
     if (startMeditation && timer <= 0) {
       navigation.navigate("Home");
@@ -64,7 +63,6 @@ const Meditation = ({ navigation }) => {
 
 export default Meditation;
 
-// get a bigger image desktop size (then on mobile it will be small)
 
 const styles = StyleSheet.create({
   backgroundImage: {

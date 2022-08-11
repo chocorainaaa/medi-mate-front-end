@@ -3,18 +3,14 @@ import { StyleSheet, Text } from 'react-native';
 
 
 function Timer({ lengthValue, startMeditation, timer, setTimer }) {
-
+  let minutes = Math.floor(timer / 60);
+  let seconds = timer % 60;
 
   useEffect(() => {
     if (startMeditation) {
       setTimer(lengthValue)
     }
   }, [startMeditation])
-
-
-  // const breakTime = 6;
-  let minutes = Math.floor(timer / 60);
-  let seconds = timer % 60;
 
   useEffect(() => {
     const innerValue = timer - 1;

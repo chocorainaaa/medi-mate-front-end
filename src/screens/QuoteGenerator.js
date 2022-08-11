@@ -19,18 +19,6 @@ const QuoteGenerator = () => {
     getapi(api_url);
   }, []);
 
-  /* fetch(`${baseURL}/mood-log`, {
-  method: 'POST',
-  headers: {
-    Accept: 'application/json',
-    'Content-Type': 'application/json',
-    
-  },
-  body: JSON.stringify({
-    firebase_user_id: `${user.uid}`,
-    mood_rating: `${mood}`,
-  }), */
-
   const images = {
     background: require("../../assets/background/forest-background_200_640x640.png"),
     pet: require("../../assets/Bird/bird-1.png.png"),

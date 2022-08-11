@@ -55,12 +55,6 @@ const Stats = () => {
       .then((json) => setData(json.payload))
       .catch((error) => console.error(error));
   }, []);
-  // console.log(data.mood_data.average_mood)
-  // console.log(data.mood_data.average_mood)
-
-  function petImageSize() {
-    return Math.floor(width / 1);
-  }
 
   const images = {
     background: require("../../assets/background/forest-background_200_640x640.png"),
@@ -80,19 +74,7 @@ const Stats = () => {
         }}
         source={images.background}
       >
-        {/* <View>
-          <Image
-            resizeMode="contain"
-            style={{
-              width: petImageSize(),
-              height: petImageSize(),
-              top: height / 2.3, //778 / 300 = 2.59
-              marginLeft: width / 30,
-              position: "relative",
-            }}
-            source={images.pet}
-          />
-        </View> */}
+
 
         <View style={styles.container}>
           <View style={styles.textView}>
@@ -106,6 +88,8 @@ const Stats = () => {
             <ImageBackground />
           </View>
         </View>
+
+
         <View style={styles.container}>
           <View style={styles.textView}>
             <ImageBackground
@@ -118,6 +102,8 @@ const Stats = () => {
             <ImageBackground />
           </View>
         </View>
+
+
         <View style={styles.container}>
           <View style={styles.textView}>
             <ImageBackground
@@ -130,6 +116,8 @@ const Stats = () => {
             <ImageBackground />
           </View>
         </View>
+
+
         <View style={styles.container}>
           <View style={styles.textView}>
             <ImageBackground
@@ -142,6 +130,8 @@ const Stats = () => {
             <ImageBackground />
           </View>
         </View>
+
+
         <View style={styles.container}>
           <View style={styles.textView}>
             <ImageBackground
@@ -152,6 +142,8 @@ const Stats = () => {
             <ImageBackground />
           </View>
         </View>
+
+
         <View style={styles.container}>
           <View style={styles.textView}>
             <ImageBackground
@@ -164,6 +156,8 @@ const Stats = () => {
             <ImageBackground />
           </View>
         </View>
+
+
       </ImageBackground>
     </View>
   );

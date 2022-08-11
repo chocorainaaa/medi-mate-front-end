@@ -37,15 +37,6 @@ export default function PetName({ navigation }) {
     return response;
   }
 
-  //   function nameChoosen() {
-  //     console.log(petName);
-  //     //add async post request here
-
-  //     navigation.navigate("Home");
-
-  //     // navigation.navigate('Market', { screen: 'MarketInfo' })
-  //   }
-
   return (
     <ImageBackground
       style={styles.backgroundImage}

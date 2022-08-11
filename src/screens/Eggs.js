@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, Image, Button, useWindowDimensions, Pressable } from 'react-native'
 import React from 'react'
 
-export default function Eggs({navigation}) {
+export default function Eggs({ navigation }) {
 
     // use this for media query type shannanigans
     const { height, width } = useWindowDimensions()
@@ -61,10 +61,4 @@ const styles = StyleSheet.create({
         width: 100,
         resizeMode: 'contain'
     },
-    // egg2: {
-    //     backgroundImage: url("../../assets/Egg/Egg.png")
-    // },
-    // egg2: {
-    //     backgroundImage: url("../../assets/Egg/Egg.png")
-    // },
 })

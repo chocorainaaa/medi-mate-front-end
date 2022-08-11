@@ -51,7 +51,6 @@ const Ring = ({ delay, start, breathValue }) => {
     )
 };
 
-// creating the jsx return function
 
 export default function AnimatedRing({ breathValue, start }) {
     return (
@@ -59,7 +58,6 @@ export default function AnimatedRing({ breathValue, start }) {
             <Ring delay={0} breathValue={breathValue} start={start} />
             <Ring delay={800} breathValue={breathValue} start={start} />
             <Ring delay={1600} breathValue={breathValue} start={start} />
-            {/* <Ring delay={3000} breathValue={breathValue} start={start} /> */}
         </View>
     );
 }

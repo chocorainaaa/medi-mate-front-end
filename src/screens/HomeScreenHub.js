@@ -28,7 +28,7 @@ const HomeScreen = ({ navigation }) => {
         flex: 1,
       }}
     >
-      {/* The width and height for the background are nuts! this seems to be the right config of width as vw and height as %vw. needs testing on other peoples machines */}
+
       <ImageBackground
         style={{
           width: width,
@@ -39,7 +39,7 @@ const HomeScreen = ({ navigation }) => {
         }}
         source={images.background}
       >
-        {/* The clickable area for the modal is way to big! I moved the modal above the pet image to here and it solved a lot of the image problems */}
+
         <PetHouseModal
           image={images.petHouse}
           navigation={navigation}

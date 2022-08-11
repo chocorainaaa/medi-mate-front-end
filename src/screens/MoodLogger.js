@@ -1,3 +1,4 @@
+import React, { useContext } from "react";
 import {
   StyleSheet,
   Text,
@@ -7,19 +8,15 @@ import {
   Pressable,
   ImageBackground,
 } from "react-native";
-import React, { useEffect, useState, useContext } from "react";
-import { AuthenticatedUserContext } from "../navigation/AuthenticatedUserProvider";
-import app from "../../config/firebase";
-
-const auth = app.auth();
-
-const baseURL = "https://medi-mate-app.herokuapp.com";
-
 import {
   horizontalScale,
   verticalScale,
   moderateScale
 } from "../Components/Metrics"
+import { AuthenticatedUserContext } from "../navigation/AuthenticatedUserProvider";
+
+const baseURL = "https://medi-mate-app.herokuapp.com";
+
 
 export default function MoodLogger({ navigation }) {
   // use this for media query type shannanigans
@@ -27,21 +24,21 @@ export default function MoodLogger({ navigation }) {
   // mood is a number between 1 - 5
   const { user } = useContext(AuthenticatedUserContext);
 
-async function postMood(mood) {
+  async function postMood(mood) {
 
-  await fetch(`${baseURL}/mood-log`, {
-  method: 'POST',
-  headers: {
-    Accept: 'application/json',
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify({
-    firebase_user_id: `${user.uid}`,
-    mood_rating: `${mood}`,
-  }),
-  success: 200,
-})
-}
+    await fetch(`${baseURL}/mood-log`, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        firebase_user_id: `${user.uid}`,
+        mood_rating: `${mood}`,
+      }),
+      success: 200,
+    })
+  }
 
   async function handleSuperHappy() {
     await postMood(5);
@@ -74,17 +71,18 @@ async function postMood(mood) {
 
   return (
     <ImageBackground
-        style={[styles.background,{
-          width: width,
-          height: height,}]}
-        source={images.background}
-      >
-    <View style={[{
-      width: width,
-      height: height
-    },
-    styles.container]}>
-    <Text style={styles.moodText}>How are you feeling today?</Text>
+      style={[styles.background, {
+        width: width,
+        height: height,
+      }]}
+      source={images.background}
+    >
+      <View style={[{
+        width: width,
+        height: height
+      },
+      styles.container]}>
+        <Text style={styles.moodText}>How are you feeling today?</Text>
         <Pressable style={styles.moodPressable}
           onPress={handleSuperHappy}
         >
@@ -130,16 +128,16 @@ async function postMood(mood) {
           />
           <Text style={styles.moodText}>Super Sad</Text>
         </Pressable>
-    </View>
+      </View>
     </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
   background: {
-          position: "absolute",
-          resizeMode: "center",
-          resizeMethod: "center",
+    position: "absolute",
+    resizeMode: "center",
+    resizeMethod: "center",
     zIndex: -1,
   },
   container: {
