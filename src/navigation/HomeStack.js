@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "../screens/HomeScreenHub";
 import Meditation from "../screens/Meditation";
 import MoodLogger from "../screens/MoodLogger";
 import QuoteGenerator from "../screens/QuoteGenerator";
-
+import PetName from "../screens/PetName";
 import Stats from "../screens/stats";
+
 const Stack = createStackNavigator();
 
 export default function HomeStack() {
