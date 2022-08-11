@@ -90,15 +90,13 @@ export default function LoginScreen() {
 
   ///////////////////////////////////////////////////////////////////
 
-/* 
+  /* 
 phoneFontSize = 20
 desktopFontSize = 40
 
 
 
 */
-
-
 
   async function HandleLogin() {
     await auth
@@ -156,6 +154,11 @@ desktopFontSize = 40
           </TouchableOpacity>
         </View>
 
+        <Text style={styles.description}>
+          "Your mate will help you meditate! Pick your pet, give them a name and
+          help them stay healthy while you meditate. Navigate around the app
+          using the menu in the pet house"
+        </Text>
         <View>
           <Pressable
             style={styles.contact}
@@ -233,12 +236,18 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+  description: {
+    color: "white",
+    fontWeight: "bold",
+    fontSize: moderateScale(20),
+    fontFamily: "VT323_400Regular",
+    justifyContent: "center",
+  },
   egg: {
     width: horizontalScale(90),
     height: verticalScale(100),
     // position: "absolute",
     resizeMode: "center",
-    resizeMethod: "center",
     // marginTop: verticalScale(650),
     // marginLeft: horizontalScale(25),
     flex: 1,
@@ -251,9 +260,9 @@ const styles = StyleSheet.create({
   header: {
     position: "absolute",
     top: 30,
-    display: 'flex',
-    alignItems: 'center',
-    gap: 20,
+    display: "flex",
+    alignItems: "center",
+    gap: moderateScale,
   },
   inputContainer: {
     width: 250,
