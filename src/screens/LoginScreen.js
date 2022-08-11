@@ -90,6 +90,16 @@ export default function LoginScreen() {
 
   ///////////////////////////////////////////////////////////////////
 
+/* 
+phoneFontSize = 20
+desktopFontSize = 40
+
+
+
+*/
+
+
+
   async function HandleLogin() {
     await auth
       .signInWithEmailAndPassword(email, password)
@@ -235,7 +245,7 @@ const styles = StyleSheet.create({
   appname: {
     color: "white",
     fontWeight: moderateScale(700),
-    fontSize: moderateScale(100),
+    fontSize: moderateScale(50),
     fontFamily: "VT323_400Regular",
     justifyContent: "center",
   },
