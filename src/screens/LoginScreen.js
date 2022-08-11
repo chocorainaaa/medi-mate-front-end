@@ -11,6 +11,7 @@ import {
   Image,
   Button,
   Linking,
+  useWindowDimensions,
 } from "react-native";
 
 import {
@@ -24,6 +25,7 @@ import app from "../../config/firebase";
 const auth = app.auth();
 
 export default function LoginScreen() {
+  const { height, width } = useWindowDimensions();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   // const [firebaseId, setfirebaseId] = useState("");
@@ -100,7 +102,7 @@ export default function LoginScreen() {
 
   return (
     <KeyboardAvoidingView style={styles.container} behaviour="padding">
-      <ImageBackground style={styles.background} source={images.background}>
+      <ImageBackground style={[styles.background, {height: height, width: width}]} source={images.background}>
         <Text style={styles.appname}>Medi-Mate</Text>
 
         <Text style={styles.tagline}>Feed your mate, feed your soul!</Text>
@@ -150,8 +152,8 @@ export default function LoginScreen() {
 
 const styles = StyleSheet.create({
   background: {
-    // width: "100",
-    // height: "100",
+    width: "100",
+    height: "100",
     position: "absolute",
     resizeMode: "center",
     resizeMethod: "center",
@@ -166,8 +168,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   egg: {
-    width: horizontalScale(150),
-    height: verticalScale(300),
+    width: horizontalScale(90),
+    height: verticalScale(100),
     position: "absolute",
     resizeMode: "center",
     resizeMethod: "center",
@@ -177,11 +179,17 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     zIndex: 1,
+    borderWidth: 5,
+    borderColor: "purple",
   },
   inputContainer: {
     width: "80%",
-    paddingTop: verticalScale(100),
-    paddingBottom: 10,
+    // paddingTop: verticalScale(100),
+    // paddingBottom: 10,
+    marginBottom: verticalScale(20),
+    marginTop:verticalScale(20),
+    borderWidth: 5,
+    borderColor: "purple",
   },
   input: {
     backgroundColor: "white",
