@@ -310,7 +310,7 @@ const styles = StyleSheet.create({
   tagline: {
     color: "white",
     fontWeight: "bold",
-    // fontSize: moderateScale(20),
+    fontSize: moderateScale(15),
     fontFamily: "VT323_400Regular",
     justifyContent: "center",
     marginBottom: 10,
