@@ -33,7 +33,7 @@ export default function LoginScreen() {
 
   const images = {
     background: require("../../assets/background/forest-background_200_640x640.png"),
-    textbox: require("../../assets/text-boxes/Text-box-large.png"),
+    textbox: require("../../assets/text-boxes/Text-box.png"),
     egg: require("../../assets/Egg/EggHatch.gif"),
   };
 
@@ -153,7 +153,6 @@ desktopFontSize = 40
             <Text style={styles.buttonOutlineText}>Register</Text>
           </TouchableOpacity>
         </View>
-
         <Text style={styles.description}>
           "Your mate will help you meditate! Pick your pet, give them a name and
           help them stay healthy while you meditate. Navigate around the app
