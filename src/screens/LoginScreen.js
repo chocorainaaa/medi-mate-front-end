@@ -11,6 +11,7 @@ import {
   Image,
   Pressable,
   Linking,
+  PixelRatio,
   useWindowDimensions,
 } from "react-native";
 
@@ -111,7 +112,18 @@ desktopFontSize = 40
   /* Egg Ratio */
   // screen width divided by egg width
   const ratio = 300 / 200;
-  
+
+  // ====================
+
+  /* Font sizes */
+  // Scale 20 for mobile and Scale 15 for desktop
+
+  let descriptionFontSize = moderateScale(20);
+
+  if (PixelRatio.get() <= 2) {
+    descriptionFontSize = moderateScale(15)
+  }
+
   // ====================
 
   return (
@@ -168,7 +180,7 @@ desktopFontSize = 40
             <Text style={styles.buttonOutlineText}>Register</Text>
           </TouchableOpacity>
         </View>
-        <Text style={styles.description}>
+        <Text style={[styles.description, {fontSize: descriptionFontSize}]}>
           "Your mate will help you meditate! Pick your pet, give them a name and
           help them stay healthy while you meditate. Navigate around the app
           using the menu in the pet house"
@@ -213,7 +225,7 @@ const styles = StyleSheet.create({
     width: 250,
     justifyContent: "space-between",
     alignItems: "center",
-    marginBottom: 40,
+    marginBottom: 15,
     borderColor: "red",
     borderWidth: 5,
   },
@@ -288,7 +300,7 @@ const styles = StyleSheet.create({
   tagline: {
     color: "white",
     fontWeight: "bold",
-    fontSize: moderateScale(20),
+    // fontSize: moderateScale(20),
     fontFamily: "VT323_400Regular",
     justifyContent: "center",
     paddingBottom: 10,
