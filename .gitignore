@@ -54,6 +54,8 @@ buck-out/
 web-build/
 dist/
 
+
 # enviroment variable file
 
 .env
+
