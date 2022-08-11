@@ -118,10 +118,10 @@ desktopFontSize = 40
   /* Font sizes */
   // Scale 20 for mobile and Scale 15 for desktop
 
-  let descriptionFontSize = moderateScale(20);
+  let descriptionFontSize = moderateScale(15);
 
   if (PixelRatio.get() <= 2) {
-    descriptionFontSize = moderateScale(15);
+    descriptionFontSize = moderateScale(12);
   }
 
   // ====================
@@ -157,10 +157,6 @@ desktopFontSize = 40
             source={images.egg}
           />
         </View>
-
-        {/*         <View style={{flex: 1}}>
-          <Image style={styles.egg} source={images.egg} />
-        </View> */}
 
         <View style={[styles.inputContainer, { width: containerWidth }]}>
           <TextInput
@@ -243,9 +239,8 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     marginBottom: 15,
-    borderColor: "red",
-    borderWidth: 5,
   },
+
   buttonOutline: {
     backgroundColor: "white",
   },
@@ -287,8 +282,6 @@ const styles = StyleSheet.create({
     // maxWidth: '70%',
   },
   egg: {
-    borderColor: "red",
-    borderWidth: 5,
     paddingTop: 50,
     resizeMode: "cover",
     justifyContent: "center",
@@ -299,8 +292,6 @@ const styles = StyleSheet.create({
     display: "flex",
     alignItems: "center",
     justifyContent: "flex-start",
-    borderColor: "red",
-    borderWidth: 5,
   },
   headerMargin: {
     marginTop: 30,
