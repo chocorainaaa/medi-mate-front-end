@@ -1,10 +1,10 @@
 import { StyleSheet, Button, View } from "react-native";
 import React from "react";
 
-const UniButton = ({ onPress, title }) => {
+const UniButton = ({ onPress, title, accessibilityLabel }) => {
   return (
     <View style={styles.parent}>
-      <Button style={styles.Button} onPress={onPress} title={title} ></Button>
+      <Button accessibilityLabel={accessibilityLabel} style={styles.Button} onPress={onPress} title={title} ></Button>
     </View>
   );
 };
