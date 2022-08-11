@@ -126,6 +126,17 @@ desktopFontSize = 40
 
   // ====================
 
+  /* Description and Input Container width */
+  // mobile width at 250 and desktop at 400
+
+  let containerWidth = 250;
+  let descriptionWidth = 250;
+
+  if (PixelRatio.get() <= 2) {
+    containerWidth = 400;
+    descriptionWidth = 850;
+  }
+
   return (
     <KeyboardAvoidingView style={styles.container} behaviour="padding">
       <ImageBackground
@@ -151,7 +162,7 @@ desktopFontSize = 40
           <Image style={styles.egg} source={images.egg} />
         </View> */}
 
-        <View style={styles.inputContainer}>
+        <View style={[styles.inputContainer, { width: containerWidth }]}>
           <TextInput
             placeholder="Email"
             value={email}
@@ -168,7 +179,7 @@ desktopFontSize = 40
           />
         </View>
 
-        <View style={styles.buttonContainer}>
+        <View style={[styles.buttonContainer, { width: containerWidth }]}>
           <TouchableOpacity onPress={HandleLogin} style={styles.button}>
             <Text style={styles.buttonText}>Login</Text>
           </TouchableOpacity>
@@ -180,10 +191,16 @@ desktopFontSize = 40
             <Text style={styles.buttonOutlineText}>Register</Text>
           </TouchableOpacity>
         </View>
-        <Text style={[styles.description, {fontSize: descriptionFontSize}]}>
-          "Your mate will help you meditate! Pick your pet, give them a name and
+        <Text
+          style={[
+            styles.description,
+            { fontSize: descriptionFontSize },
+            { width: descriptionWidth },
+          ]}
+        >
+          Your mate will help you meditate! Pick your medi-mate, give them a name and
           help them stay healthy while you meditate. Navigate around the app
-          using the menu in the pet house"
+          using the menu in the pet house
         </Text>
         <View>
           <Pressable
@@ -222,7 +239,7 @@ const styles = StyleSheet.create({
   buttonContainer: {
     display: "flex",
     flexDirection: "row",
-    width: 250,
+    // width: 250,
     justifyContent: "space-between",
     alignItems: "center",
     marginBottom: 15,
@@ -267,7 +284,7 @@ const styles = StyleSheet.create({
     fontFamily: "VT323_400Regular",
     justifyContent: "center",
     marginBottom: 20,
-    maxWidth: '70%',
+    // maxWidth: '70%',
   },
   egg: {
     borderColor: "red",
@@ -289,7 +306,7 @@ const styles = StyleSheet.create({
     marginTop: 30,
   },
   inputContainer: {
-    width: 250,
+    // width: 250,
     margin: moderateScale(20)
   },
   input: {
