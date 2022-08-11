@@ -266,6 +266,8 @@ const styles = StyleSheet.create({
     fontSize: moderateScale(15),
     fontFamily: "VT323_400Regular",
     justifyContent: "center",
+    marginBottom: 20,
+    maxWidth: '70%',
   },
   egg: {
     borderColor: "red",
@@ -303,6 +305,6 @@ const styles = StyleSheet.create({
     // fontSize: moderateScale(20),
     fontFamily: "VT323_400Regular",
     justifyContent: "center",
-    paddingBottom: 10,
+    marginBottom: 10,
   },
 });
