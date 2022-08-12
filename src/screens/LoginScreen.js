@@ -34,7 +34,6 @@ export default function LoginScreen() {
 
   const images = {
     background: require("../../assets/background/forest-background_200_640x640.png"),
-    textbox: require("../../assets/text-boxes/Text-box.png"),
     egg: require("../../assets/Egg/EggHatch.gif"),
   };
 
@@ -66,38 +65,6 @@ export default function LoginScreen() {
       })
       .catch((error) => alert(error.message));
   }
-
-  // async function HandleSignUp() {
-  //   const firebaseId = sendFirebaseAuth();
-  //   await postFirebaseId(firebaseId);
-  // }
-  // async function sendFirebaseAuth() {
-  //   await auth
-  //     .createUserWithEmailAndPassword(email, password)
-  //     .then((userCredentials) => {
-  //       const fbId = userCredentials.user.uid;
-  //       console.log(fbId);
-
-  //       return fbId;
-  //       // setfirebaseId(userCredentials.user.uid);
-  //       // console.log(firebaseId);
-  //     })
-  //     .catch((error) => alert(error.message));
-  // }
-
-  // async function setUserCredentials(uid) {
-  //   setfirebaseId(uid);
-  // }
-
-  ///////////////////////////////////////////////////////////////////
-
-  /* 
-phoneFontSize = 20
-desktopFontSize = 40
-
-
-
-*/
 
   async function HandleLogin() {
     await auth
@@ -159,6 +126,7 @@ desktopFontSize = 40
         </View>
 
         <View style={[styles.inputContainer, { width: containerWidth }]}>
+
           <TextInput
             placeholder="Email"
             value={email}
@@ -174,7 +142,7 @@ desktopFontSize = 40
             secureTextEntry
           />
         </View>
-
+        
         <View style={[styles.buttonContainer, { width: containerWidth }]}>
           <TouchableOpacity onPress={HandleLogin} style={styles.button}>
             <Text style={styles.buttonText}>Login</Text>
@@ -205,6 +173,7 @@ desktopFontSize = 40
           >
             <Text style={styles.buttonText}>Contact Medi-Mate</Text>
           </Pressable>
+
         </View>
       </ImageBackground>
     </KeyboardAvoidingView>
@@ -232,6 +201,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     alignItems: "center",
   },
+
   buttonContainer: {
     display: "flex",
     flexDirection: "row",
@@ -240,7 +210,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginBottom: 15,
   },
-
   buttonOutline: {
     backgroundColor: "white",
   },
