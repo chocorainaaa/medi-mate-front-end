@@ -79,18 +79,13 @@ const Stats = ({ navigation }) => {
   };
 
   return (
-
     <ImageBackground
       style={[styles.background, { height: height, width: width }]}
       source={images.background}
     >
-
       <View style={styles.container}>
         <View style={styles.textView}>
-          <ImageBackground
-            source={images.textBox}
-            style={styles.coverImage}
-          />
+          <ImageBackground source={images.textBox} style={styles.coverImage} />
           <Text style={styles.imageText}>
             Average Mood: {data.mood_data.average_mood}
           </Text>
@@ -100,23 +95,15 @@ const Stats = ({ navigation }) => {
 
       <View style={styles.container}>
         <View style={styles.textView}>
-          <ImageBackground
-            source={images.textBox}
-            style={styles.coverImage}
-          />
-          <Text style={styles.imageText}>
-            Number of visits: {data.visits}
-          </Text>
+          <ImageBackground source={images.textBox} style={styles.coverImage} />
+          <Text style={styles.imageText}>Number of visits: {data.visits}</Text>
           <ImageBackground />
         </View>
       </View>
 
       <View style={styles.container}>
         <View style={styles.textView}>
-          <ImageBackground
-            source={images.textBox}
-            style={styles.coverImage}
-          />
+          <ImageBackground source={images.textBox} style={styles.coverImage} />
           <Text style={styles.imageText}>
             Total meditation time: {data.total_meditation_time}
           </Text>
@@ -126,10 +113,7 @@ const Stats = ({ navigation }) => {
 
       <View style={styles.container}>
         <View style={styles.textView}>
-          <ImageBackground
-            source={images.textBox}
-            style={styles.coverImage}
-          />
+          <ImageBackground source={images.textBox} style={styles.coverImage} />
           <Text style={styles.imageText}>
             Daily streak: {extraData.dailyStreak}
           </Text>
@@ -139,10 +123,7 @@ const Stats = ({ navigation }) => {
 
       <View style={styles.container}>
         <View style={styles.textView}>
-          <ImageBackground
-            source={images.textBox}
-            style={styles.coverImage}
-          />
+          <ImageBackground source={images.textBox} style={styles.coverImage} />
           <Text style={styles.imageText}>Pet age: {extraData.petAge}</Text>
           <ImageBackground />
         </View>
@@ -150,10 +131,7 @@ const Stats = ({ navigation }) => {
 
       <View style={styles.container}>
         <View style={styles.textView}>
-          <ImageBackground
-            source={images.textBox}
-            style={styles.coverImage}
-          />
+          <ImageBackground source={images.textBox} style={styles.coverImage} />
           <Text style={styles.imageText}>
             Reward points: {extraData.rewardPoints}
           </Text>
@@ -166,13 +144,11 @@ const Stats = ({ navigation }) => {
           <Text style={styles.homeButtonText}>Home</Text>
         </Pressable>
       </View>
-
     </ImageBackground>
   );
 };
 
 const styles = StyleSheet.create({
-
   background: {
     position: "absolute",
     resizeMode: "cover",
@@ -183,7 +159,7 @@ const styles = StyleSheet.create({
   },
   coverImage: {
     width: horizontalScale(300),
-    height: verticalScale(50),
+    height: verticalScale(80),
     resizeMode: "cover",
   },
   homeButton: {

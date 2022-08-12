@@ -44,10 +44,10 @@ const HomeScreen = ({ navigation }) => {
           image={images.petHouse}
           navigation={navigation}
           petHouseStyle={{
-            width: horizontalScale(100),
-            height: verticalScale(200),
+            width: horizontalScale(160),
+            height: verticalScale(180),
             bottom: verticalScale(40),
-            marginRight: horizontalScale(150),
+            marginRight: horizontalScale(180),
             position: "relative",
             resizeMode: "contain",
           }}
@@ -55,10 +55,10 @@ const HomeScreen = ({ navigation }) => {
         <Image
           resizeMode="contain"
           style={{
-            width: horizontalScale(200),
-            height: verticalScale(400),
-            marginTop: verticalScale(100),
-            marginLeft: horizontalScale(100),
+            width: horizontalScale(250),
+            height: verticalScale(500),
+            marginTop: verticalScale(120),
+            marginLeft: horizontalScale(90),
             position: "relative",
           }}
           source={images.pet}
