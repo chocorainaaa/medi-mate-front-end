@@ -1,5 +1,10 @@
 import { StyleSheet, Text, View, ImageBackground } from "react-native";
 import React, { useState, useEffect } from "react";
+import {
+  horizontalScale,
+  verticalScale,
+  moderateScale,
+} from "../Components/Metrics";
 
 const QuoteGenerator = () => {
   const [quote, setQuote] = useState("");
@@ -72,11 +77,13 @@ const styles = StyleSheet.create({
   },
   coverImage: {
     width: "100%",
-    height: 200,
-    resizeMode: "cover",
+    height: verticalScale(180),
+    resizeMode: "contain",
   },
   imageText: {
     fontSize: 18,
+    width: horizontalScale(300),
+
     color: "black",
     fontWeight: "bold",
     position: "absolute",
@@ -92,8 +99,8 @@ const styles = StyleSheet.create({
     bottom: 0,
   },
   textBox: {
-    width: 19,
-    height: 19,
+    width: horizontalScale(19),
+    height: verticalScale(80),
     position: "relative",
     justifyContent: "center",
   },

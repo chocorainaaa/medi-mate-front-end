@@ -30,7 +30,7 @@ const extraData = {
   rewardPoints: 20,
 };
 
-const Stats = () => {
+const Stats = ({ navigation }) => {
   const { height, width } = useWindowDimensions();
   const { user } = useContext(AuthenticatedUserContext);
   const [data, setData] = useState({
@@ -80,107 +80,94 @@ const Stats = () => {
 
   return (
 
-      <ImageBackground
-        style={[styles.background, { height: height, width: width }]}
-        source={images.background}
-      >
-        {/* <View>
-          <Image
-            resizeMode="contain"
-            style={{
-              width: petImageSize(),
-              height: petImageSize(),
-              top: height / 2.3, //778 / 300 = 2.59
-              marginLeft: width / 30,
-              position: "relative",
-            }}
-            source={images.pet}
+    <ImageBackground
+      style={[styles.background, { height: height, width: width }]}
+      source={images.background}
+    >
+
+      <View style={styles.container}>
+        <View style={styles.textView}>
+          <ImageBackground
+            source={images.textBox}
+            style={styles.coverImage}
           />
-        </View> */}
-
-        <View style={styles.container}>
-          <View style={styles.textView}>
-            <ImageBackground
-              source={images.textBox}
-              style={styles.coverImage}
-            />
-            <Text style={styles.imageText}>
-              Average Mood: {data.mood_data.average_mood}
-            </Text>
-            <ImageBackground />
-          </View>
+          <Text style={styles.imageText}>
+            Average Mood: {data.mood_data.average_mood}
+          </Text>
+          <ImageBackground />
         </View>
+      </View>
 
-        <View style={styles.container}>
-          <View style={styles.textView}>
-            <ImageBackground
-              source={images.textBox}
-              style={styles.coverImage}
-            />
-            <Text style={styles.imageText}>
-              Number of visits: {data.visits}
-            </Text>
-            <ImageBackground />
-          </View>
+      <View style={styles.container}>
+        <View style={styles.textView}>
+          <ImageBackground
+            source={images.textBox}
+            style={styles.coverImage}
+          />
+          <Text style={styles.imageText}>
+            Number of visits: {data.visits}
+          </Text>
+          <ImageBackground />
         </View>
+      </View>
 
-        <View style={styles.container}>
-          <View style={styles.textView}>
-            <ImageBackground
-              source={images.textBox}
-              style={styles.coverImage}
-            />
-            <Text style={styles.imageText}>
-              Total meditation time: {data.total_meditation_time}
-            </Text>
-            <ImageBackground />
-          </View>
+      <View style={styles.container}>
+        <View style={styles.textView}>
+          <ImageBackground
+            source={images.textBox}
+            style={styles.coverImage}
+          />
+          <Text style={styles.imageText}>
+            Total meditation time: {data.total_meditation_time}
+          </Text>
+          <ImageBackground />
         </View>
+      </View>
 
-        <View style={styles.container}>
-          <View style={styles.textView}>
-            <ImageBackground
-              source={images.textBox}
-              style={styles.coverImage}
-            />
-            <Text style={styles.imageText}>
-              Daily streak: {extraData.dailyStreak}
-            </Text>
-            <ImageBackground />
-          </View>
+      <View style={styles.container}>
+        <View style={styles.textView}>
+          <ImageBackground
+            source={images.textBox}
+            style={styles.coverImage}
+          />
+          <Text style={styles.imageText}>
+            Daily streak: {extraData.dailyStreak}
+          </Text>
+          <ImageBackground />
         </View>
+      </View>
 
-        <View style={styles.container}>
-          <View style={styles.textView}>
-            <ImageBackground
-              source={images.textBox}
-              style={styles.coverImage}
-            />
-            <Text style={styles.imageText}>Pet age: {extraData.petAge}</Text>
-            <ImageBackground />
-          </View>
+      <View style={styles.container}>
+        <View style={styles.textView}>
+          <ImageBackground
+            source={images.textBox}
+            style={styles.coverImage}
+          />
+          <Text style={styles.imageText}>Pet age: {extraData.petAge}</Text>
+          <ImageBackground />
         </View>
-        
-        <View style={styles.container}>
-          <View style={styles.textView}>
-            <ImageBackground
-              source={images.textBox}
-              style={styles.coverImage}
-            />
-            <Text style={styles.imageText}>
-              Reward points: {extraData.rewardPoints}
-            </Text>
-            <ImageBackground />
-          </View>
-        </View>
+      </View>
 
-        <View>
-          <Pressable style={styles.homeButton} onPress={handleHome}>
-            <Text style={styles.homeButtonText}>Home</Text>
-          </Pressable>
+      <View style={styles.container}>
+        <View style={styles.textView}>
+          <ImageBackground
+            source={images.textBox}
+            style={styles.coverImage}
+          />
+          <Text style={styles.imageText}>
+            Reward points: {extraData.rewardPoints}
+          </Text>
+          <ImageBackground />
         </View>
+      </View>
 
-      </ImageBackground>
+      <View>
+        <Pressable style={styles.homeButton} onPress={handleHome}>
+          <Text style={styles.homeButtonText}>Home</Text>
+        </Pressable>
+      </View>
+
+    </ImageBackground>
   );
 };
 
@@ -188,26 +175,25 @@ const styles = StyleSheet.create({
 
   background: {
     position: "absolute",
-    resizeMode: "center",
+    resizeMode: "cover",
     resizeMethod: "center",
   },
   container: {
     flex: 1,
   },
   coverImage: {
-    width: 400,
-    height: 100,
+    width: horizontalScale(300),
+    height: verticalScale(50),
     resizeMode: "cover",
   },
   homeButton: {
-    display: "flex",
     backgroundColor: "#0782F9",
     padding: moderateScale(10),
     borderRadius: 10,
     marginTop: verticalScale(20),
     alignItems: "center",
     alignSelf: "center",
-    marginBottom: 20,
+    marginBottom: 70,
     width: 110,
   },
   homeButtonText: {
