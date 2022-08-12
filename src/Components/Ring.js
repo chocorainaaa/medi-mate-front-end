@@ -8,7 +8,11 @@ import Animated, {
     withRepeat,
     withTiming,
 } from 'react-native-reanimated';
-
+import {
+    horizontalScale,
+    verticalScale,
+    moderateScale,
+} from "../Components/Metrics";
 /// creating the animation
 const Ring = ({ delay, start, breathValue }) => {
 
@@ -66,9 +70,8 @@ export default function AnimatedRing({ breathValue, start }) {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
     },
     ring: {
         position: 'absolute',
@@ -77,7 +80,6 @@ const styles = StyleSheet.create({
         borderRadius: 50,
         borderWidth: 10,
         borderColor: "gold",
-        paddingRight: 50,
-        paddingBottom: 50
+
     },
 });
