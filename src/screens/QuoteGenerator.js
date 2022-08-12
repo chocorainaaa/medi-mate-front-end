@@ -25,8 +25,8 @@ const QuoteGenerator = () => {
   }, []);
 
   const images = {
-    background: require.ensure("../../assets/background/forest-background_200_640x640.png"),
-    textBox: require.ensure("../../assets/text-boxes/Text-box.png"),
+    background: require("../../assets/background/forest-background_200_640x640.png"),
+    textBox: require("../../assets/text-boxes/Text-box.png"),
   };
 
   return (

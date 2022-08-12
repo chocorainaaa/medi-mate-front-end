@@ -17,9 +17,9 @@ const HomeScreen = ({ navigation }) => {
   const { height, width } = useWindowDimensions();
 
   const images = {
-    background: require.ensure("../../assets/background/forest-background_200_640x640.png"),
-    pet: require.ensure("../../assets/Bird/druid-owl.png"),
-    petHouse: require.ensure("../../assets/pet-home/pet-house-placeholder.png"),
+    background: require("../../assets/background/forest-background_200_640x640.png"),
+    pet: require("../../assets/Bird/druid-owl.png"),
+    petHouse: require("../../assets/pet-home/pet-house-placeholder.png"),
   };
 
   return (

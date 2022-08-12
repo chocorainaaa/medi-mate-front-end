@@ -73,12 +73,12 @@ export default function MoodLogger({ navigation }) {
   }
 
   const images = {
-    background: require.ensure("../../assets/background/forest-background_200_640x640.png"),
-    superHappy: require.ensure("../../assets/moodBirds/happy-bird.png"),
-    happy: require.ensure("../../assets/moodBirds/semi-happy-bird.png"),
-    OK: require.ensure("../../assets/moodBirds/meh-bird.png"),
-    sad: require.ensure("../../assets/moodBirds/semi-sad-bird.png"),
-    superSad: require.ensure("../../assets/moodBirds/sad-bird.png"),
+    background: require("../../assets/background/forest-background_200_640x640.png"),
+    superHappy: require("../../assets/moodBirds/happy-bird.png"),
+    happy: require("../../assets/moodBirds/semi-happy-bird.png"),
+    OK: require("../../assets/moodBirds/meh-bird.png"),
+    sad: require("../../assets/moodBirds/semi-sad-bird.png"),
+    superSad: require("../../assets/moodBirds/sad-bird.png"),
   };
 
   return (
