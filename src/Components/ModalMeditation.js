@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Alert, Modal, StyleSheet, Text, Pressable, View } from "react-native";
 import UniSlider from "./Slider.js";
 import Bird from "../../assets/bird-static.png";
+import { moderateScale } from "./Metrics.js";
 
 const ModalMed = ({
   breathValue,
@@ -36,7 +37,7 @@ const ModalMed = ({
 
             <Text style={styles.modalText}>Meditation session length</Text>
             <View style={styles.slider}>
-              <Text>0 mins</Text>
+              <Text style={styles.modalText}>0 mins</Text>
               <UniSlider
                 id={"length"}
                 label={`Total meditation time is ${displayTime} minuites`}
@@ -46,12 +47,12 @@ const ModalMed = ({
                 onChange={lengthChange}
                 setLengthValue={setLengthValue}
               />
-              <Text>30 mins</Text>
+              <Text style={styles.modalText}>30 mins</Text>
             </View>
 
             <Text style={styles.modalText}>Breath in and out length</Text>
             <View style={styles.slider}>
-              <Text>0 secs</Text>
+              <Text style={styles.modalText}>0 secs</Text>
               <UniSlider
                 label={`Breath in for ${breathValue} seconds breath out for ${breathValue} seconds`}
                 id={"in"}
@@ -59,7 +60,7 @@ const ModalMed = ({
                 max={10}
                 onChange={breathChange}
               />
-              <Text>10 secs</Text>
+              <Text style={styles.modalText}>10 secs</Text>
             </View>
 
             <Pressable
@@ -81,7 +82,7 @@ const ModalMed = ({
           setModalVisible(true);
         }}
       >
-        <Text style={styles.textStyle}>Set times</Text>
+        <Text style={styles.textStyle}>Set meditation times</Text>
       </Pressable>
     </View>
   );
@@ -115,19 +116,26 @@ const styles = StyleSheet.create({
     elevation: 2,
   },
   buttonOpen: {
-    backgroundColor: "#F194FF",
+    backgroundColor: "#0782F9",
+    fontFamily: "VT323_400Regular",
   },
   buttonClose: {
-    backgroundColor: "#2196F3",
+    backgroundColor: "#0782F9",
+    fontFamily: "VT323_400Regular",
   },
   textStyle: {
     color: "white",
     fontWeight: "bold",
+    fontSize: moderateScale(10),
     textAlign: "center",
+    fontFamily: "VT323_400Regular",
   },
   modalText: {
     textAlign: "center",
     paddingTop: 15,
+    fontSize: moderateScale(15),
+    fontFamily: "VT323_400Regular",
+    margin: moderateScale(10)
   },
   slider: {
     flexDirection: "row",
