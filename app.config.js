@@ -25,7 +25,7 @@ export default {
       },
     },
     web: {
-      favicon: "./assets/bird-static.png",
+      favicon: "./assets/bird-static.png"
     },
     assetBundlePatterns: ["**/*"],
   },
