@@ -51,4 +51,9 @@ buck-out/
 
 # Expo
 .expo/
+web-build/
 dist/
+
+# enviroment variable file
+.env
+
