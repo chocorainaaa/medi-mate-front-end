@@ -1,6 +1,13 @@
 import { StyleSheet, View, Text, TextInput } from "react-native";
 import React from "react";
 import Slider from '@react-native-community/slider'
+
+import {
+  horizontalScale,
+  verticalScale,
+  moderateScale,
+} from "../Components/Metrics";
+
 const UniSlider = ({ min, max, id, onChange, label, sliderValue }) => {
 
 
@@ -18,7 +25,7 @@ const UniSlider = ({ min, max, id, onChange, label, sliderValue }) => {
           (sliderValue) => onChange(sliderValue)
         }
       />
-      <Text>{label}</Text>
+      <Text style={styles.text}>{label}</Text>
     </View>
   );
 };
@@ -32,5 +39,9 @@ const styles = StyleSheet.create({
   slider: {
     color: "white",
   },
+  text: {
+    fontFamily: "VT323_400Regular",
+    fontSize: moderateScale(10)
+  }
 });
 
