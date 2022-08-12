@@ -21,7 +21,6 @@ const Meditation = ({ navigation }) => {
     setBreathValue(sliderValue);
   }
 
-
   useEffect(() => {
     if (startMeditation && timer <= 0) {
       navigation.navigate("Home");

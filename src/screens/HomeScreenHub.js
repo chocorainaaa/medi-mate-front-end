@@ -3,7 +3,7 @@ import {
   View,
   ImageBackground,
   Image,
-  useWindowDimensions
+  useWindowDimensions,
 } from "react-native";
 
 import PetHouseModal from "../Components/PetHouseModal";
@@ -11,15 +11,15 @@ import PetHouseModal from "../Components/PetHouseModal";
 import {
   horizontalScale,
   verticalScale,
-  moderateScale
-} from "../Components/Metrics"
+  moderateScale,
+} from "../Components/Metrics";
 const HomeScreen = ({ navigation }) => {
   const { height, width } = useWindowDimensions();
 
   const images = {
     background: require("../../assets/background/forest-background_200_640x640.png"),
     pet: require("../../assets/Bird/druid-owl.png"),
-    petHouse: require("../../assets/pet-home/pet-house-placeholder.png"),
+    petHouse: require("../../assets/pet-home/birdhouse.png"),
   };
 
   return (
@@ -49,7 +49,7 @@ const HomeScreen = ({ navigation }) => {
             bottom: verticalScale(40),
             marginRight: horizontalScale(150),
             position: "relative",
-            resizeMode: "contain"
+            resizeMode: "contain",
           }}
         ></PetHouseModal>
         <Image

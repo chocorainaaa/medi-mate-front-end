@@ -18,7 +18,7 @@ const baseURL = "https://medi-mate-app.herokuapp.com";
 import {
   horizontalScale,
   verticalScale,
-  moderateScale
+  moderateScale,
 } from "../Components/Metrics";
 
 export default function MoodLogger({ navigation }) {
@@ -27,21 +27,20 @@ export default function MoodLogger({ navigation }) {
   // mood is a number between 1 - 5
   const { user } = useContext(AuthenticatedUserContext);
 
-async function postMood(mood) {
-
-  await fetch(`${baseURL}/mood-log`, {
-  method: 'POST',
-  headers: {
-    Accept: 'application/json',
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify({
-    firebase_user_id: `${user.uid}`,
-    mood_rating: `${mood}`,
-  }),
-  success: 200,
-})
-}
+  async function postMood(mood) {
+    await fetch(`${baseURL}/mood-log`, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        firebase_user_id: `${user.uid}`,
+        mood_rating: `${mood}`,
+      }),
+      success: 200,
+    });
+  }
 
   async function handleSuperHappy() {
     await postMood(5);
@@ -79,6 +78,7 @@ async function postMood(mood) {
     OK: require("../../assets/moodBirds/meh-bird.png"),
     sad: require("../../assets/moodBirds/semi-sad-bird.png"),
     superSad: require("../../assets/moodBirds/sad-bird.png"),
+    textBox: require("../../assets/text-boxes/Text-box-large-gray.png"),
   };
 
   return (
@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
     zIndex: -1,
   },
   container: {
-    backgroundColor: "white",
+    backgroundColor: "#b2b2b2",
     justifyContent: "space-around",
     borderColor: "black",
     borderwidth: 5,
