@@ -19,8 +19,8 @@ export default function Eggs({ navigation }) {
   const { height, width } = useWindowDimensions();
 
   const images = {
-    background: require("../../assets/background/forest-background_200_640x640.png"),
-    egg: require("../../assets/Egg/Egg.png"),
+    background: require.ensure("../../assets/background/forest-background_200_640x640.png"),
+    egg: require.ensure("../../assets/Egg/Egg.png"),
   };
 
   function handleClick() {
@@ -71,10 +71,4 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginTop: 200,
   },
-  // egg2: {
-  //     backgroundImage: url("../../assets/Egg/Egg.png")
-  // },
-  // egg2: {
-  //     backgroundImage: url("../../assets/Egg/Egg.png")
-  // },
 });

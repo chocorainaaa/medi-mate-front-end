@@ -33,8 +33,8 @@ export default function LoginScreen() {
   const url = "https://medi-mate-app.herokuapp.com/registration";
 
   const images = {
-    background: require("../../assets/background/forest-background_200_640x640.png"),
-    egg: require("../../assets/Egg/EggHatch.gif"),
+    background: require.ensure("../../assets/background/forest-background_200_640x640.png"),
+    egg: require.ensure("../../assets/Egg/EggHatch.gif"),
   };
 
   async function postFirebaseId(firebaseId) {
