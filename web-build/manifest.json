@@ -8,17 +8,17 @@
   "icons": [
     {
       "src": "\\pwa\\chrome-icon\\chrome-icon-144.png",
-      "sizes": "144x144",
+      "sizes": "16x16",
       "type": "image/png"
     },
     {
       "src": "\\pwa\\chrome-icon\\chrome-icon-192.png",
-      "sizes": "192x192",
+      "sizes": "16x16",
       "type": "image/png"
     },
     {
       "src": "\\pwa\\chrome-icon\\chrome-icon-512.png",
-      "sizes": "512x512",
+      "sizes": "16x16",
       "type": "image/png"
     }
   ]
