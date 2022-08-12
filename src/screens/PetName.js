@@ -37,14 +37,13 @@ export default function PetName({ navigation }) {
     return response;
   }
 
-  //   function nameChoosen() {
-  //     console.log(petName);
-  //     //add async post request here
+  function nameChoosen() {
+    console.log(petName);
 
-  //     navigation.navigate("Home");
+    navigation.navigate("Eggs");
 
-  //     // navigation.navigate('Market', { screen: 'MarketInfo' })
-  //   }
+    // navigation.navigate('Market', { screen: 'MarketInfo' })
+  }
 
   return (
     <ImageBackground
@@ -63,7 +62,13 @@ export default function PetName({ navigation }) {
           onChangeText={(text) => setPetName(text)}
           style={styles.input}
         />
-        <Pressable style={styles.setName} onPress={postPetName}>
+        <Pressable
+          style={styles.setName}
+          onPress={() => {
+            postPetName;
+            navigation.navigate("Eggs");
+          }}
+        >
           <Text style={styles.text}>Set Name</Text>
         </Pressable>
         <Text style={styles.text}>Please choose a name for your Medi-Mate</Text>
