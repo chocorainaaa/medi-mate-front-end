@@ -31,9 +31,9 @@ export default function LoginScreen() {
   const { height, width } = useWindowDimensions();
   const screenDimensions = {
     height: height,
-    width: width
-  }
-  
+    width: width,
+  };
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   // const [firebaseId, setfirebaseId] = useState("");
@@ -98,47 +98,19 @@ export default function LoginScreen() {
     descriptionFontSize = moderateScale(13);
   }
 
-  // ====================
-
-  /* Description and Input Container width */
-  // mobile width at 250 and desktop at 400
-
-  // let containerWidth = width / 1.3;
-  // let descriptionWidth = width / 1.3;
-
-  // if (PixelRatio.get() <= 2) {
-  //   containerWidth = width / 1.3;
-  //   descriptionWidth = width / 1.3;
-  // }
-
   return (
     <KeyboardAvoidingView style={styles().container} behaviour="padding">
-      {/* <ImageBackground
-        style={[styles().background, { height: height, width: width }]}
-        source={images.background}
-      > */}
-      
-      <ImageBackground
-        style={styles().background}
-        source={images.background}
-      >
-
+      <ImageBackground style={styles().background} source={images.background}>
         <View style={styles().header}>
           <Text style={styles().appname}>Medi-Mate</Text>
           <Text style={[styles().tagline, styles().headerMargin]}>
             Feed your mate, feed your soul!
           </Text>
-          
-          
+
           <Image
-            style={[
-              styles().egg,
-              styles().headerMargin,
-            ]}
+            style={[styles().egg, styles().headerMargin]}
             source={images.egg}
           />
-
-          
         </View>
 
         <View style={styles().formContainer}>
@@ -170,12 +142,7 @@ export default function LoginScreen() {
             </TouchableOpacity>
           </View>
         </View>
-        <Text
-          style={[
-            styles().description,
-            { fontSize: descriptionFontSize },
-          ]}
-        >
+        <Text style={[styles().description, { fontSize: descriptionFontSize }]}>
           Your mate will help you meditate! Pick your medi-mate, give them a
           name and help them stay healthy while you meditate. Navigate around
           the app using the menu in the pet house
@@ -212,7 +179,7 @@ const styles = () => {
       alignItems: "center",
       zIndex: -1,
       height: height,
-      width: width
+      width: width,
     },
     button: {
       backgroundColor: "#0782F9",
@@ -272,7 +239,7 @@ const styles = () => {
       marginBottom: 20,
       width: containerWidth,
       maxWidth: 800,
-      backgroundColor: '#00000090',
+      backgroundColor: "#00000090",
       padding: 15,
     },
     egg: {
@@ -282,12 +249,12 @@ const styles = () => {
       alignItems: "center",
       zIndex: 1,
       width: 120,
-      height: 80 * ratio
+      height: 80 * ratio,
     },
     formContainer: {
       maxWidth: 800,
       margin: moderateScale(20),
-      width: containerWidth
+      width: containerWidth,
     },
     header: {
       display: "flex",
