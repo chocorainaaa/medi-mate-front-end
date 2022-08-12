@@ -79,15 +79,8 @@ const Stats = () => {
   };
 
   return (
-    <View style={styles.container}>
       <ImageBackground
-        style={{
-          width: width,
-          height: height,
-          position: "absolute",
-          resizeMode: "center",
-          resizeMethod: "center",
-        }}
+        style={[styles.background, { height: height, width: width }]}
         source={images.background}
       >
         {/* <View>
@@ -116,6 +109,7 @@ const Stats = () => {
             <ImageBackground />
           </View>
         </View>
+
         <View style={styles.container}>
           <View style={styles.textView}>
             <ImageBackground
@@ -128,6 +122,7 @@ const Stats = () => {
             <ImageBackground />
           </View>
         </View>
+
         <View style={styles.container}>
           <View style={styles.textView}>
             <ImageBackground
@@ -140,6 +135,7 @@ const Stats = () => {
             <ImageBackground />
           </View>
         </View>
+
         <View style={styles.container}>
           <View style={styles.textView}>
             <ImageBackground
@@ -152,6 +148,7 @@ const Stats = () => {
             <ImageBackground />
           </View>
         </View>
+
         <View style={styles.container}>
           <View style={styles.textView}>
             <ImageBackground
@@ -162,6 +159,7 @@ const Stats = () => {
             <ImageBackground />
           </View>
         </View>
+
         <View style={styles.container}>
           <View style={styles.textView}>
             <ImageBackground
@@ -174,17 +172,23 @@ const Stats = () => {
             <ImageBackground />
           </View>
         </View>
+
         <View>
           <Pressable style={styles.homeButton} onPress={handleHome}>
             <Text style={styles.homeButtonText}>Home</Text>
           </Pressable>
         </View>
+
       </ImageBackground>
-    </View>
   );
 };
 
 const styles = StyleSheet.create({
+  background: {
+    position: "absolute",
+    resizeMode: "center",
+    resizeMethod: "center",
+  },
   container: {
     flex: 1,
   },
