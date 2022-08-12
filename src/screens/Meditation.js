@@ -31,7 +31,7 @@ const Meditation = ({ navigation }) => {
   return (
     <ImageBackground
       style={styles.backgroundImage}
-      source={require("../../assets/beach.gif")}
+    // source={require("../../assets/beach.gif")}
     >
       <View>
         <ModalMed

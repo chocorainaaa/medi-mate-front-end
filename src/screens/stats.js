@@ -73,9 +73,9 @@ const Stats = ({ navigation }) => {
   }
 
   const images = {
-    background: require("../../assets/background/forest-background_200_640x640.png"),
-    pet: require("../../assets/Bird/bird-1.png.png"),
-    textBox: require("../../assets/text-boxes/Text-box.png"),
+    background: require.ensure("../../assets/background/forest-background_200_640x640.png"),
+    pet: require.ensure("../../assets/Bird/bird-1.png.png"),
+    textBox: require.ensure("../../assets/text-boxes/Text-box.png"),
   };
 
   return (
