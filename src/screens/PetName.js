@@ -10,6 +10,11 @@ import {
 } from "react-native";
 import React, { useState, useContext } from "react";
 import { AuthenticatedUserContext } from "../navigation/AuthenticatedUserProvider";
+import {
+  horizontalScale,
+  verticalScale,
+  moderateScale,
+} from "../Components/Metrics";
 
 export default function PetName({ navigation }) {
   const { height, width } = useWindowDimensions();
@@ -34,8 +39,14 @@ export default function PetName({ navigation }) {
       body: JSON.stringify(data),
       success: 200,
     });
+
     return response;
   }
+
+  const images = {
+    background: require("../../assets/background/forest-background_200_640x640.png"),
+    bird: require("../../assets/Bird/bird.gif")
+  };
 
   //   function nameChoosen() {
   //     console.log(petName);
@@ -48,64 +59,67 @@ export default function PetName({ navigation }) {
 
   return (
     <ImageBackground
-      style={styles.backgroundImage}
-      source={require("../../assets/background/placeholder-bkgnd.png")}
+      style={[styles.background, { height: height, width: width }]}
+      source={images.background}
     >
-      <View style={styles.container}>
         <Image
           style={styles.bird}
           source={require("../../assets/Bird/bird.gif")}
         />
+        <Text style={styles.text}>Please choose a name for your Medi-Mate</Text>
         <TextInput
           id={"input"}
-          placeholder="Name"
+          placeholder="Medi-Mate Name"
           value={petName}
           onChangeText={(text) => setPetName(text)}
           style={styles.input}
         />
-        <Pressable style={styles.setName} onPress={postPetName}>
-          <Text style={styles.text}>Set Name</Text>
+        <Pressable style={styles.button} onPress={postPetName}>
+          <Text style={styles.buttonText}>Set Name</Text>
         </Pressable>
-        <Text style={styles.text}>Please choose a name for your Medi-Mate</Text>
-      </View>
     </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
-  backgroundImage: {
-    flex: 1,
+  background: {
     resizeMode: "cover",
-  },
-  container: {
-    display: "flex",
-    width: "100vw",
-    height: "100%vh",
     alignItems: "center",
-    justifyContent: "center",
+    zIndex: -1,
   },
   bird: {
-    height: 400,
-    width: 400,
-    marginTop: 40,
+    height: 350,
+    width: 350,
+    marginTop: verticalScale(49),
+  },
+  button: {
+    display: "flex",
+    backgroundColor: "#0782F9",
+    padding: 10,
+    borderRadius: 10,
+    marginTop: 20,
+    alignItems: "center",
+    width: 110,
+},
+  buttonText: {
+    color: "white",
+    fontWeight: "bold",
+    fontSize: 16,
+    fontFamily: "VT323_400Regular",
   },
   input: {
     backgroundColor: "white",
     paddingHorizontal: 15,
     paddingVertical: 10,
     borderRadius: 10,
-    marginTop: 5,
+    marginTop: 20,
   },
   text: {
     alignSelf: "center",
-    marginTop: 15,
     color: "white",
-  },
-  setName: {
-    height: 50,
-    width: 100,
-    backgroundColor: "blue",
-    marginTop: 15,
-    marginBottom: 15,
+    fontWeight: "bold",
+    fontSize: moderateScale(20),
+    fontFamily: "VT323_400Regular",
+    alignItems: "center",
   },
 });
