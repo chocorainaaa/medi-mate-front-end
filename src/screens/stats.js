@@ -11,6 +11,7 @@ import React, { useState, useContext, useEffect } from "react";
 
 import { AuthenticatedUserContext } from "../navigation/AuthenticatedUserProvider";
 import app from "../../config/firebase";
+
 import {
   horizontalScale,
   verticalScale,
@@ -67,7 +68,6 @@ const Stats = () => {
   function petImageSize() {
     return Math.floor(width / 1);
   }
-
   function handleHome() {
     navigation.navigate("Home");
   }
@@ -79,6 +79,7 @@ const Stats = () => {
   };
 
   return (
+
       <ImageBackground
         style={[styles.background, { height: height, width: width }]}
         source={images.background}
@@ -159,7 +160,7 @@ const Stats = () => {
             <ImageBackground />
           </View>
         </View>
-
+        
         <View style={styles.container}>
           <View style={styles.textView}>
             <ImageBackground
@@ -184,6 +185,7 @@ const Stats = () => {
 };
 
 const styles = StyleSheet.create({
+
   background: {
     position: "absolute",
     resizeMode: "center",
