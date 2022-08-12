@@ -13,8 +13,8 @@ export default function HomeStack() {
     // Once all navigation functionality added into each page, we can screenOptions={{ headerShown: false }} after <Stack.Navigator>
 
     <Stack.Navigator screenOptions={{ headerShown: true }}>
-      <Stack.Screen name="Meditation" component={Meditation} />
       <Stack.Screen name="Home" component={HomeScreen} />
+      <Stack.Screen name="Meditation" component={Meditation} />
       <Stack.Screen name="MoodLogger" component={MoodLogger} />
       <Stack.Screen name="QuoteGenerator" component={QuoteGenerator} />
       <Stack.Screen name="Stats" component={Stats} />
