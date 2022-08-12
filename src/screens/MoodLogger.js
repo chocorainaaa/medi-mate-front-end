@@ -19,7 +19,7 @@ import {
   horizontalScale,
   verticalScale,
   moderateScale
-} from "../Components/Metrics"
+} from "../Components/Metrics";
 
 export default function MoodLogger({ navigation }) {
   // use this for media query type shannanigans
@@ -68,112 +68,103 @@ async function postMood(mood) {
     navigation.navigate("Meditation");
   }
 
+  function handleHome() {
+    navigation.navigate("Home");
+  }
+
   const images = {
     background: require("../../assets/background/forest-background_200_640x640.png"),
+    superHappy: require("../../assets/moodBirds/happy-bird.png"),
+    happy: require("../../assets/moodBirds/semi-happy-bird.png"),
+    OK: require("../../assets/moodBirds/meh-bird.png"),
+    sad: require("../../assets/moodBirds/semi-sad-bird.png"),
+    superSad: require("../../assets/moodBirds/sad-bird.png"),
   };
 
   return (
     <ImageBackground
-        style={[styles.background,{
-          width: width,
-          height: height,}]}
-        source={images.background}
-      >
-    <View style={[{
-      width: width,
-      height: height
-    },
-    styles.container]}>
-    <Text style={styles.moodText}>How are you feeling today?</Text>
-        <Pressable style={styles.moodPressable}
-          onPress={handleSuperHappy}
-        >
-          <Image
-            style={styles.moodImage}
-            source={require("../../assets/MoodFaces/superhappy.png")}
-          />
+      style={[styles.background, { height: height, width: width }]}
+      source={images.background}
+    >
+      <View style={[{ width: width, height: height }, styles.container]}>
+        <Text style={styles.moodText}>How are you feeling today?</Text>
+
+        <Pressable onPress={handleSuperHappy}>
+          <Image style={styles.moodImage} source={images.superHappy} />
           <Text style={styles.moodText}>Super Happy</Text>
         </Pressable>
-        <Pressable style={styles.moodPressable}
-          onPress={handleHappy}
-        >
-          <Image
-            style={styles.moodImage}
-            source={require("../../assets/MoodFaces/happy.png")}
-          />
+
+        <Pressable onPress={handleHappy}>
+          <Image style={styles.moodImage} source={images.happy} />
           <Text style={styles.moodText}>Happy</Text>
         </Pressable>
-        <Pressable style={styles.moodPressable}
-          onPress={handleOK}
-        >
-          <Image
-            style={styles.moodImage}
-            source={require("../../assets/MoodFaces/OK.png")}
-          />
+
+        <Pressable onPress={handleOK}>
+          <Image style={styles.moodImage} source={images.OK} />
           <Text style={styles.moodText}>OK</Text>
         </Pressable>
-        <Pressable style={styles.moodPressable}
-          onPress={handleSad}
-        >
-          <Image
-            style={styles.moodImage}
-            source={require("../../assets/MoodFaces/sad.png")}
-          />
+
+        <Pressable onPress={handleSad}>
+          <Image style={styles.moodImage} source={images.sad} />
           <Text style={styles.moodText}>Sad</Text>
         </Pressable>
-        <Pressable style={styles.moodPressable}
-          onPress={handleSuperSad}
-        >
-          <Image
-            style={styles.moodImage}
-            source={require("../../assets/MoodFaces/supersad.png")}
-          />
+
+        <Pressable onPress={handleSuperSad}>
+          <Image style={styles.moodImage} source={images.superSad} />
           <Text style={styles.moodText}>Super Sad</Text>
         </Pressable>
-    </View>
+      </View>
+
+      <View>
+        <Pressable style={styles.homeButton} onPress={handleHome}>
+          <Text style={styles.homeButtonText}>Home</Text>
+        </Pressable>
+      </View>
     </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
   background: {
-          position: "absolute",
-          resizeMode: "center",
-          resizeMethod: "center",
+    resizeMode: "cover",
+    alignItems: "center",
     zIndex: -1,
   },
   container: {
-    alignItems: "center",
-    alignSelf: "center",
     backgroundColor: "white",
-    justifyContent: "centre",
-    border: "solid",
+    justifyContent: "space-around",
     borderColor: "black",
-    borderwidth: horizontalScale(40),
-    flex: 1,
+    borderwidth: 5,
     flexDirection: "column",
-    height: verticalScale(20),
+    height: verticalScale(600),
     width: horizontalScale(220),
     marginTop: verticalScale(30),
-    marginBottom: verticalScale(30)
+  },
+  homeButton: {
+    display: "flex",
+    backgroundColor: "#0782F9",
+    padding: moderateScale(10),
+    borderRadius: 10,
+    marginTop: verticalScale(20),
+    alignItems: "center",
+    width: 110,
+  },
+  homeButtonText: {
+    color: "white",
+    fontWeight: "bold",
+    fontSize: 16,
+    fontFamily: "VT323_400Regular",
+  },
+  moodImage: {
+    height: 60,
+    width: 50,
+    alignSelf: "center",
   },
   moodText: {
     color: "black",
-    fontWeight: moderateScale(700),
+    fontWeight: "bold",
     fontSize: moderateScale(20),
     fontFamily: "VT323_400Regular",
     alignSelf: "center",
   },
-  moodImage: {
-    height: verticalScale(60),
-    width: horizontalScale(50),
-    marginTop: verticalScale(15),
-    alignSelf: "center",
-  },
-  moodPressable: {
-    height: verticalScale(60),
-    width: horizontalScale(50),
-    marginTop: verticalScale(15),
-    alignSelf: "center",
-  }
 });

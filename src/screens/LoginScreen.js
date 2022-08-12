@@ -9,8 +9,10 @@ import {
   View,
   ImageBackground,
   Image,
-  Button,
+  Pressable,
   Linking,
+  PixelRatio,
+  useWindowDimensions,
 } from "react-native";
 
 import {
@@ -24,6 +26,7 @@ import app from "../../config/firebase";
 const auth = app.auth();
 
 export default function LoginScreen() {
+  const { height, width } = useWindowDimensions();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   // const [firebaseId, setfirebaseId] = useState("");
@@ -31,7 +34,6 @@ export default function LoginScreen() {
 
   const images = {
     background: require("../../assets/background/forest-background_200_640x640.png"),
-    textbox: require("../../assets/text-boxes/Text-box-large.png"),
     egg: require("../../assets/Egg/EggHatch.gif"),
   };
 
@@ -64,30 +66,6 @@ export default function LoginScreen() {
       .catch((error) => alert(error.message));
   }
 
-  // async function HandleSignUp() {
-  //   const firebaseId = sendFirebaseAuth();
-  //   await postFirebaseId(firebaseId);
-  // }
-  // async function sendFirebaseAuth() {
-  //   await auth
-  //     .createUserWithEmailAndPassword(email, password)
-  //     .then((userCredentials) => {
-  //       const fbId = userCredentials.user.uid;
-  //       console.log(fbId);
-
-  //       return fbId;
-  //       // setfirebaseId(userCredentials.user.uid);
-  //       // console.log(firebaseId);
-  //     })
-  //     .catch((error) => alert(error.message));
-  // }
-
-  // async function setUserCredentials(uid) {
-  //   setfirebaseId(uid);
-  // }
-
-  ///////////////////////////////////////////////////////////////////
-
   async function HandleLogin() {
     await auth
       .signInWithEmailAndPassword(email, password)
@@ -98,14 +76,57 @@ export default function LoginScreen() {
       .catch((error) => alert(error.message));
   }
 
+  /* Egg Ratio */
+  // screen width divided by egg width
+  const ratio = 300 / 200;
+
+  // ====================
+
+  /* Font sizes */
+  // Scale 20 for mobile and Scale 15 for desktop
+
+  let descriptionFontSize = moderateScale(15);
+
+  if (PixelRatio.get() <= 2) {
+    descriptionFontSize = moderateScale(12);
+  }
+
+  // ====================
+
+  /* Description and Input Container width */
+  // mobile width at 250 and desktop at 400
+
+  let containerWidth = 250;
+  let descriptionWidth = 250;
+
+  if (PixelRatio.get() <= 2) {
+    containerWidth = 400;
+    descriptionWidth = 850;
+  }
+
   return (
     <KeyboardAvoidingView style={styles.container} behaviour="padding">
-      <ImageBackground style={styles.background} source={images.background}>
-        <Text style={styles.appname}>Medi-Mate</Text>
+      <ImageBackground
+        style={[styles.background, { height: height, width: width }]}
+        source={images.background}
+      >
+        <View style={styles.header}>
+          <Text style={styles.appname}>Medi-Mate</Text>
+          <Text style={[styles.tagline, styles.headerMargin]}>
+            Feed your mate, feed your soul!
+          </Text>
+          <Image
+            style={[
+              styles.egg,
+              { width: 120, height: 80 * ratio },
+              styles.headerMargin,
+            ]}
+            source={images.egg}
+          />
+        </View>
 
-        <Text style={styles.tagline}>Feed your mate, feed your soul!</Text>
+        <View style={[styles.inputContainer, { width: containerWidth }]}>
 
-        <View style={styles.inputContainer}>
           <TextInput
             placeholder="Email"
             value={email}
@@ -121,8 +142,8 @@ export default function LoginScreen() {
             secureTextEntry
           />
         </View>
-
-        <View style={styles.buttonContainer}>
+        
+        <View style={[styles.buttonContainer, { width: containerWidth }]}>
           <TouchableOpacity onPress={HandleLogin} style={styles.button}>
             <Text style={styles.buttonText}>Login</Text>
           </TouchableOpacity>
@@ -134,13 +155,25 @@ export default function LoginScreen() {
             <Text style={styles.buttonOutlineText}>Register</Text>
           </TouchableOpacity>
         </View>
-
-        <Image resizeMode="contain" style={styles.egg} source={images.egg} />
-        <View style={styles.contact}>
-          <Button
+        <Text
+          style={[
+            styles.description,
+            { fontSize: descriptionFontSize },
+            { width: descriptionWidth },
+          ]}
+        >
+          Your mate will help you meditate! Pick your medi-mate, give them a
+          name and help them stay healthy while you meditate. Navigate around
+          the app using the menu in the pet house
+        </Text>
+        <View>
+          <Pressable
+            style={styles.contact}
             onPress={() => Linking.openURL("mailto:support@example.com")}
-            title="Contact Medi-Mate"
-          />
+          >
+            <Text style={styles.buttonText}>Contact Medi-Mate</Text>
+          </Pressable>
+
         </View>
       </ImageBackground>
     </KeyboardAvoidingView>
@@ -148,39 +181,93 @@ export default function LoginScreen() {
 }
 
 const styles = StyleSheet.create({
-  background: {
-    // width: "100",
-    // height: "100",
-    position: "absolute",
-    resizeMode: "center",
-    resizeMethod: "center",
-    flex: 1,
+  appname: {
+    color: "white",
+    fontWeight: "bold",
+    fontSize: moderateScale(50),
+    fontFamily: "VT323_400Regular",
     justifyContent: "center",
+  },
+  background: {
+    resizeMode: "center",
+    flex: 1,
     alignItems: "center",
     zIndex: -1,
+  },
+  button: {
+    backgroundColor: "#0782F9",
+    width: 110,
+    padding: 15,
+    borderRadius: 10,
+    alignItems: "center",
+  },
+
+  buttonContainer: {
+    display: "flex",
+    flexDirection: "row",
+    // width: 250,
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: 15,
+  },
+  buttonOutline: {
+    backgroundColor: "white",
+  },
+  buttonOutlineText: {
+    color: "#0782F9",
+    fontWeight: "bold",
+    fontFamily: "VT323_400Regular",
+    fontSize: 16,
+  },
+  buttonText: {
+    color: "white",
+    fontWeight: "bold",
+    fontSize: 16,
+    fontFamily: "VT323_400Regular",
+  },
+  contact: {
+    display: "flex",
+    fontWeight: "bold",
+    fontFamily: "VT323_400Regular",
+    fontSize: 16,
+    backgroundColor: "#0782F9",
+    padding: moderateScale(10),
+    borderRadius: 10,
+    justifyContent: "center",
+    alignItems: "center",
   },
   container: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
   },
+  description: {
+    color: "white",
+    fontWeight: "bold",
+    fontSize: moderateScale(15),
+    fontFamily: "VT323_400Regular",
+    justifyContent: "center",
+    marginBottom: 20,
+    // maxWidth: '70%',
+  },
   egg: {
-    width: horizontalScale(150),
-    height: verticalScale(300),
-    position: "absolute",
-    resizeMode: "center",
-    resizeMethod: "center",
-    marginTop: verticalScale(650),
-    marginLeft: horizontalScale(25),
-    flex: 1,
+    paddingTop: 50,
+    resizeMode: "cover",
     justifyContent: "center",
     alignItems: "center",
     zIndex: 1,
   },
+  header: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "flex-start",
+  },
+  headerMargin: {
+    marginTop: 30,
+  },
   inputContainer: {
-    width: "80%",
-    paddingTop: verticalScale(100),
-    paddingBottom: 10,
+    // width: 250,
+    margin: moderateScale(20),
   },
   input: {
     backgroundColor: "white",
@@ -189,52 +276,12 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginTop: 5,
   },
-  buttonContainer: {
-    width: "60%",
-    justifyContent: "center",
-    alignItems: "center",
-    marginBottom: 40,
-  },
-  button: {
-    backgroundColor: "#0782F9",
-    width: "100%",
-    padding: 15,
-    borderRadius: 10,
-    alignItems: "center",
-  },
-  buttonOutline: {
-    backgroundColor: "white",
-    marginTop: 5,
-    borderColor: "#0782F9",
-    borderWidth: 2,
-  },
-  buttonText: {
-    color: "white",
-    fontWeight: "700",
-    fontSize: 16,
-    fontFamily: "VT323_400Regular",
-  },
-  buttonOutlineText: {
-    color: "#0782F9",
-    fontWeight: "700",
-    fontFamily: "VT323_400Regular",
-    fontSize: 16,
-  },
   tagline: {
     color: "white",
-    fontWeight: "700",
-    fontSize: moderateScale(20),
+    fontWeight: "bold",
+    fontSize: moderateScale(15),
     fontFamily: "VT323_400Regular",
     justifyContent: "center",
-  },
-  appname: {
-    color: "white",
-    fontWeight: moderateScale(700),
-    fontSize: moderateScale(100),
-    fontFamily: "VT323_400Regular",
-    justifyContent: "center",
-  },
-  contact: {
-    paddingBottom: verticalScale(-500),
+    marginBottom: 10,
   },
 });
