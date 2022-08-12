@@ -88,7 +88,7 @@ export default function LoginScreen() {
   let descriptionFontSize = moderateScale(15);
 
   if (PixelRatio.get() <= 2) {
-    descriptionFontSize = moderateScale(12);
+    descriptionFontSize = moderateScale(20);
   }
 
   // ====================
@@ -96,13 +96,13 @@ export default function LoginScreen() {
   /* Description and Input Container width */
   // mobile width at 250 and desktop at 400
 
-  let containerWidth = 250;
-  let descriptionWidth = 250;
+  let containerWidth = width / 1.3;;
+  let descriptionWidth = width / 1.3;;
 
-  if (PixelRatio.get() <= 2) {
-    containerWidth = 400;
-    descriptionWidth = 850;
-  }
+  // if (PixelRatio.get() <= 2) {
+  //   containerWidth = width / 1.3;
+  //   descriptionWidth = width / 1.3;
+  // }
 
   return (
     <KeyboardAvoidingView style={styles.container} behaviour="padding">
@@ -125,8 +125,7 @@ export default function LoginScreen() {
           />
         </View>
 
-        <View style={[styles.inputContainer, { width: containerWidth }]}>
-
+        <View style={[styles.formContainer, { width: containerWidth }]}>
           <TextInput
             placeholder="Email"
             value={email}
@@ -141,19 +140,20 @@ export default function LoginScreen() {
             style={styles.input}
             secureTextEntry
           />
-        </View>
-        
-        <View style={[styles.buttonContainer, { width: containerWidth }]}>
-          <TouchableOpacity onPress={HandleLogin} style={styles.button}>
-            <Text style={styles.buttonText}>Login</Text>
-          </TouchableOpacity>
 
-          <TouchableOpacity
-            onPress={HandleSignUp}
-            style={[styles.button, styles.buttonOutline]}
-          >
-            <Text style={styles.buttonOutlineText}>Register</Text>
-          </TouchableOpacity>
+          <View style={[styles.buttonContainer, { width: containerWidth }]}>
+            <TouchableOpacity onPress={HandleLogin} style={styles.button}>
+              <Text style={styles.buttonText}>Login</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={HandleSignUp}
+              style={[styles.button, styles.buttonOutline]}
+            >
+              <Text style={styles.buttonOutlineText}>Register</Text>
+            </TouchableOpacity>
+          </View>
+
         </View>
         <Text
           style={[
@@ -173,7 +173,6 @@ export default function LoginScreen() {
           >
             <Text style={styles.buttonText}>Contact Medi-Mate</Text>
           </Pressable>
-
         </View>
       </ImageBackground>
     </KeyboardAvoidingView>
@@ -205,9 +204,10 @@ const styles = StyleSheet.create({
   buttonContainer: {
     display: "flex",
     flexDirection: "row",
-    // width: 250,
+    maxWidth: 800,
     justifyContent: "space-between",
     alignItems: "center",
+    marginTop: 5,
     marginBottom: 15,
   },
   buttonOutline: {
@@ -248,7 +248,7 @@ const styles = StyleSheet.create({
     fontFamily: "VT323_400Regular",
     justifyContent: "center",
     marginBottom: 20,
-    // maxWidth: '70%',
+    maxWidth: 800,
   },
   egg: {
     paddingTop: 50,
@@ -257,6 +257,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     zIndex: 1,
   },
+  formContainer: {
+    maxWidth: 800,
+    margin: moderateScale(20),
+  },
   header: {
     display: "flex",
     alignItems: "center",
@@ -264,10 +268,6 @@ const styles = StyleSheet.create({
   },
   headerMargin: {
     marginTop: 30,
-  },
-  inputContainer: {
-    // width: 250,
-    margin: moderateScale(20),
   },
   input: {
     backgroundColor: "white",
