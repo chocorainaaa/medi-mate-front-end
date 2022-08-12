@@ -29,6 +29,11 @@ const auth = app.auth();
 
 export default function LoginScreen() {
   const { height, width } = useWindowDimensions();
+  const screenDimensions = {
+    height: height,
+    width: width
+  }
+  
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   // const [firebaseId, setfirebaseId] = useState("");
@@ -98,8 +103,8 @@ export default function LoginScreen() {
   /* Description and Input Container width */
   // mobile width at 250 and desktop at 400
 
-  let containerWidth = width / 1.3;;
-  let descriptionWidth = width / 1.3;;
+  // let containerWidth = width / 1.3;
+  // let descriptionWidth = width / 1.3;
 
   // if (PixelRatio.get() <= 2) {
   //   containerWidth = width / 1.3;
@@ -107,61 +112,76 @@ export default function LoginScreen() {
   // }
 
   return (
-    <KeyboardAvoidingView style={styles.container} behaviour="padding">
+    <KeyboardAvoidingView style={styles().container} behaviour="padding">
+      {/* <ImageBackground
+        style={[styles().background, { height: height, width: width }]}
+        source={images.background}
+      > */}
+      
       <ImageBackground
-        style={[styles.background, { height: height, width: width }]}
+        style={styles().background}
         source={images.background}
       >
-        <View style={styles.header}>
-          <Text style={styles.appname}>Medi-Mate</Text>
-          <Text style={[styles.tagline, styles.headerMargin]}>
+
+        <View style={styles().header}>
+          <Text style={styles().appname}>Medi-Mate</Text>
+          <Text style={[styles().tagline, styles().headerMargin]}>
             Feed your mate, feed your soul!
           </Text>
+          
+          
+          {/* <Image
+            style={[
+              styles().egg,
+              { width: 120, height: 80 * ratio },
+              styles().headerMargin,
+            ]}
+            source={images.egg}
+          /> */}
           <Image
             style={[
-              styles.egg,
-              { width: 120, height: 80 * ratio },
-              styles.headerMargin,
+              styles().egg,
+              styles().headerMargin,
             ]}
             source={images.egg}
           />
+
+          
         </View>
 
-        <View style={[styles.formContainer, { width: containerWidth }]}>
+        <View style={styles().formContainer}>
           <TextInput
             placeholder="Email"
             value={email}
             onChangeText={(text) => setEmail(text)}
-            style={styles.input}
+            style={styles().input}
           />
 
           <TextInput
             placeholder="Password"
             value={password}
             onChangeText={(text) => setPassword(text)}
-            style={styles.input}
+            style={styles().input}
             secureTextEntry
           />
 
-          <View style={[styles.buttonContainer, { width: containerWidth }]}>
-            <TouchableOpacity onPress={HandleLogin} style={styles.button}>
-              <Text style={styles.buttonText}>Login</Text>
+          <View style={styles().buttonContainer}>
+            <TouchableOpacity onPress={HandleLogin} style={styles().button}>
+              <Text style={styles().buttonText}>Login</Text>
             </TouchableOpacity>
 
             <TouchableOpacity
               onPress={HandleSignUp}
-              style={[styles.button, styles.buttonOutline]}
+              style={[styles().button, styles().buttonOutline]}
             >
-              <Text style={styles.buttonOutlineText}>Register</Text>
+              <Text style={styles().buttonOutlineText}>Register</Text>
             </TouchableOpacity>
           </View>
-
         </View>
         <Text
           style={[
-            styles.description,
+            styles().description,
             { fontSize: descriptionFontSize },
-            { width: descriptionWidth },
           ]}
         >
           Your mate will help you meditate! Pick your medi-mate, give them a
@@ -170,10 +190,10 @@ export default function LoginScreen() {
         </Text>
         <View>
           <Pressable
-            style={styles.contact}
+            style={styles().contact}
             onPress={() => Linking.openURL("mailto:support@example.com")}
           >
-            <Text style={styles.buttonText}>Contact Medi-Mate</Text>
+            <Text style={styles().buttonText}>Contact Medi-Mate</Text>
           </Pressable>
         </View>
       </ImageBackground>
@@ -181,109 +201,125 @@ export default function LoginScreen() {
   );
 }
 
-const styles = StyleSheet.create({
-  appname: {
-    color: "white",
-    fontWeight: "bold",
-    fontSize: moderateScale(50),
-    fontFamily: "VT323_400Regular",
-    justifyContent: "center",
-  },
-  background: {
-    resizeMode: "center",
-    flex: 1,
-    alignItems: "center",
-    zIndex: -1,
-  },
-  button: {
-    backgroundColor: "#0782F9",
-    width: 110,
-    padding: 15,
-    borderRadius: 10,
-    alignItems: "center",
-  },
+const styles = () => {
+  const { height, width } = useWindowDimensions();
+  const ratio = 300 / 200;
+  let containerWidth = width / 1.3;
 
-  buttonContainer: {
-    display: "flex",
-    flexDirection: "row",
-    maxWidth: 800,
-    justifyContent: "space-between",
-    alignItems: "center",
-    marginTop: 5,
-    marginBottom: 15,
-  },
-  buttonOutline: {
-    backgroundColor: "white",
-  },
-  buttonOutlineText: {
-    color: "#0782F9",
-    fontWeight: "bold",
-    fontFamily: "VT323_400Regular",
-    fontSize: 16,
-  },
-  buttonText: {
-    color: "white",
-    fontWeight: "bold",
-    fontSize: 16,
-    fontFamily: "VT323_400Regular",
-  },
-  contact: {
-    display: "flex",
-    fontWeight: "bold",
-    fontFamily: "VT323_400Regular",
-    fontSize: 16,
-    backgroundColor: "#0782F9",
-    padding: moderateScale(10),
-    borderRadius: 10,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  description: {
-    color: "white",
-    fontWeight: "bold",
-    fontSize: moderateScale(15),
-    fontFamily: "VT323_400Regular",
-    justifyContent: "center",
-    marginBottom: 20,
-    maxWidth: 800,
-  },
-  egg: {
-    paddingTop: 50,
-    resizeMode: "cover",
-    justifyContent: "center",
-    alignItems: "center",
-    zIndex: 1,
-  },
-  formContainer: {
-    maxWidth: 800,
-    margin: moderateScale(20),
-  },
-  header: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "flex-start",
-  },
-  headerMargin: {
-    marginTop: 30,
-  },
-  input: {
-    backgroundColor: "white",
-    paddingHorizontal: 15,
-    paddingVertical: 10,
-    borderRadius: 10,
-    marginTop: 5,
-  },
-  tagline: {
-    color: "white",
-    fontWeight: "bold",
-    fontSize: moderateScale(15),
-    fontFamily: "VT323_400Regular",
-    justifyContent: "center",
-    marginBottom: 10,
-  },
-});
+  const sheet = StyleSheet.create({
+    appname: {
+      color: "white",
+      fontWeight: "bold",
+      fontSize: moderateScale(50),
+      fontFamily: "VT323_400Regular",
+      justifyContent: "center",
+    },
+    background: {
+      resizeMode: "center",
+      flex: 1,
+      alignItems: "center",
+      zIndex: -1,
+      height: height,
+      width: width
+    },
+    button: {
+      backgroundColor: "#0782F9",
+      width: 110,
+      padding: 15,
+      borderRadius: 10,
+      alignItems: "center",
+    },
+
+    buttonContainer: {
+      display: "flex",
+      flexDirection: "row",
+      width: containerWidth,
+      maxWidth: 800,
+      justifyContent: "space-between",
+      alignItems: "center",
+      marginTop: 5,
+      marginBottom: 15,
+    },
+    buttonOutline: {
+      backgroundColor: "white",
+    },
+    buttonOutlineText: {
+      color: "#0782F9",
+      fontWeight: "bold",
+      fontFamily: "VT323_400Regular",
+      fontSize: 16,
+    },
+    buttonText: {
+      color: "white",
+      fontWeight: "bold",
+      fontSize: 16,
+      fontFamily: "VT323_400Regular",
+    },
+    contact: {
+      display: "flex",
+      fontWeight: "bold",
+      fontFamily: "VT323_400Regular",
+      fontSize: 16,
+      backgroundColor: "#0782F9",
+      padding: moderateScale(10),
+      borderRadius: 10,
+      justifyContent: "center",
+      alignItems: "center",
+    },
+    container: {
+      flex: 1,
+      justifyContent: "center",
+      alignItems: "center",
+    },
+    description: {
+      color: "white",
+      fontWeight: "bold",
+      fontSize: moderateScale(15),
+      fontFamily: "VT323_400Regular",
+      justifyContent: "center",
+      marginBottom: 20,
+      width: containerWidth,
+      maxWidth: 800,
+    },
+    egg: {
+      paddingTop: 50,
+      resizeMode: "cover",
+      justifyContent: "center",
+      alignItems: "center",
+      zIndex: 1,
+      width: 120,
+      height: 80 * ratio
+    },
+    formContainer: {
+      maxWidth: 800,
+      margin: moderateScale(20),
+      width: containerWidth
+    },
+    header: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "flex-start",
+    },
+    headerMargin: {
+      marginTop: 30,
+    },
+    input: {
+      backgroundColor: "white",
+      paddingHorizontal: 15,
+      paddingVertical: 10,
+      borderRadius: 10,
+      marginTop: 5,
+    },
+    tagline: {
+      color: "white",
+      fontWeight: "bold",
+      fontSize: moderateScale(15),
+      fontFamily: "VT323_400Regular",
+      justifyContent: "center",
+      marginBottom: 10,
+    },
+    // End of stylesheet
+  });
+  // End of function
+  return sheet;
+};
