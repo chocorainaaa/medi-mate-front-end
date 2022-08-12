@@ -3,7 +3,11 @@ import React, { useState, useEffect } from "react";
 import ModalMed from "../Components/ModalMeditation";
 import Timer from "../Components/Timer";
 import AnimatedRing from "../Components/Ring";
-
+import {
+  horizontalScale,
+  verticalScale,
+  moderateScale,
+} from "../Components/Metrics";
 const Meditation = ({ navigation }) => {
   const [startMeditation, setStartMeditation] = useState(false);
   const [lengthValue, setLengthValue] = useState(5);
@@ -77,8 +81,12 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   birdCage: {
-    paddingTop: 500,
-    paddingLeft: 150,
+    borderColor: "black",
+    borderWidth: 10,
+    height: verticalScale(500),
+    width: horizontalScale(400),
+    marginRight: horizontalScale(200),
+    marginTop: verticalScale(25),
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
