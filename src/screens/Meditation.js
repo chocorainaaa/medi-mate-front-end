@@ -34,7 +34,6 @@ const Meditation = ({ navigation }) => {
       source={require("../../assets/beach.gif")}
     >
       <View>
-        <Text>Meditation</Text>
         <ModalMed
           lengthChange={lengthChange}
           breathValue={breathValue}
@@ -81,8 +80,6 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   birdCage: {
-    borderColor: "black",
-    borderWidth: 10,
     height: verticalScale(500),
     width: horizontalScale(400),
     marginRight: horizontalScale(200),

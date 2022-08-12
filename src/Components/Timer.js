@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { StyleSheet, Text } from 'react-native';
+import { moderateScale } from "./Metrics";
 
 
 function Timer({ lengthValue, startMeditation, timer, setTimer }) {
@@ -44,5 +45,9 @@ export default Timer;
 const styles = StyleSheet.create({
   Timer: {
     paddingBottom: 15,
+    fontFamily: "VT323_400Regular",
+    color: "white",
+    fontWeight: "bold",
+    fontSize: moderateScale(25)
   },
 });
