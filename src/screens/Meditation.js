@@ -53,7 +53,7 @@ const Meditation = ({ navigation }) => {
       <View style={styles.birdCage}>
         <Image
           style={styles.bird}
-          source={require.ensure("../../assets/Bird/druid-owl.png")}
+          source={require("../../assets/Bird/druid-owl.png")}
         />
         <AnimatedRing
           style={styles.ring}
