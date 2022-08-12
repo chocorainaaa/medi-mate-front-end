@@ -1,3 +1,5 @@
+// use width and division to create a more responsive design for ios dev
+
 import React from "react";
 import { useState } from "react";
 import {
