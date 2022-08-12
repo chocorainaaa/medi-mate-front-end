@@ -5,11 +5,17 @@ import {
   Image,
   useWindowDimensions,
   ImageBackground,
+  Pressable,
 } from "react-native";
 import React, { useState, useContext, useEffect } from "react";
 
 import { AuthenticatedUserContext } from "../navigation/AuthenticatedUserProvider";
 import app from "../../config/firebase";
+import {
+  horizontalScale,
+  verticalScale,
+  moderateScale,
+} from "../Components/Metrics";
 
 const auth = app.auth();
 
@@ -62,6 +68,10 @@ const Stats = () => {
     return Math.floor(width / 1);
   }
 
+  function handleHome() {
+    navigation.navigate("Home");
+  }
+
   const images = {
     background: require("../../assets/background/forest-background_200_640x640.png"),
     pet: require("../../assets/Bird/bird-1.png.png"),
@@ -72,8 +82,8 @@ const Stats = () => {
     <View style={styles.container}>
       <ImageBackground
         style={{
-          width: "100%",
-          height: "100%",
+          width: width,
+          height: height,
           position: "absolute",
           resizeMode: "center",
           resizeMethod: "center",
@@ -164,6 +174,11 @@ const Stats = () => {
             <ImageBackground />
           </View>
         </View>
+        <View>
+          <Pressable style={styles.homeButton} onPress={handleHome}>
+            <Text style={styles.homeButtonText}>Home</Text>
+          </Pressable>
+        </View>
       </ImageBackground>
     </View>
   );
@@ -174,9 +189,26 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   coverImage: {
-    width: "100%",
-    height: 200,
+    width: 400,
+    height: 100,
     resizeMode: "cover",
+  },
+  homeButton: {
+    display: "flex",
+    backgroundColor: "#0782F9",
+    padding: moderateScale(10),
+    borderRadius: 10,
+    marginTop: verticalScale(20),
+    alignItems: "center",
+    alignSelf: "center",
+    marginBottom: 20,
+    width: 110,
+  },
+  homeButtonText: {
+    color: "white",
+    fontWeight: "bold",
+    fontSize: 16,
+    fontFamily: "VT323_400Regular",
   },
   imageText: {
     fontSize: 20,
