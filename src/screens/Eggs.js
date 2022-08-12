@@ -19,8 +19,8 @@ export default function Eggs({ navigation }) {
   const { height, width } = useWindowDimensions();
 
   const images = {
-    background: require.ensure("../../assets/background/forest-background_200_640x640.png"),
-    egg: require.ensure("../../assets/Egg/Egg.png"),
+    background: require("../../assets/background/forest-background_200_640x640.png"),
+    egg: require("../../assets/Egg/Egg.png"),
   };
 
   function handleClick() {

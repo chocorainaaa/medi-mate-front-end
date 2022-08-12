@@ -44,8 +44,8 @@ export default function PetName({ navigation }) {
   }
 
   const images = {
-    background: require.ensure("../../assets/background/forest-background_200_640x640.png"),
-    bird: require.ensure("../../assets/Bird/druid-owl.png")
+    background: require("../../assets/background/forest-background_200_640x640.png"),
+    bird: require("../../assets/Bird/druid-owl.png")
   };
 
   //   function nameChoosen() {
