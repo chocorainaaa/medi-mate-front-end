@@ -161,7 +161,7 @@ const styles = StyleSheet.create({
   },
   moodText: {
     color: "black",
-    fontWeight: moderateScale(700),
+    fontWeight: "bold",
     fontSize: moderateScale(20),
     fontFamily: "VT323_400Regular",
     alignSelf: "center",
