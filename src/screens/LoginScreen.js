@@ -92,10 +92,10 @@ export default function LoginScreen() {
   /* Font sizes */
   // Scale 20 for mobile and Scale 15 for desktop
 
-  let descriptionFontSize = moderateScale(15);
+  let descriptionFontSize = moderateScale(18);
 
   if (PixelRatio.get() <= 2) {
-    descriptionFontSize = moderateScale(20);
+    descriptionFontSize = moderateScale(13);
   }
 
   // ====================
@@ -130,14 +130,6 @@ export default function LoginScreen() {
           </Text>
           
           
-          {/* <Image
-            style={[
-              styles().egg,
-              { width: 120, height: 80 * ratio },
-              styles().headerMargin,
-            ]}
-            source={images.egg}
-          /> */}
           <Image
             style={[
               styles().egg,
@@ -280,6 +272,8 @@ const styles = () => {
       marginBottom: 20,
       width: containerWidth,
       maxWidth: 800,
+      backgroundColor: '#00000090',
+      padding: 15,
     },
     egg: {
       paddingTop: 50,
