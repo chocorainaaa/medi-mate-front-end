@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Alert, Modal, StyleSheet, Text, Pressable, View } from "react-native";
 import UniSlider from "./Slider.js";
-import Bird from "../../assets/bird-static.png";
 import { moderateScale } from "./Metrics.js";
 
 const ModalMed = ({

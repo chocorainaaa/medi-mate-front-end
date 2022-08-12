@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Alert, Modal, StyleSheet, Text, Pressable, View } from "react-native";
-import Bird from "../../assets/bird-static.png"
+
 
 const UniModal = ({ innerText }) => {
     const [modalVisible, setModalVisible] = useState(false);
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         padding: 10,
         elevation: 2,
-        backgroundImage: url(Bird),
+
     },
     buttonOpen: {
         backgroundColor: "#F194FF",
