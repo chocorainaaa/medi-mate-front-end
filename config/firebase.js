@@ -8,7 +8,7 @@ import "firebase/auth";
 // Your web app's Firebase configuration
 
 const firebaseConfig = {
-  apiKey: process.env.API_KEY,
+  apiKey: "AIzaSyDzrWiH_wehV_4QQnqgXHlHQ_gHaKV9U3c",
   authDomain: process.env.AUTH_DOMAIN,
   projectId: process.env.PROJECT_ID,
   storageBucket: process.env.STORAGE_BUCKET,
