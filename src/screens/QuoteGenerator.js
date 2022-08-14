@@ -18,6 +18,10 @@ const QuoteGenerator = () => {
 
   const api_url = "https://zenquotes.io/api/quotes/";
 
+  function handleHome() {
+    navigation.navigate("Home");
+  }
+
   async function getapi(url) {
     const response = await fetch(url);
     let data = await response.json();
@@ -29,10 +33,6 @@ const QuoteGenerator = () => {
   useEffect(() => {
     getapi(api_url);
   }, []);
-
-  function handleHome() {
-    navigation.navigate("Home");
-  }
 
   const images = {
     background: require("../../assets/background/forest-background_200_640x640.png"),
@@ -62,12 +62,12 @@ const QuoteGenerator = () => {
             </Text>
             <ImageBackground />
           </View>
-          <View>
-            <Pressable style={styles.homeButton} onPress={handleHome}>
-              <Text style={styles.homeButtonText}>Home</Text>
-            </Pressable>
-          </View>
         </View>
+        {/* <View>
+          <Pressable style={styles.homeButton} onPress={handleHome}>
+            <Text style={styles.homeButtonText}>Home</Text>
+          </Pressable>
+        </View> */}
       </ImageBackground>
     </View>
   );
