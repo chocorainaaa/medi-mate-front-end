@@ -57,3 +57,6 @@ dist/
 # enviroment variable file
 .env
 
+
+# Local Netlify folder
+.netlify
