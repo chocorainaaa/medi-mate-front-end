@@ -27,21 +27,21 @@ export default function MoodLogger({ navigation }) {
   // mood is a number between 1 - 5
   const { user } = useContext(AuthenticatedUserContext);
 
-async function postMood(mood) {
+  async function postMood(mood) {
 
-  await fetch(`${baseURL}/mood-log`, {
-  method: 'POST',
-  headers: {
-    Accept: 'application/json',
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify({
-    firebase_user_id: `${user.uid}`,
-    mood_rating: `${mood}`,
-  }),
-  success: 200,
-})
-}
+    await fetch(`${baseURL}/mood-log`, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        firebase_user_id: `${user.uid}`,
+        mood_rating: `${mood}`,
+      }),
+      success: 200,
+    })
+  }
 
   async function handleSuperHappy() {
     await postMood(5);
@@ -153,7 +153,7 @@ const styles = StyleSheet.create({
     color: "white",
     fontWeight: "bold",
     fontSize: 16,
-    fontFamily: "VT323_400Regular",
+    // fontFamily: "VT323_400Regular",
   },
   moodImage: {
     height: 60,
@@ -164,7 +164,7 @@ const styles = StyleSheet.create({
     color: "black",
     fontWeight: "bold",
     fontSize: moderateScale(20),
-    fontFamily: "VT323_400Regular",
+    // fontFamily: "VT323_400Regular",
     alignSelf: "center",
   },
 });

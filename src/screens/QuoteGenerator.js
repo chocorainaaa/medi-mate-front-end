@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
     color: "black",
     fontWeight: "bold",
     position: "absolute",
-    fontFamily: "VT323_400Regular",
+    // fontFamily: "VT323_400Regular",
   },
   textView: {
     position: "absolute",

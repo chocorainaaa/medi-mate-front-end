@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     color: "white",
   },
   text: {
-    fontFamily: "VT323_400Regular",
+    // fontFamily: "VT323_400Regular",
     fontSize: moderateScale(10)
   }
 });

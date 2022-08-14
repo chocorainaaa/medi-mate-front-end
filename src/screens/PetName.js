@@ -62,21 +62,21 @@ export default function PetName({ navigation }) {
       style={[styles.background, { height: height, width: width }]}
       source={images.background}
     >
-        <Image
-          style={styles.bird}
-          source={require("../../assets/Bird/bird.gif")}
-        />
-        <Text style={styles.text}>Please choose a name for your Medi-Mate</Text>
-        <TextInput
-          id={"input"}
-          placeholder="Medi-Mate Name"
-          value={petName}
-          onChangeText={(text) => setPetName(text)}
-          style={styles.input}
-        />
-        <Pressable style={styles.button} onPress={postPetName}>
-          <Text style={styles.buttonText}>Set Name</Text>
-        </Pressable>
+      <Image
+        style={styles.bird}
+        source={require("../../assets/Bird/bird.gif")}
+      />
+      <Text style={styles.text}>Please choose a name for your Medi-Mate</Text>
+      <TextInput
+        id={"input"}
+        placeholder="Medi-Mate Name"
+        value={petName}
+        onChangeText={(text) => setPetName(text)}
+        style={styles.input}
+      />
+      <Pressable style={styles.button} onPress={postPetName}>
+        <Text style={styles.buttonText}>Set Name</Text>
+      </Pressable>
     </ImageBackground>
   );
 }
@@ -100,12 +100,12 @@ const styles = StyleSheet.create({
     marginTop: 20,
     alignItems: "center",
     width: 110,
-},
+  },
   buttonText: {
     color: "white",
     fontWeight: "bold",
     fontSize: 16,
-    fontFamily: "VT323_400Regular",
+    // fontFamily: "VT323_400Regular",
   },
   input: {
     backgroundColor: "white",
@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
     color: "white",
     fontWeight: "bold",
     fontSize: moderateScale(20),
-    fontFamily: "VT323_400Regular",
+    // fontFamily: "VT323_400Regular",
     alignItems: "center",
   },
 });

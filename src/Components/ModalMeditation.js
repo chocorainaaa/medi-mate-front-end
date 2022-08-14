@@ -117,24 +117,24 @@ const styles = StyleSheet.create({
   },
   buttonOpen: {
     backgroundColor: "#0782F9",
-    fontFamily: "VT323_400Regular",
+    // fontFamily: "VT323_400Regular",
   },
   buttonClose: {
     backgroundColor: "#0782F9",
-    fontFamily: "VT323_400Regular",
+    // fontFamily: "VT323_400Regular",
   },
   textStyle: {
     color: "white",
     fontWeight: "bold",
     fontSize: moderateScale(10),
     textAlign: "center",
-    fontFamily: "VT323_400Regular",
+    // fontFamily: "VT323_400Regular",
   },
   modalText: {
     textAlign: "center",
     paddingTop: 15,
     fontSize: moderateScale(15),
-    fontFamily: "VT323_400Regular",
+    // fontFamily: "VT323_400Regular",
     margin: moderateScale(10)
   },
   slider: {

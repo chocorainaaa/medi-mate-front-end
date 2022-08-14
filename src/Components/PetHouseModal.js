@@ -180,12 +180,12 @@ const styles = StyleSheet.create({
   modalText: {
     marginBottom: 15,
     textAlign: "center",
-    fontFamily: "VT323_400Regular",
+    // fontFamily: "VT323_400Regular",
   },
 
   textStyle: {
     color: "black",
-    fontFamily: "VT323_400Regular",
+    // fontFamily: "VT323_400Regular",
     fontWeight: "bold",
     textAlign: "center",
   },
