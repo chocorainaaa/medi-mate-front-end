@@ -87,32 +87,34 @@ export default function MoodLogger({ navigation }) {
       source={images.background}
     >
       <View style={[{ width: width, height: height }, styles.container]}>
-        <Text style={styles.moodText}>How are you feeling today?</Text>
+        <ImageBackground source={images.textBox} style={styles.coverImage}>
+          <Text style={styles.moodText}>How are you feeling today?</Text>
 
-        <Pressable onPress={handleSuperHappy}>
-          <Image style={styles.moodImage} source={images.superHappy} />
-          <Text style={styles.moodText}>Super Happy</Text>
-        </Pressable>
+          <Pressable onPress={handleSuperHappy}>
+            <Image style={styles.moodImage} source={images.superHappy} />
+            <Text style={styles.moodText}>Super Happy</Text>
+          </Pressable>
 
-        <Pressable onPress={handleHappy}>
-          <Image style={styles.moodImage} source={images.happy} />
-          <Text style={styles.moodText}>Happy</Text>
-        </Pressable>
+          <Pressable onPress={handleHappy}>
+            <Image style={styles.moodImage} source={images.happy} />
+            <Text style={styles.moodText}>Happy</Text>
+          </Pressable>
 
-        <Pressable onPress={handleOK}>
-          <Image style={styles.moodImage} source={images.OK} />
-          <Text style={styles.moodText}>OK</Text>
-        </Pressable>
+          <Pressable onPress={handleOK}>
+            <Image style={styles.moodImage} source={images.OK} />
+            <Text style={styles.moodText}>OK</Text>
+          </Pressable>
 
-        <Pressable onPress={handleSad}>
-          <Image style={styles.moodImage} source={images.sad} />
-          <Text style={styles.moodText}>Sad</Text>
-        </Pressable>
+          <Pressable onPress={handleSad}>
+            <Image style={styles.moodImage} source={images.sad} />
+            <Text style={styles.moodText}>Sad</Text>
+          </Pressable>
 
-        <Pressable onPress={handleSuperSad}>
-          <Image style={styles.moodImage} source={images.superSad} />
-          <Text style={styles.moodText}>Super Sad</Text>
-        </Pressable>
+          <Pressable onPress={handleSuperSad}>
+            <Image style={styles.moodImage} source={images.superSad} />
+            <Text style={styles.moodText}>Super Sad</Text>
+          </Pressable>
+        </ImageBackground>
       </View>
 
       <View>
@@ -131,14 +133,20 @@ const styles = StyleSheet.create({
     zIndex: -1,
   },
   container: {
-    backgroundColor: "#b2b2b2",
+    // backgroundColor: "#b2b2b2",
     justifyContent: "space-around",
-    borderColor: "black",
-    borderwidth: 5,
+    // borderColor: "black",
+    // borderwidth: 5,
     flexDirection: "column",
     height: verticalScale(600),
-    width: horizontalScale(220),
+    width: horizontalScale(300),
     marginTop: verticalScale(30),
+  },
+  coverImage: {
+    height: verticalScale(400),
+    // width: horizontalScale(220),
+    // marginTop: verticalScale(30),
+    // resizeMode: "cover",
   },
   homeButton: {
     display: "flex",
