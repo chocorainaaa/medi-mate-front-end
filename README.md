@@ -70,7 +70,6 @@ Re-sizing for various devices is in the beta phase, so there may be some design 
 ?????
 
 ## Tech Stack
-<a href="" target="_blank"><img style="margin: 10px" src="" alt="" height="50"/></a>
 
 <div align="left">
 <a href="https://reactnative.dev/" target="_blank"><img style="margin: 10px" src="https://svgarchive.com/wp-content/uploads/react-native.svg" alt="React-Native" height="50"/></a>
@@ -94,7 +93,7 @@ Re-sizing for various devices is in the beta phase, so there may be some design 
 <a href="https://trello.com/" target="_blank"><img style="margin: 10px" src="https://www.vectorlogo.zone/logos/trello/trello-ar21.svg" alt="Trello" height="50"/></a>
 <a href="https://miro.com/" target="_blank"><img style="margin: 10px" src="https://cdn.worldvectorlogo.com/logos/miro-2.svg" alt="Miro" height="50"/></a>
 <a href="https://www.piskelapp.com/" target="_blank"><img style="margin: 10px" src="https://www.piskelapp.com/static/resources/logo_transparent_small_compact.png" alt="Piskel" height="50"/></a>
-<a href="https://www.aseprite.org/" target="_blank"><img style="margin: 10px" src="https://www.aseprite.org/assets/images/header-logo.png" alt="Aseprite" height="50"/></a>
+<a href="https://www.aseprite.org/" target="_blank"><img style="margin: 10px" src="https://community.aseprite.org/uploads/default/original/1X/41b8dccda51104ccd560162c19a25b5671eef5f7.png" alt="Aseprite" height="50"/></a>
 </div>
 
 ### The reasons behind the techstack we choose
