@@ -45,7 +45,7 @@ export default function PetName({ navigation }) {
 
   const images = {
     background: require("../../assets/background/forest-background_200_640x640.png"),
-    bird: require("../../assets/Bird/bird.gif")
+    bird: require("../../assets/Bird/bird.gif"),
   };
 
   //   function nameChoosen() {
@@ -62,21 +62,27 @@ export default function PetName({ navigation }) {
       style={[styles.background, { height: height, width: width }]}
       source={images.background}
     >
-        <Image
-          style={styles.bird}
-          source={require("../../assets/Bird/bird.gif")}
-        />
-        <Text style={styles.text}>Please choose a name for your Medi-Mate</Text>
-        <TextInput
-          id={"input"}
-          placeholder="Medi-Mate Name"
-          value={petName}
-          onChangeText={(text) => setPetName(text)}
-          style={styles.input}
-        />
-        <Pressable style={styles.button} onPress={postPetName}>
-          <Text style={styles.buttonText}>Set Name</Text>
-        </Pressable>
+      <Image
+        style={styles.bird}
+        source={require("../../assets/Bird/druid-owl.png")}
+      />
+      <Text style={styles.text}>Please choose a name for your Medi-Mate</Text>
+      <TextInput
+        id={"input"}
+        placeholder="Medi-Mate Name"
+        value={petName}
+        onChangeText={(text) => setPetName(text)}
+        style={styles.input}
+      />
+      <Pressable
+        style={styles.button}
+        onPress={() => {
+          postPetName;
+          navigation.navigate("Home");
+        }}
+      >
+        <Text style={styles.buttonText}>Set Name</Text>
+      </Pressable>
     </ImageBackground>
   );
 }
@@ -94,13 +100,15 @@ const styles = StyleSheet.create({
   },
   button: {
     display: "flex",
-    backgroundColor: "#0782F9",
+    backgroundColor: "#285cc4",
+    borderColor: "black",
+    borderWidth: 3,
     padding: 10,
-    borderRadius: 10,
+    borderRadius: 2,
     marginTop: 20,
     alignItems: "center",
     width: 110,
-},
+  },
   buttonText: {
     color: "white",
     fontWeight: "bold",

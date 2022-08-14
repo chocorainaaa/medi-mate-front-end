@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "final-project_front-end-bootglampers",
+    "slug": "final-project_front-end-bootglampers",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "final-project_front-end-bootglampers"
+}
