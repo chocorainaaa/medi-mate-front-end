@@ -1,6 +1,7 @@
 {
   "name": "final-project_front-end-bootglampers",
   "version": "1.0.0",
+  "homepage": "https://62f91804d35b2b078f7f89e4--wondrous-chebakia-66ea16.netlify.app/",
   "main": "index.js",
   "scripts": {
     "start": "expo start --dev-client",
