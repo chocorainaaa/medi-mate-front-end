@@ -1,0 +1,36 @@
+{
+  "files": {
+    "app.js": "/static/js/app.e25fc8bf.chunk.js",
+    "app.js.map": "/static/js/app.e25fc8bf.chunk.js.map",
+    "runtime~app.js": "/static/js/runtime~app.27401809.js",
+    "runtime~app.js.map": "/static/js/runtime~app.27401809.js.map",
+    "static/js/2.e9046f1f.chunk.js": "/static/js/2.e9046f1f.chunk.js",
+    "static/js/2.e9046f1f.chunk.js.map": "/static/js/2.e9046f1f.chunk.js.map",
+    "fonts/VT323_400Regular.ttf": "/./fonts/VT323_400Regular.ttf",
+    "favicon-16.png": "/favicon-16.png",
+    "favicon-32.png": "/favicon-32.png",
+    "favicon.ico": "/favicon.ico",
+    "index.html": "/index.html",
+    "manifest.json": "/manifest.json",
+    "serve.json": "/serve.json",
+    "static/js/2.e9046f1f.chunk.js.LICENSE.txt": "/static/js/2.e9046f1f.chunk.js.LICENSE.txt",
+    "static/media/EggHatch.gif": "/static/media/EggHatch.7eace36b.gif",
+    "static/media/Text-box-large.png": "/static/media/Text-box-large.336af0e5.png",
+    "static/media/beach.gif": "/static/media/beach.0e81d406.gif",
+    "static/media/bird-1.png.png": "/static/media/bird-1.png.3255431d.png",
+    "static/media/bird-static.png": "/static/media/bird-static.3255431d.png",
+    "static/media/druid-owl.png": "/static/media/druid-owl.1d1b5c53.png",
+    "static/media/forest-background_200_640x640.png": "/static/media/forest-background_200_640x640.6614af28.png",
+    "static/media/happy-bird.png": "/static/media/happy-bird.1ad68402.png",
+    "static/media/meh-bird.png": "/static/media/meh-bird.0c750c54.png",
+    "static/media/pet-house-placeholder.png": "/static/media/pet-house-placeholder.50154974.png",
+    "static/media/sad-bird.png": "/static/media/sad-bird.396336ab.png",
+    "static/media/semi-happy-bird.png": "/static/media/semi-happy-bird.b5154407.png",
+    "static/media/semi-sad-bird.png": "/static/media/semi-sad-bird.b1fc991f.png"
+  },
+  "entrypoints": [
+    "static/js/runtime~app.27401809.js",
+    "static/js/2.e9046f1f.chunk.js",
+    "static/js/app.e25fc8bf.chunk.js"
+  ]
+}
