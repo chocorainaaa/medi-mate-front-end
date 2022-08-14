@@ -7,13 +7,13 @@ import AppLoading from "expo-app-loading";
 import { StyleSheet, Text, View } from "react-native";
 
 export default function App() {
-  let [fontsLoaded] = useFonts({
-    VT323_400Regular,
-  });
+  // let [fontsLoaded] = useFonts({
+  //   VT323_400Regular,
+  // });
 
-  if (!fontsLoaded) {
-    return <AppLoading />;
-  }
+  // if (!fontsLoaded) {
+  //   return <AppLoading />;
+  // }
 
   return <Routes />;
 }
