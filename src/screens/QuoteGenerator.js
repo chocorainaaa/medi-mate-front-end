@@ -1,4 +1,10 @@
-import { StyleSheet, Text, View, ImageBackground } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  ImageBackground,
+  Pressable,
+} from "react-native";
 import React, { useState, useEffect } from "react";
 import {
   horizontalScale,
@@ -24,21 +30,12 @@ const QuoteGenerator = () => {
     getapi(api_url);
   }, []);
 
-  /* fetch(`${baseURL}/mood-log`, {
-  method: 'POST',
-  headers: {
-    Accept: 'application/json',
-    'Content-Type': 'application/json',
-    
-  },
-  body: JSON.stringify({
-    firebase_user_id: `${user.uid}`,
-    mood_rating: `${mood}`,
-  }), */
+  function handleHome() {
+    navigation.navigate("Home");
+  }
 
   const images = {
     background: require("../../assets/background/forest-background_200_640x640.png"),
-    pet: require("../../assets/Bird/bird-1.png.png"),
     textBox: require("../../assets/text-boxes/Text-box.png"),
   };
 
@@ -65,6 +62,11 @@ const QuoteGenerator = () => {
             </Text>
             <ImageBackground />
           </View>
+          <View>
+            <Pressable style={styles.homeButton} onPress={handleHome}>
+              <Text style={styles.homeButtonText}>Home</Text>
+            </Pressable>
+          </View>
         </View>
       </ImageBackground>
     </View>
@@ -83,10 +85,27 @@ const styles = StyleSheet.create({
   imageText: {
     fontSize: 18,
     width: horizontalScale(300),
-
     color: "black",
     fontWeight: "bold",
     position: "absolute",
+    fontFamily: "VT323_400Regular",
+  },
+  homeButton: {
+    backgroundColor: "#285cc4",
+    padding: moderateScale(10),
+    borderRadius: 2,
+    borderColor: "black",
+    borderWidth: 3,
+    marginTop: verticalScale(20),
+    alignItems: "center",
+    alignSelf: "center",
+    marginBottom: 70,
+    width: 150,
+  },
+  homeButtonText: {
+    color: "white",
+    fontWeight: "bold",
+    fontSize: 16,
     fontFamily: "VT323_400Regular",
   },
   textView: {

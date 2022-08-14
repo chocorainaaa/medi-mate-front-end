@@ -142,9 +142,11 @@ const styles = StyleSheet.create({
   },
   homeButton: {
     display: "flex",
-    backgroundColor: "#0782F9",
+    backgroundColor: "#285cc4",
     padding: moderateScale(10),
-    borderRadius: 10,
+    borderRadius: 2,
+    borderColor: "black",
+    borderWidth: 3,
     marginTop: verticalScale(20),
     alignItems: "center",
     width: 110,
