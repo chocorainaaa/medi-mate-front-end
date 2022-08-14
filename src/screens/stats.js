@@ -49,9 +49,10 @@ const Stats = ({ navigation }) => {
     },
   });
 
-  // Hardcoded - To be deleted
+  // Hardcoded - petAge calculation needs multiple conversions - not priority
+  // Reward points is a stretch goal requiring further DB table
   const extraData = {
-    dailyStreak: 2,
+    dailyStreak: 2, // have in get request
     petAge: 3,
     rewardPoints: 5,
   };
