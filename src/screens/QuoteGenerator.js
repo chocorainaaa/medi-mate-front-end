@@ -62,11 +62,11 @@ const QuoteGenerator = () => {
             </Text>
             <ImageBackground />
           </View>
-          <View>
+          {/* <View>
             <Pressable style={styles.homeButton} onPress={handleHome}>
               <Text style={styles.homeButtonText}>Home</Text>
             </Pressable>
-          </View>
+          </View> */}
         </View>
       </ImageBackground>
     </View>
