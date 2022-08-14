@@ -36,6 +36,7 @@ const Stats = ({ navigation }) => {
   const [data, setData] = useState({
     visits: null,
     total_meditation_time: null,
+    daily_streak: null,
     mood_data: {
       average_mood: null,
       all_moodlogs: [
@@ -52,7 +53,6 @@ const Stats = ({ navigation }) => {
   // Hardcoded - petAge calculation needs multiple conversions - not priority
   // Reward points is a stretch goal requiring further DB table
   const extraData = {
-    dailyStreak: 2, // have in get request
     petAge: 3,
     rewardPoints: 5,
   };
@@ -116,7 +116,7 @@ const Stats = ({ navigation }) => {
         <View style={styles.textView}>
           <ImageBackground source={images.textBox} style={styles.coverImage} />
           <Text style={styles.imageText}>
-            Daily streak: {extraData.dailyStreak}
+            Daily streak: {data.daily_streak}
           </Text>
           <ImageBackground />
         </View>
