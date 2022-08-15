@@ -179,13 +179,13 @@ const styles = StyleSheet.create({
     color: "white",
     fontWeight: "bold",
     fontSize: 16,
-    // fontFamily: "VT323_400Regular",
+    fontFamily: "VT323_400Regular",
   },
   imageText: {
     fontSize: 20,
     color: "black",
     fontWeight: "bold",
-    // fontFamily: "VT323_400Regular",
+    fontFamily: "VT323_400Regular",
     position: "absolute",
   },
   textView: {

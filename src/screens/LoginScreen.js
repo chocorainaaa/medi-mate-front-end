@@ -21,6 +21,7 @@ import {
   moderateScale,
 } from "../Components/Metrics";
 
+
 import app from "../../config/firebase";
 
 const auth = app.auth();
@@ -184,7 +185,7 @@ const styles = StyleSheet.create({
     color: "white",
     fontWeight: "bold",
     fontSize: moderateScale(50),
-    // fontFamily: "VT323_400Regular",
+    fontFamily: "VT323_400Regular",
     justifyContent: "center",
   },
   background: {
@@ -216,19 +217,19 @@ const styles = StyleSheet.create({
   buttonOutlineText: {
     color: "#0782F9",
     fontWeight: "bold",
-    // fontFamily: "VT323_400Regular",
+    fontFamily: "VT323_400Regular",
     fontSize: 16,
   },
   buttonText: {
     color: "white",
     fontWeight: "bold",
     fontSize: 16,
-    // fontFamily: "VT323_400Regular",
+    fontFamily: "VT323_400Regular",
   },
   contact: {
     display: "flex",
     fontWeight: "bold",
-    // fontFamily: "VT323_400Regular",
+    fontFamily: "VT323_400Regular",
     fontSize: 16,
     backgroundColor: "#0782F9",
     padding: moderateScale(10),
@@ -245,7 +246,7 @@ const styles = StyleSheet.create({
     color: "white",
     fontWeight: "bold",
     fontSize: moderateScale(15),
-    // fontFamily: "VT323_400Regular",
+    fontFamily: "VT323_400Regular",
     justifyContent: "center",
     marginBottom: 20,
     maxWidth: 800,
@@ -280,7 +281,7 @@ const styles = StyleSheet.create({
     color: "white",
     fontWeight: "bold",
     fontSize: moderateScale(15),
-    // fontFamily: "VT323_400Regular",
+    fontFamily: "VT323_400Regular",
     justifyContent: "center",
     marginBottom: 10,
   },

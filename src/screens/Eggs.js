@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
     color: "white",
     fontWeight: "bold",
     fontSize: moderateScale(20),
-    // fontFamily: "VT323_400Regular",
+    fontFamily: "VT323_400Regular",
     alignItems: "center",
     marginTop: 200,
   },

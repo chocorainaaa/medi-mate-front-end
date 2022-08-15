@@ -163,7 +163,7 @@ const styles = StyleSheet.create({
     color: "white",
     fontWeight: "bold",
     fontSize: 16,
-    // fontFamily: "VT323_400Regular",
+    fontFamily: "VT323_400Regular",
   },
   moodImage: {
     height: 60,
@@ -174,7 +174,7 @@ const styles = StyleSheet.create({
     color: "black",
     fontWeight: "bold",
     fontSize: moderateScale(20),
-    // fontFamily: "VT323_400Regular",
+    fontFamily: "VT323_400Regular",
     alignSelf: "center",
   },
 });
