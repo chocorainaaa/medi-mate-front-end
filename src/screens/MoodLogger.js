@@ -33,6 +33,7 @@ export default function MoodLogger({ navigation }) {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
+        success: 200
       },
       body: JSON.stringify({
         firebase_user_id: `${user.uid}`,
