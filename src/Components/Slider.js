@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontFamily: "VT323_400Regular",
-    fontSize: moderateScale(10)
+    fontSize: moderateScale(15)
   }
 });
 
