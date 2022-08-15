@@ -19,7 +19,7 @@ import {
 
 const auth = app.auth();
 
-const baseURL = "postgres://ljjslmyauhvvnq:960312a027b7a13aa73d0a813975075c7658e331bce62a40a1b25e834347b002@ec2-34-253-119-24.eu-west-1.compute.amazonaws.com:5432/d4crfvm31j0a7r";
+const baseURL = "https://medi-mate-app.herokuapp.com";
 
 // Hard coded data object
 
