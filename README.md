@@ -63,11 +63,14 @@ To run the front end:
 Re-sizing for various devices is in the beta phase, so there may be some design issues on some devices.
 
 ## Accessibility
-?????
+82% Accessibility on google Lighthouse. We would aim to improve on this in future development.
 
 ## Running Tests
+To run tests:
 
-?????
+```bash
+  npm run test
+```
 
 ## Tech Stack
 
