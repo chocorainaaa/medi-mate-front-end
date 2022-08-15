@@ -60,3 +60,5 @@ dist/
 
 # Local Netlify folder
 .netlify
+
+.firebase
