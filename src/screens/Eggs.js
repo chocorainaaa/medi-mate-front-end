@@ -21,6 +21,8 @@ export default function Eggs({ navigation }) {
   const images = {
     background: require("../../assets/background/forest-background_200_640x640.png"),
     egg: require("../../assets/Egg/Egg.png"),
+    eggGreen: require("../../assets/Egg/Egg-green.png"),
+    eggRed: require("../../assets/Egg/Egg-red.png"),
   };
 
   function handleClick() {
@@ -36,13 +38,13 @@ export default function Eggs({ navigation }) {
 
       <View style={styles.hatchery}>
         <Pressable onPress={handleClick}>
-          <Image style={styles.egg} source={images.egg} />
+          <Image style={styles.egg} source={images.eggGreen} />
         </Pressable>
         <Pressable onPress={handleClick}>
           <Image style={styles.egg} source={images.egg} />
         </Pressable>
         <Pressable onPress={handleClick}>
-          <Image style={styles.egg} source={images.egg} />
+          <Image style={styles.egg} source={images.eggRed} />
         </Pressable>
       </View>
     </ImageBackground>

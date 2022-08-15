@@ -1,4 +1,11 @@
-import { StyleSheet, Text, View, ImageBackground, Image } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  ImageBackground,
+  Image,
+  Pressable,
+} from "react-native";
 import React, { useState, useEffect } from "react";
 import ModalMed from "../Components/ModalMeditation";
 import Timer from "../Components/Timer";
@@ -21,45 +28,56 @@ const Meditation = ({ navigation }) => {
     setBreathValue(sliderValue);
   }
 
-
   useEffect(() => {
     if (startMeditation && timer <= 0) {
       navigation.navigate("Home");
     }
   }, [timer]);
 
+  function handleHome() {
+    navigation.navigate("Home");
+  }
+
   return (
     <ImageBackground
       style={styles.backgroundImage}
       source={require("../../assets/beach.gif")}
     >
-      <View>
-        <ModalMed
-          lengthChange={lengthChange}
-          breathValue={breathValue}
-          breathChange={breathChange}
-          setStartMeditation={setStartMeditation}
-          lengthValue={lengthValue}
-          innerText={"Please select times"}
-        ></ModalMed>
-        <Timer
-          timer={timer}
-          setTimer={setTimer}
-          lengthValue={lengthValue}
-          startMeditation={startMeditation}
-        />
-      </View>
+      <View style={styles.container}>
+        <View>
+          <ModalMed
+            lengthChange={lengthChange}
+            breathValue={breathValue}
+            breathChange={breathChange}
+            setStartMeditation={setStartMeditation}
+            lengthValue={lengthValue}
+            innerText={"Please select times"}
+          ></ModalMed>
+          <Timer
+            timer={timer}
+            setTimer={setTimer}
+            lengthValue={lengthValue}
+            startMeditation={startMeditation}
+          />
+        </View>
 
-      <View style={styles.birdCage}>
-        <Image
-          style={styles.bird}
-          source={require("../../assets/Bird/druid-owl.png")}
-        />
-        <AnimatedRing
-          style={styles.ring}
-          start={startMeditation}
-          breathValue={breathValue}
-        />
+        <View style={styles.birdCage}>
+          <Image
+            style={styles.bird}
+            source={require("../../assets/Bird/druid-owl.png")}
+          />
+          <AnimatedRing
+            style={styles.ring}
+            start={startMeditation}
+            breathValue={breathValue}
+          />
+        </View>
+
+        <View>
+          <Pressable style={styles.homeButton} onPress={handleHome}>
+            <Text style={styles.homeButtonText}>Home</Text>
+          </Pressable>
+        </View>
       </View>
     </ImageBackground>
   );
@@ -87,5 +105,29 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+  },
+  container: {
+    justifyContent: "space-around",
+    flexDirection: "column",
+    height: verticalScale(600),
+    width: horizontalScale(300),
+    marginTop: verticalScale(30),
+  },
+  homeButton: {
+    display: "flex",
+    backgroundColor: "#285cc4",
+    padding: moderateScale(10),
+    borderRadius: 2,
+    borderColor: "black",
+    borderWidth: 3,
+    marginTop: verticalScale(20),
+    alignItems: "center",
+    width: 110,
+  },
+  homeButtonText: {
+    color: "white",
+    fontWeight: "bold",
+    fontSize: 16,
+    fontFamily: "VT323_400Regular",
   },
 });

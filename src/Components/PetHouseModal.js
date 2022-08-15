@@ -155,7 +155,7 @@ const styles = StyleSheet.create({
   },
   button: {
     borderRadius: 2,
-    borderWidth: 2,
+    borderWidth: 3,
     borderColor: "black",
     padding: 10,
     elevation: 2,

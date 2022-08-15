@@ -36,6 +36,7 @@ const Stats = ({ navigation }) => {
   const [data, setData] = useState({
     visits: null,
     total_meditation_time: null,
+    daily_streak: null,
     mood_data: {
       average_mood: null,
       all_moodlogs: [
@@ -49,9 +50,9 @@ const Stats = ({ navigation }) => {
     },
   });
 
-  // Hardcoded - To be deleted
+  // Hardcoded - petAge calculation needs multiple conversions - not priority
+  // Reward points is a stretch goal requiring further DB table
   const extraData = {
-    dailyStreak: 2,
     petAge: 3,
     rewardPoints: 5,
   };
@@ -79,18 +80,13 @@ const Stats = ({ navigation }) => {
   };
 
   return (
-
     <ImageBackground
       style={[styles.background, { height: height, width: width }]}
       source={images.background}
     >
-
       <View style={styles.container}>
         <View style={styles.textView}>
-          <ImageBackground
-            source={images.textBox}
-            style={styles.coverImage}
-          />
+          <ImageBackground source={images.textBox} style={styles.coverImage} />
           <Text style={styles.imageText}>
             Average Mood: {data.mood_data.average_mood}
           </Text>
@@ -100,23 +96,15 @@ const Stats = ({ navigation }) => {
 
       <View style={styles.container}>
         <View style={styles.textView}>
-          <ImageBackground
-            source={images.textBox}
-            style={styles.coverImage}
-          />
-          <Text style={styles.imageText}>
-            Number of visits: {data.visits}
-          </Text>
+          <ImageBackground source={images.textBox} style={styles.coverImage} />
+          <Text style={styles.imageText}>Number of visits: {data.visits}</Text>
           <ImageBackground />
         </View>
       </View>
 
       <View style={styles.container}>
         <View style={styles.textView}>
-          <ImageBackground
-            source={images.textBox}
-            style={styles.coverImage}
-          />
+          <ImageBackground source={images.textBox} style={styles.coverImage} />
           <Text style={styles.imageText}>
             Total meditation time: {data.total_meditation_time}
           </Text>
@@ -126,12 +114,9 @@ const Stats = ({ navigation }) => {
 
       <View style={styles.container}>
         <View style={styles.textView}>
-          <ImageBackground
-            source={images.textBox}
-            style={styles.coverImage}
-          />
+          <ImageBackground source={images.textBox} style={styles.coverImage} />
           <Text style={styles.imageText}>
-            Daily streak: {extraData.dailyStreak}
+            Daily streak: {data.daily_streak}
           </Text>
           <ImageBackground />
         </View>
@@ -139,10 +124,7 @@ const Stats = ({ navigation }) => {
 
       <View style={styles.container}>
         <View style={styles.textView}>
-          <ImageBackground
-            source={images.textBox}
-            style={styles.coverImage}
-          />
+          <ImageBackground source={images.textBox} style={styles.coverImage} />
           <Text style={styles.imageText}>Pet age: {extraData.petAge}</Text>
           <ImageBackground />
         </View>
@@ -150,10 +132,7 @@ const Stats = ({ navigation }) => {
 
       <View style={styles.container}>
         <View style={styles.textView}>
-          <ImageBackground
-            source={images.textBox}
-            style={styles.coverImage}
-          />
+          <ImageBackground source={images.textBox} style={styles.coverImage} />
           <Text style={styles.imageText}>
             Reward points: {extraData.rewardPoints}
           </Text>
@@ -166,13 +145,11 @@ const Stats = ({ navigation }) => {
           <Text style={styles.homeButtonText}>Home</Text>
         </Pressable>
       </View>
-
     </ImageBackground>
   );
 };
 
 const styles = StyleSheet.create({
-
   background: {
     position: "absolute",
     resizeMode: "cover",
@@ -183,18 +160,20 @@ const styles = StyleSheet.create({
   },
   coverImage: {
     width: horizontalScale(300),
-    height: verticalScale(50),
+    height: verticalScale(80),
     resizeMode: "cover",
   },
   homeButton: {
-    backgroundColor: "#0782F9",
+    backgroundColor: "#285cc4",
     padding: moderateScale(10),
-    borderRadius: 10,
+    borderRadius: 2,
+    borderColor: "black",
+    borderWidth: 3,
     marginTop: verticalScale(20),
     alignItems: "center",
     alignSelf: "center",
     marginBottom: 70,
-    width: 110,
+    width: 150,
   },
   homeButtonText: {
     color: "white",
