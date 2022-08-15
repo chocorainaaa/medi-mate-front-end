@@ -250,6 +250,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     marginBottom: 20,
     maxWidth: 800,
+    resizeMode: "contain"
   },
   egg: {
     paddingTop: 50,
