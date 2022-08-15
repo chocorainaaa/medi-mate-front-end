@@ -189,7 +189,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   background: {
-    resizeMode: "center",
+    resizeMode: "cover",
     flex: 1,
     alignItems: "center",
     zIndex: -1,
