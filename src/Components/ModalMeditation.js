@@ -164,12 +164,13 @@ const styles = StyleSheet.create({
   modalText: {
     marginBottom: 15,
     textAlign: "center",
+    fontSize: moderateScale(15),
     fontFamily: "VT323_400Regular",
   },
 
   textStyle: {
     color: "black",
-    // fontFamily: "VT323_400Regular",
+    fontFamily: "VT323_400Regular",
     fontWeight: "bold",
     textAlign: "center",
   },
