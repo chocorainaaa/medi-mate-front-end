@@ -8,12 +8,12 @@ import "firebase/auth";
 // Your web app's Firebase configuration
 
 const firebaseConfig = {
-  apiKey: process.env.API_KEY,
-  authDomain: process.env.AUTH_DOMAIN,
-  projectId: process.env.PROJECT_ID,
-  storageBucket: process.env.STORAGE_BUCKET,
-  messagingSenderId: process.env.MESSAGING_SENDER_ID,
-  appId: process.env.APP_ID,
+  apiKey: "AIzaSyDzrWiH_wehV_4QQnqgXHlHQ_gHaKV9U3c",
+  authDomain: "medimate-91beb.firebaseapp.com",
+  projectId: "medimate-91beb",
+  storageBucket: "medimate-91beb.appspot.com",
+  messagingSenderId: "662305892755",
+  appId: "1:662305892755:web:6183ec76c413ea8c09e066",
 };
 
 // Initialize Firebase
