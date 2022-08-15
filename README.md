@@ -79,7 +79,7 @@ Re-sizing for various devices is in the beta phase, so there may be some design 
 <a href="https://github.com/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/git-scm-icon.svg" alt="Git" height="50" /></a>
 <a href="https://docs.expo.dev/" target="_blank"><img style="margin: 10px" src="https://www.vectorlogo.zone/logos/expoio/expoio-ar21.svg" alt="Expo" height="50"/></a>
 <a href="https://firebase.google.com/" target="_blank"><img style="margin: 10px" src="https://cdn4.iconfinder.com/data/icons/google-i-o-2016/512/google_firebase-2-128.png" alt="Firebase" height="50"/></a>
-<a href="https://babeljs.io/" target="_blank"><img style="margin: 10px" src="https://raw.githubusercontent.com/ddmarin94/React-Webpack-Github/master/img/babel.png" alt="Babel" height="50"/></a>
+<a href="https://babeljs.io/" target="_blank"><img style="margin: 10px" src="https://d33wubrfki0l68.cloudfront.net/7a197cfe44548cc1a3f581152af70a3051e11671/78df8/img/babel.svg" alt="Babel" height="50"/></a>
 <a href="https://nodejs.org/" target="_blank"><img style="margin: 10px" src="https://www.vectorlogo.zone/logos/nodejs/nodejs-horizontal.svg" alt="Node.js" height="50" /></a>
 <a href="https://expressjs.com/" target="_blank"><img style="margin: 10px" src="https://svg2raster.fileformat.info/vlz.jsp?svg=%2Flogos%2Fexpressjs%2Fexpressjs-ar21.svg" alt="Express.js" height="50" /></a>
 <a href="https://www.postgresql.org/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/postgresql-original-wordmark.svg" alt="PostgreSQL" height="50" /></a>
