@@ -12,7 +12,7 @@ import {
   moderateScale,
 } from "../Components/Metrics";
 
-const QuoteGenerator = () => {
+const QuoteGenerator = ({ navigation }) => {
   const [quote, setQuote] = useState("");
   const [author, setAuthor] = useState("");
 
