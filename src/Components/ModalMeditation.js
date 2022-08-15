@@ -172,6 +172,7 @@ const styles = StyleSheet.create({
     color: "black",
     fontFamily: "VT323_400Regular",
     fontWeight: "bold",
+    fontSize: moderateScale(15),
     textAlign: "center",
   },
 
