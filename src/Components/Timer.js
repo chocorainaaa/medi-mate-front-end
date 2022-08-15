@@ -44,7 +44,7 @@ export default Timer;
 
 const styles = StyleSheet.create({
   Timer: {
-    paddingBottom: 15,
+    // paddingBottom: 15,
     fontFamily: "VT323_400Regular",
     color: "white",
     fontWeight: "bold",
