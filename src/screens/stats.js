@@ -8,7 +8,6 @@ import {
   Pressable,
 } from "react-native";
 import React, { useState, useContext, useEffect } from "react";
-
 import { AuthenticatedUserContext } from "../navigation/AuthenticatedUserProvider";
 import app from "../../config/firebase";
 

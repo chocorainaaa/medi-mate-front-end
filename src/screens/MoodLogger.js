@@ -13,7 +13,7 @@ import app from "../../config/firebase";
 
 const auth = app.auth();
 
-const baseURL = "https://medi-mate-app.herokuapp.com";
+const baseURL = "https://medi-mate-app.herokuapp.com/";
 
 import {
   horizontalScale,
