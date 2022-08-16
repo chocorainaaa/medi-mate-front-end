@@ -12,7 +12,7 @@ import {
   moderateScale,
 } from "../Components/Metrics";
 
-const QuoteGenerator = () => {
+const QuoteGenerator = ({ navigation }) => {
   const [quote, setQuote] = useState("");
   const [author, setAuthor] = useState("");
 
@@ -63,11 +63,11 @@ const QuoteGenerator = () => {
             <ImageBackground />
           </View>
         </View>
-        {/* <View>
+        <View>
           <Pressable style={styles.homeButton} onPress={handleHome}>
             <Text style={styles.homeButtonText}>Home</Text>
           </Pressable>
-        </View> */}
+        </View>
       </ImageBackground>
     </View>
   );
