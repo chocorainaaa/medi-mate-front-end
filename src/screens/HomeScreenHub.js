@@ -18,7 +18,8 @@ const HomeScreen = ({ navigation }) => {
 
   const images = {
     background: require("../../assets/background/forest-background_200_640x640.png"),
-    pet: require("../../assets/Bird/druid-owl.png"),
+    pet: require("../../assets/Bird/bird_moving.gif"),
+    // pet: require("../../assets/Bird/druid-owl.png"),
     petHouse: require("../../assets/pet-home/birdhouse.png"),
   };
 
