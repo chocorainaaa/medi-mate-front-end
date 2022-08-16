@@ -53,7 +53,13 @@ const Meditation = ({ navigation }) => {
             lengthValue={lengthValue}
             innerText={"Please select times"}
           ></ModalMed>
+          <View style={styles.homeButtonContainer}>
+            <Pressable style={styles.homeButton} onPress={handleHome}>
+              <Text style={styles.homeButtonText}>Home</Text>
+            </Pressable>
+          </View>
           <Timer
+            style={styles.timer}
             timer={timer}
             setTimer={setTimer}
             lengthValue={lengthValue}
@@ -73,12 +79,6 @@ const Meditation = ({ navigation }) => {
             breathValue={breathValue}
           />
         </View>
-
-        <View>
-          <Pressable style={styles.homeButton} onPress={handleHome}>
-            <Text style={styles.homeButtonText}>Home</Text>
-          </Pressable>
-        </View>
       </View>
     </ImageBackground>
   );
@@ -90,27 +90,32 @@ export default Meditation;
 
 const styles = StyleSheet.create({
   backgroundImage: {
+    display: "flex",
+    alignItems: "center",
     flex: 1,
     resizeMode: "cover",
   },
   bird: {
     height: 200,
     width: 200,
-    position: "absolute",
+    // position: "absolute",
   },
   birdCage: {
-    height: verticalScale(500),
-    width: horizontalScale(400),
-    marginRight: horizontalScale(200),
-    marginTop: verticalScale(25),
+    position: 'absolute',
+    top: verticalScale(325),
+    paddingTop: verticalScale(25),
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
   },
+  
   container: {
-    justifyContent: "space-around",
+    position: "relative",
+    display: "flex",
     flexDirection: "column",
-    height: verticalScale(600),
+    justifyContent: "center",
+    alignItems: "center",
+    height: verticalScale(300),
     width: horizontalScale(300),
     marginTop: verticalScale(30),
   },
@@ -125,10 +130,22 @@ const styles = StyleSheet.create({
     alignItems: "center",
     width: 110,
   },
+  homeButtonContainer: {
+    position: "absolute",
+    display: "flex",
+    top: verticalScale(150),
+    left: "6%",
+    alignItems: "center",
+    borderRadius: 2,
+    borderColor: "black",
+  },
   homeButtonText: {
     color: "white",
     fontWeight: "bold",
     fontSize: 16,
     fontFamily: "VT323_400Regular",
+  },
+  timer: {
+    position: "relative",
   },
 });
