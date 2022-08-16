@@ -45,7 +45,7 @@ export default function PetName({ navigation }) {
 
   const images = {
     background: require("../../assets/background/forest-background_200_640x640.png"),
-    bird: require("../../assets/Bird/bird.gif"),
+    // bird: require("../../assets/Bird/bird.gif"),
   };
 
   //   function nameChoosen() {
@@ -64,7 +64,8 @@ export default function PetName({ navigation }) {
     >
       <Image
         style={styles.bird}
-        source={require("../../assets/Bird/druid-owl.png")}
+        // source={require("../../assets/Bird/druid-owl.png")}
+        source={require("../../assets/Bird/bird_moving.gif")}
       />
       <Text style={styles.text}>Please choose a name for your Medi-Mate</Text>
       <TextInput
