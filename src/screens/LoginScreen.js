@@ -42,7 +42,7 @@ export default function LoginScreen() {
     console.log(firebaseId);
     const data = {
       firebase_user_id: firebaseId,
-      username: "test",
+      username: email,
     };
     const response = fetch(url, {
       method: "POST",
