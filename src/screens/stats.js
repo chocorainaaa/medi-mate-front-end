@@ -33,17 +33,17 @@ const Stats = ({ navigation }) => {
   const { height, width } = useWindowDimensions();
   const { user } = useContext(AuthenticatedUserContext);
   const [data, setData] = useState({
-    visits: null,
-    total_meditation_time: null,
-    daily_streak: null,
+    visits: 0,
+    total_meditation_time: 0,
+    daily_streak: 0,
     mood_data: {
-      average_mood: null,
+      average_mood: 0,
       all_moodlogs: [
         {
-          user_id: null,
-          mood_log_id: null,
+          user_id: 0,
+          mood_log_id: 0,
           date: "2022-08-08T00:00:00.000Z",
-          mood_rating: null,
+          mood_rating: 0,
         },
       ],
     },
