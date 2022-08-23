@@ -66,7 +66,7 @@ const PetHouseModal = ({ navigation, image, petHouseStyle }) => {
           >
             <View style={styles.centeredView}>
               <View style={styles.modalView}>
-                <Text style={styles.modalText}>Hello {user.uid}!</Text>
+                <Text style={styles.modalText}>Hello {user.email}!</Text>
 
                 <View style={styles.buttonSpace}>
                   <Pressable

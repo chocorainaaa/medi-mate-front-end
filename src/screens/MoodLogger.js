@@ -45,27 +45,27 @@ export default function MoodLogger({ navigation }) {
 
   async function handleSuperHappy() {
     await postMood(5);
-    navigation.navigate("Meditation");
+    navigation.navigate("Home");
   }
 
   async function handleHappy() {
     await postMood(4);
-    navigation.navigate("Meditation");
+    navigation.navigate("Home");
   }
 
   async function handleOK() {
     await postMood(3);
-    navigation.navigate("Meditation");
+    navigation.navigate("Home");
   }
 
   async function handleSad() {
     await postMood(2);
-    navigation.navigate("Meditation");
+    navigation.navigate("Home");
   }
 
   async function handleSuperSad() {
     await postMood(1);
-    navigation.navigate("Meditation");
+    navigation.navigate("Home");
   }
 
   function handleHome() {
@@ -88,32 +88,32 @@ export default function MoodLogger({ navigation }) {
       source={images.background}
     >
       <View style={[{ width: width, height: height }, styles.container]}>
-          <Text style={styles.moodText}>How are you feeling today?</Text>
+        <Text style={styles.moodText}>How are you feeling today?</Text>
 
-          <Pressable onPress={handleSuperHappy}>
-            <Image style={styles.moodImage} source={images.superHappy} />
-            <Text style={styles.moodText}>Super Happy</Text>
-          </Pressable>
+        <Pressable onPress={handleSuperHappy}>
+          <Image style={styles.moodImage} source={images.superHappy} />
+          <Text style={styles.moodText}>Super Happy</Text>
+        </Pressable>
 
-          <Pressable onPress={handleHappy}>
-            <Image style={styles.moodImage} source={images.happy} />
-            <Text style={styles.moodText}>Happy</Text>
-          </Pressable>
+        <Pressable onPress={handleHappy}>
+          <Image style={styles.moodImage} source={images.happy} />
+          <Text style={styles.moodText}>Happy</Text>
+        </Pressable>
 
-          <Pressable onPress={handleOK}>
-            <Image style={styles.moodImage} source={images.OK} />
-            <Text style={styles.moodText}>OK</Text>
-          </Pressable>
+        <Pressable onPress={handleOK}>
+          <Image style={styles.moodImage} source={images.OK} />
+          <Text style={styles.moodText}>OK</Text>
+        </Pressable>
 
-          <Pressable onPress={handleSad}>
-            <Image style={styles.moodImage} source={images.sad} />
-            <Text style={styles.moodText}>Sad</Text>
-          </Pressable>
+        <Pressable onPress={handleSad}>
+          <Image style={styles.moodImage} source={images.sad} />
+          <Text style={styles.moodText}>Sad</Text>
+        </Pressable>
 
-          <Pressable onPress={handleSuperSad}>
-            <Image style={styles.moodImage} source={images.superSad} />
-            <Text style={styles.moodText}>Super Sad</Text>
-          </Pressable>
+        <Pressable onPress={handleSuperSad}>
+          <Image style={styles.moodImage} source={images.superSad} />
+          <Text style={styles.moodText}>Super Sad</Text>
+        </Pressable>
       </View>
 
       <View>
