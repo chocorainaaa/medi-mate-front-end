@@ -88,7 +88,6 @@ export default function MoodLogger({ navigation }) {
       source={images.background}
     >
       <View style={[{ width: width, height: height }, styles.container]}>
-        <ImageBackground source={images.textBox} style={styles.coverImage}>
           <Text style={styles.moodText}>How are you feeling today?</Text>
 
           <Pressable onPress={handleSuperHappy}>
@@ -115,7 +114,6 @@ export default function MoodLogger({ navigation }) {
             <Image style={styles.moodImage} source={images.superSad} />
             <Text style={styles.moodText}>Super Sad</Text>
           </Pressable>
-        </ImageBackground>
       </View>
 
       <View>
@@ -143,12 +141,6 @@ const styles = StyleSheet.create({
     width: horizontalScale(300),
     marginTop: verticalScale(30),
   },
-  coverImage: {
-    height: verticalScale(400),
-    // width: horizontalScale(220),
-    // marginTop: verticalScale(30),
-    // resizeMode: "cover",
-  },
   homeButton: {
     display: "flex",
     backgroundColor: "#285cc4",
@@ -172,7 +164,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
   },
   moodText: {
-    color: "black",
+    color: "white",
     fontWeight: "bold",
     fontSize: moderateScale(20),
     fontFamily: "VT323_400Regular",
