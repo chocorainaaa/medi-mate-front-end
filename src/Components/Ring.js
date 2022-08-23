@@ -80,6 +80,7 @@ const styles = StyleSheet.create({
         borderRadius: 50,
         borderWidth: 10,
         borderColor: "gold",
+        marginTop: -150,
 
     },
 });

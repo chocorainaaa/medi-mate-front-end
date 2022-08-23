@@ -58,7 +58,7 @@ const QuoteGenerator = ({ navigation }) => {
               style={styles.coverImage}
             />
             <Text style={styles.imageText}>
-              {quote} - {author}
+            "Success is not final; failure is not fatal: It is the courage to continue that counts." — Winston S. Churchill
             </Text>
             <ImageBackground />
           </View>
@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
   },
   imageText: {
     fontSize: 18,
-    width: horizontalScale(300),
+    width: horizontalScale(275),
     color: "black",
     fontWeight: "bold",
     position: "absolute",
