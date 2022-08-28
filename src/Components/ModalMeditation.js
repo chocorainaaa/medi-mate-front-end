@@ -11,7 +11,7 @@ import {
 } from "react-native";
 import UniSlider from "./Slider.js";
 import Bird from "../../assets/bird-static.png";
-import { moderateScale } from "./Metrics.js";
+import { moderateScale, verticalScale } from "./Metrics.js";
 
 const ModalMed = ({
   breathValue,
@@ -60,6 +60,7 @@ const ModalMed = ({
               resizeMode: "center",
               alignItems: "center",
               position: "absolute",
+              marginBottom: verticalScale(200)
             }}
           >
             <View style={styles.centeredView}>
@@ -73,7 +74,7 @@ const ModalMed = ({
                   <Text style={styles.modalText}>0 mins</Text>
                   <UniSlider
                     id={"length"}
-                    label={`Total meditation time is ${displayTime} minuites`}
+                    label={`Total meditation time is ${displayTime} minutes`}
                     min={0}
                     max={1800}
                     lengthValue={lengthValue}
@@ -134,7 +135,7 @@ const ModalMed = ({
 
 const styles = StyleSheet.create({
   buttonSpace: {
-    padding: 5,
+    padding: moderateScale(5),
   },
   button: {
     borderRadius: 2,
@@ -150,17 +151,17 @@ const styles = StyleSheet.create({
   },
   centeredView: {
     flex: 1,
-    marginTop: 40,
+    marginTop: verticalScale(40),
   },
   modalView: {
-    margin: 20,
+    margin: moderateScale(20),
     borderRadius: 20,
-    padding: 35,
+    padding: moderateScale(35),
     alignItems: "center",
     elevation: 5,
   },
   modalText: {
-    marginBottom: 15,
+    marginBottom: verticalScale(15),
     textAlign: "center",
     fontSize: moderateScale(15),
     fontFamily: "VT323_400Regular",
@@ -184,7 +185,7 @@ const styles = StyleSheet.create({
   },
   lastSlider: {
     flexDirection: "row",
-    marginBottom: 30,
+    marginBottom: verticalScale(30),
   },
 });
 
