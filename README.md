@@ -1,7 +1,7 @@
 
 ![Logo](./assets/Egg/EggHatch.gif)
 
-# Medi-Mate - FRONT-END
+# Medi-Mate - FRONT-END (School of Code - Final 4-week project) 
 
 ## Personal takeaways from the 4-week project 
 - The importance of daily stand-ups, retrospectives and an agile workflow. Given the tight schedule, we had for the project, reassessing our priorities on a daily basis was essential and allowed us to meet our deadline and create a presentable MVP. 
